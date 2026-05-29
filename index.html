@@ -55,10 +55,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 /* HERO - EDITORIAL SPLIT */
 .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
-.nav-cue { position: absolute; top: 84px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 50; pointer-events: none; animation: cuebounce 1.6s ease-in-out infinite; }
-.nav-cue .arw { font-size: 18px; line-height: 1; }
-@keyframes cuebounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-7px); } }
-@media(max-width: 900px) { .nav-cue { display: none; } }
+.scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 54px; height: 54px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 26px rgba(179,19,43,0.35); text-decoration: none; z-index: 40; animation: cuebounce 1.8s ease-in-out infinite; }
+.scroll-cue:hover { background: var(--accent-dk); }
+.scroll-cue .tri { display: block; width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 13px solid #fff; margin-top: 3px; }
+@keyframes cuebounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+@media(max-width: 900px) { .scroll-cue { bottom: 16px; width: 46px; height: 46px; } }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .hero-visual { align-self: center; }
 .hero-content h1 { font-size: clamp(48px, 5.5vw, 76px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 30px; }
@@ -279,7 +280,6 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="nav-cue"><span class="arw">&#9650;</span> Jump To Any Section</div>
   <div class="container hero-grid">
     <div class="hero-content reveal">
       <span class="eyebrow">The Workforce Model That Comes After Software</span>
@@ -342,6 +342,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       </svg>
     </div>
   </div>
+  <a href="#wall" class="scroll-cue" aria-label="Continue to The Wall"><span class="tri"></span></a>
 </header>
 
 <!-- DEFINITION -->
