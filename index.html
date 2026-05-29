@@ -58,6 +58,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .hero-content h1 { font-size: clamp(48px, 5.5vw, 76px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 30px; }
 .hero-content .subtext { margin-bottom: 40px; max-width: 500px; }
+.hero-content .btn { margin-bottom: 32px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; padding: 18px 40px; border-radius: 2px; text-decoration: none; transition: background 0.3s; border: none; cursor: pointer; }
 .btn:hover { background: var(--accent-dk); }
 .hero-visual { position: relative; width: 100%; height: 100%; min-height: 500px; display: flex; align-items: center; justify-content: center; }
@@ -127,6 +128,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .capacity-stat { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--line); }
 .capacity-stat .num { font-family: var(--serif); font-size: clamp(52px, 7vw, 76px); font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -2px; }
 .capacity-stat .lbl { font-size: 16px; color: var(--slate); line-height: 1.6; margin-top: 14px; max-width: 380px; }
+.capacity-stat .src { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 14px; max-width: 400px; }
 .ledger { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.03); }
 .ledger-header { display: flex; padding: 20px 30px; background: var(--bg-soft); border-bottom: 2px solid var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
 .ledger-header span:first-child { flex: 1; }
@@ -145,6 +147,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 /* THE ARCHITECTURE - STICKY STACKING */
 .arch-container { position: relative; padding-bottom: 100px; }
 .arch-intro { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+.arch-intro h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
 .stack-wrapper { max-width: 800px; margin: 0 auto; position: relative; }
 .stack-layer { position: sticky; padding: 44px 50px; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 30px; box-shadow: 0 -10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; transition: all 0.3s ease; }
 .stack-layer:last-child { margin-bottom: 0; }
@@ -171,20 +174,20 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 /* PROOF SECTION */
 .proof-section { background: var(--navy); color: #fff; }
-.proof-section .eyebrow { color: var(--past); margin-bottom: 24px; }
+.proof-section .eyebrow { color: #9fb0c6; margin-bottom: 24px; }
 .proof-section h2 { color: #fff; font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
-.proof-section .subtext { color: #aab2bd; max-width: 700px; margin-bottom: 60px; }
+.proof-section .subtext { color: #d4dbe4; max-width: 700px; margin-bottom: 60px; }
 
 .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; text-align: left; }
 .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid var(--accent); padding: 40px; border-radius: 4px; position: relative; }
 .stat-num { font-family: var(--serif); font-size: 42px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 10px; }
-.stat-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
-.stat-card p { font-size: 16px; color: #aab2bd; line-height: 1.6; }
+.stat-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ff8a9b; margin-bottom: 20px; display: block; }
+.stat-card p { font-size: 16px; color: #d4dbe4; line-height: 1.6; }
 
 .deploy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
 .deploy-item { border-left: 2px solid var(--slate); padding-left: 20px; }
 .deploy-item h4 { color: #fff; font-size: 18px; margin-bottom: 8px; font-family: var(--sans); }
-.deploy-item p { color: #8b99a8; font-size: 15px; line-height: 1.5; }
+.deploy-item p { color: #cdd5df; font-size: 15px; line-height: 1.5; }
 
 /* FOOTER FORM - SINGLE BUTTON CTA */
 .form-section { background: var(--bg-soft); padding: 120px 0; border-top: 1px solid var(--line); }
@@ -348,8 +351,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <section class="padding-y" id="roles">
   <div class="container">
     <div class="reveal" style="margin-bottom: 60px;">
-      <span class="eyebrow">Why This Matters To You</span>
-      <h2 style="font-size: clamp(36px, 4vw, 50px); margin-bottom: 15px;">Find Your Command In The Story</h2>
+      <span class="eyebrow">Your Role</span>
+      <h2 style="font-size: clamp(36px, 4vw, 50px); margin-bottom: 15px;">Where Your Team Goes Further</h2>
       <p class="subtext">This is not abstract technology. This is how the model changes the outcomes you personally own.</p>
     </div>
 
@@ -389,6 +392,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <div class="capacity-stat">
         <div class="num">Nearly 1 in 3</div>
         <div class="lbl">federal employees are already eligible to retire, ready to carry decades of irreplaceable mission expertise out the door.</div>
+        <div class="src">Source: OPM workforce data, cited in GAO reporting on the aging federal workforce (2022 and 2023).</div>
       </div>
     </div>
     <div class="ledger reveal">
@@ -470,29 +474,9 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   <div class="container">
     <span class="eyebrow">Proven In The Mission</span>
     <h2 class="serif">Deployed Today. Not Tomorrow.</h2>
-    <p class="subtext reveal">This is not a concept. These are the structural shifts and active systems already deployed in federal environments today.</p>
-
-    <!-- Results -->
-    <div class="stat-grid">
-      <div class="stat-card reveal">
-        <div class="stat-num">Days &rarr; Mins</div>
-        <span class="stat-label">Velocity Increase</span>
-        <p>Complex processes like MILCON cost estimating are reduced from 3+ days to under 4 hours, verified against historical baselines.</p>
-      </div>
-      <div class="stat-card reveal" style="transition-delay: 0.1s;">
-        <div class="stat-num">Up to 90%</div>
-        <span class="stat-label">Rework Reduction</span>
-        <p>Compliance packages (like RMF) clear initial security and evidence reviews on the first pass, saving weeks of manual correction.</p>
-      </div>
-      <div class="stat-card reveal" style="transition-delay: 0.2s;">
-        <div class="stat-num">Instant</div>
-        <span class="stat-label">Executive Reviews</span>
-        <p>Duplicate spend and critical data are surfaced instantly, allowing human leadership to make immediate, defensible decisions.</p>
-      </div>
-    </div>
+    <p class="subtext reveal">This is not a concept. These are the active systems and authorized environments already running in federal missions today.</p>
 
     <!-- Active Deployments -->
-    <h3 class="serif" style="margin-bottom: 30px; font-size: 28px; color:#fff;">Active Deployments & Environments</h3>
     <div class="deploy-grid reveal">
       <div class="deploy-item">
         <h4>Real Property Lifecycle AI</h4>
@@ -519,7 +503,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   <div class="container form-grid">
     <div class="form-info reveal">
       <span class="eyebrow">Take The Step</span>
-      <h2 class="serif">See It On Your Own Mission</h2>
+      <h2 class="serif">Start Building Your Mission Workforce</h2>
       <p>One function, one team, twelve weeks, measured against your own baseline. See what Mission Workforce Infrastructure can unlock for your agency.</p>
       <div style="width: 60px; height: 3px; background: var(--accent);"></div>
     </div>
@@ -529,7 +513,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <p style="color: var(--slate); margin-bottom: 35px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
 
       <!-- Single Executive Button -->
-      <a href="mailto:contact@mantech.com?subject=Mission%20Capacity%20Briefing%20Request" class="btn" style="padding: 22px 40px; font-size: 14px; width: 100%;">Request A Mission Capacity Briefing</a>
+      <a href="mailto:contact@mantech.com?subject=Mission%20Capacity%20Assessment%20Request" class="btn" style="padding: 22px 40px; font-size: 14px; width: 100%;">Schedule A Mission Capacity Assessment</a>
 
       <p class="reassure" style="margin-top: 25px; font-size: 12px;">This is an exploratory briefing. All discussions are handled in governed, authorized channels.</p>
     </div>
@@ -539,7 +523,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <!-- SOURCE NOTE -->
 <div class="srcnote">
   <div class="container">
-    <strong>Mission Workforce Infrastructure</strong> is powered by ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. Workforce and performance figures are illustrative of active federal use cases and should be confirmed per system and source before external use.
+    <strong>Mission Workforce Infrastructure</strong> is powered by ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. The workforce figure reflects OPM data cited in GAO reporting on the aging federal workforce.
   </div>
 </div>
 
