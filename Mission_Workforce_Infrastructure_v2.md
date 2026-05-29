@@ -103,6 +103,32 @@ You are increasing what every trusted expert can accomplish.
 
 ---
 
+## The Economics: Redirect Spend You Are Already Making
+
+This is not a new line item competing for new money. It is a way to get more mission out of money you are already spending.
+
+Agencies are already paying — every year — for the exact problems Mission Workforce Infrastructure addresses:
+
+- **Contractor hours and backfills** purchased to keep up with execution load.
+- **Rework and rejected submissions** that consume cycles and re-burn labor on the same task.
+- **Overtime and extended schedules** when readiness is on the line and the team works longer.
+- **Duplicate software and overlapping functions** paid for across siloed programs.
+- **Lost institutional knowledge** that walks out the door at retirement and has to be rebuilt.
+
+Mission Workforce Infrastructure turns that recurring spend into returned capacity. The Cost Estimator already shows the pattern: up to 90 percent less rework and days of research compressed into minutes means the dollars previously lost to rework and delay come back to the mission. The Code Rationalization Assistant surfaces duplicate spend so it can be retired or consolidated.
+
+So the question is not "what does this cost." The question is:
+
+> **What is the work you are already paying for that this returns to the mission — and what does that capacity make possible next?**
+
+Three things make that trade defensible to anyone reviewing the budget:
+
+1. **It saves money you are already spending.** Capacity comes from reclaiming wasted cycles and duplicate spend, not from a net-new headcount line.
+2. **It is infrastructure, not a one-time buy.** Each assistant compounds — capturing knowledge, standardizing work, and returning more capacity the longer it runs. The investment builds a foundation for every mission function that follows.
+3. **It lowers risk while it does it.** Human-in-the-loop by design, with every decision logged, every source traceable, and agency data kept protected inside governed, authorized environments.
+
+---
+
 ## What ManTech Is Offering
 
 ManTech gives agencies Mission Workforce Infrastructure: a governed operating layer where trusted Mission Assistants join the mission team, carry the repetitive execution load, and keep human experts firmly in command.
