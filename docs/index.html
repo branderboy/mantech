@@ -62,6 +62,10 @@ strong{color:var(--text-dark);font-weight:800;}
 .note{max-width:760px;margin:26px auto 0;font-size:16px;text-align:center;color:var(--text-body);line-height:1.6;}
 .big-say{text-align:center;font-size:clamp(24px,4vw,34px);font-weight:900;color:var(--text-dark);max-width:780px;margin:0 auto 18px;line-height:1.15;letter-spacing:-.5px;}
 .plain{text-align:center;font-size:18px;color:var(--text-body);max-width:700px;margin:0 auto;line-height:1.65;}
+.story{max-width:680px;margin:6px auto 0;}
+.story p{font-size:18px;line-height:1.72;color:var(--text-body);margin-bottom:18px;}
+.story p:last-child{margin-bottom:0;}
+.story p strong{color:var(--text-dark);}
 
 /* ===== ERAS VERTICAL TIMELINE ===== */
 .timeline{position:relative;max-width:740px;margin:14px auto 0;padding-left:40px;}
@@ -219,6 +223,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
     <div class="nav-links">
       <a href="#eras">Eras</a>
       <a href="#problem">Problem</a>
+      <a href="#vision">Vision</a>
       <a href="#shift">Shift</a>
       <a href="#model">Model</a>
       <a href="#proof">Proof</a>
@@ -243,7 +248,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 <!-- ===== 01 THE ERAS ===== -->
 <section class="section" id="eras">
   <div class="container">
-    <span class="eyebrow">01 &middot; Past, Present, Future</span>
+    <span class="eyebrow">Past, Present, Future</span>
     <h2 class="section-title">Three Eras Of Mission Capacity</h2>
     <p class="section-lede">For sixty years, federal mission capacity has scaled in distinct technology cycles. We are entering the third.</p>
     <div class="timeline">
@@ -270,17 +275,32 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 <!-- ===== 02 THE PROBLEM ===== -->
 <section class="section alt" id="problem">
   <div class="container">
-    <span class="eyebrow">02 &middot; The Problem</span>
+    <span class="eyebrow">The Problem</span>
     <h2 class="section-title">You Can't Hire Your Way Out Anymore</h2>
     <p class="big-say">The work keeps growing. Your team doesn't.</p>
     <p class="plain">For years, more work just meant more people. That's over. Hiring takes too long. Money is tight. And your most experienced people are retiring, taking what they know with them. So the work piles up on the same team you already have.</p>
   </div>
 </section>
 
+<!-- ===== THE VISION ===== -->
+<section class="section" id="vision">
+  <div class="container">
+    <span class="eyebrow">The Vision</span>
+    <h2 class="section-title">What Your Team Looks Like In Two Years</h2>
+    <p class="big-say">Your people stop doing busywork. They start doing the work only they can do.</p>
+    <div class="story">
+      <p>It's a normal Tuesday. A planner needs a cost estimate that used to eat three days. She opens it, and most of the work is already done: the data pulled, the old projects matched, a first draft built. The few things the assistant wasn't sure about are flagged and waiting for her. She checks them, fixes two, and signs off before lunch. It passes review the first time.</p>
+      <p>Down the hall, the same thing is happening with contract reviews, compliance checks, and readiness reports. The slow, repeatable work gets handled in the background. Your experts spend their day on the calls only a person should make.</p>
+      <p>Nobody got replaced. The team just got bigger without a single new hire. And when someone retires, the way they did the job stays behind instead of walking out the door with them.</p>
+      <p><strong>That's the future. Human experts in charge, with help that never quits and never forgets.</strong></p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== 03 THE SHIFT ===== -->
 <section class="section" id="shift">
   <div class="container">
-    <span class="eyebrow">03 &middot; The Shift</span>
+    <span class="eyebrow">The Shift</span>
     <h2 class="section-title">From Adding Labor To Adding Capacity</h2>
     <p class="section-lede">The old model said capacity comes from more labor. The new model says capacity comes from a better workforce layer.</p>
     <div class="shift">
@@ -299,7 +319,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 <!-- ===== 04 THE MODEL ===== -->
 <section class="section alt" id="model">
   <div class="container">
-    <span class="eyebrow">04 &middot; The Model</span>
+    <span class="eyebrow">The Model</span>
     <h2 class="section-title">The Mission Workforce Model</h2>
     <p class="section-lede">A federal mission workforce now has three layers, resting on a governed data foundation. The assistants create capacity. The governance creates trust.</p>
     <div class="layers">
@@ -331,7 +351,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 <!-- ===== 05 THE PROOF ===== -->
 <section class="section" id="proof">
   <div class="container">
-    <span class="eyebrow">05 &middot; The Proof</span>
+    <span class="eyebrow">The Proof</span>
     <h2 class="section-title">You Don't Take Our Numbers. You Generate Your Own.</h2>
     <p class="section-lede">The first assistant to field is the one already in production: the Cost Estimator, built on ManTech's deployed Real Property Lifecycle AI. Here is the operational result on a planning team, and why it holds up under scrutiny.</p>
     <div class="ba-grid">
@@ -394,7 +414,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 <!-- ===== 06 THE TRUST ===== -->
 <section class="section alt" id="trust">
   <div class="container">
-    <span class="eyebrow">06 &middot; The Trust</span>
+    <span class="eyebrow">The Trust</span>
     <h2 class="section-title">Why Agencies Can Trust It</h2>
     <p class="section-lede">The honest concern with AI: what if it confidently does the wrong thing and my name is on it. Mission Workforce Infrastructure is built so that cannot happen quietly. Every assistant operates inside four controls.</p>
     <div class="pillars">
@@ -425,7 +445,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 <!-- ===== 07 THE ECONOMICS ===== -->
 <section class="section" id="economics">
   <div class="container">
-    <span class="eyebrow">07 &middot; The Economics</span>
+    <span class="eyebrow">The Economics</span>
     <h2 class="section-title">Redirect Spend You Are Already Making</h2>
     <p class="section-lede">This is not a new line item competing for new money. Agencies already pay, every year, for the exact problems this addresses. Mission Workforce Infrastructure turns that recurring spend into returned capacity.</p>
     <div class="econ-leaks">
@@ -447,7 +467,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 <!-- ===== 08 THE PILOT ===== -->
 <section class="section alt" id="pilot">
   <div class="container">
-    <span class="eyebrow">08 &middot; The Pilot</span>
+    <span class="eyebrow">The Pilot</span>
     <h2 class="section-title">One Assistant. One Team. Twelve Weeks.</h2>
     <p class="section-lede">Agencies do not need a large transformation program to find out if this works. Start with one measurable capacity problem. The recommended first pilot is the Cost Estimator.</p>
     <div class="phases">
@@ -514,7 +534,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
   document.querySelectorAll('.nav-links a').forEach(function(a){
     links[a.getAttribute('href').slice(1)] = a;
   });
-  var ids = ['eras','problem','shift','model','proof','trust','economics','pilot','start'];
+  var ids = ['eras','problem','vision','shift','model','proof','trust','economics','pilot','start'];
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
