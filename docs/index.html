@@ -55,7 +55,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 /* HERO - EDITORIAL SPLIT */
 .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
-.nav-links .navplay { flex: 0 0 auto; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 9px solid var(--accent); margin-left: 18px; margin-right: 3px; align-self: center; }
+.nav-links a.navplay { display: inline-block; flex: 0 0 auto; width: 0; height: 0; padding: 0; border-style: solid; border-width: 5px 0 5px 9px; border-color: transparent transparent transparent var(--accent); margin-left: 18px; margin-right: 3px; align-self: center; }
+.nav-links a.navplay:hover { border-color: transparent transparent transparent var(--accent-dk); }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .hero-visual { align-self: center; }
 .hero-content h1 { font-size: clamp(48px, 5.5vw, 76px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 30px; }
@@ -263,7 +264,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   <div class="nav-inner">
     <a class="nav-logo" href="#top"><span class="logo">M</span> MANTECH</a>
     <div class="nav-links">
-      <span class="navplay"></span>
+      <a href="#wall" class="navplay" aria-label="Go to The Wall"></a>
       <a href="#wall">The Wall</a>
       <a href="#eras">The Eras</a>
       <a href="#roles">Your Role</a>
