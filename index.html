@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission Workforce Infrastructure | ManTech</title>
+<style>
+/* ===== MANTECH STRATEGY-BRIEF DESIGN SYSTEM (federal variant) ===== */
+:root{
+  --bg-main:#ffffff; --bg-gray:#f4f6f9; --bg-dark:#11161f;
+  --accent:#C8102E; --accent-dk:#9b0c23;
+  --past:#8a93a3;   /* era: labor */
+  --present:#1d5fa8;/* era: digital */
+  --future:#C8102E; /* era: hybrid (destination) */
+  --p1:#C8102E; --p2:#1d5fa8; --p3:#b5751a;
+  --text-dark:#0b1220; --text-body:#222a37; --muted:#6a7180; --line:#e4e8ee;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-sig:"Brush Script MT","Lucida Handwriting","Snell Roundhand",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:var(--bg-gray);color:var(--text-body);line-height:1.55;font-weight:500;-webkit-font-smoothing:antialiased;}
+p,li{font-weight:500;}
+.container{max-width:1000px;margin:0 auto;padding:0 20px;}
+strong{color:var(--text-dark);font-weight:800;}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#C8102E 0%,#9b0c23 100%);color:#fff;padding:54px 20px 60px;text-align:center;}
+.brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;letter-spacing:2px;font-size:21px;}
+.brand .logo{width:34px;height:34px;border:3px solid #fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;}
+.brand .tag{display:block;font-size:9px;letter-spacing:3px;opacity:.85;font-weight:600;margin-top:3px;}
+.hero .eyebrow{margin-top:34px;font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:800;opacity:.92;}
+.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.04;font-weight:900;letter-spacing:-1.5px;margin:14px auto 12px;max-width:900px;}
+.hero .sub{font-size:clamp(16px,2.4vw,21px);font-weight:600;opacity:.97;max-width:760px;margin:0 auto 26px;line-height:1.45;}
+.hero-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:0 auto 28px;}
+@media(max-width:640px){.hero-kpis{grid-template-columns:1fr;}}
+.hero-kpi{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:18px 14px;}
+.hero-kpi .n{font-size:30px;font-weight:900;line-height:1;letter-spacing:-1px;}
+.hero-kpi .l{font-size:12.5px;font-weight:600;opacity:.92;margin-top:8px;line-height:1.35;}
+.hero-cta{display:inline-block;background:#fff;color:var(--accent-dk);font-weight:900;text-transform:uppercase;letter-spacing:1px;font-size:15px;padding:15px 30px;border-radius:8px;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:transform .12s;}
+.hero-cta:hover{transform:translateY(-2px);}
+
+/* ===== STICKY TOC ===== */
+.toc{position:sticky;top:0;z-index:60;background:var(--bg-dark);border-bottom:4px solid var(--accent);box-shadow:0 4px 14px rgba(0,0,0,.18);overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.toc::-webkit-scrollbar{height:0;display:none;}
+.toc-inner{padding:11px 16px;display:flex;flex-wrap:nowrap;gap:8px;align-items:center;justify-content:center;min-width:max-content;}
+.toc-label{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-right:4px;flex-shrink:0;}
+.toc-label .arrow{color:var(--accent);font-size:18px;animation:nudge 1.2s ease-in-out infinite;}
+@keyframes nudge{0%,100%{transform:translateX(0);}50%{transform:translateX(6px);}}
+.toc a{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:7px;font-size:13px;font-weight:900;color:#fff;background:#1e2735;text-decoration:none;border:2px solid #2d3a4d;transition:all .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px;flex-shrink:0;}
+.toc a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px);}
+.toc a .num{font-size:11px;font-weight:900;color:var(--bg-dark);background:var(--accent);border-radius:4px;padding:2px 6px;line-height:1;}
+.toc a:hover .num{color:var(--accent);background:#fff;}
+@media(max-width:640px){.toc-inner{justify-content:flex-start;}}
+
+/* ===== SECTIONS ===== */
+.section{padding:60px 0;scroll-margin-top:74px;border-bottom:1px solid var(--line);}
+.section.alt{background:var(--bg-main);}
+.eyebrow{display:block;text-align:center;font-size:14px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-title{font-size:clamp(34px,6vw,62px);font-weight:900;color:var(--text-dark);text-align:center;letter-spacing:-1.5px;line-height:1.02;max-width:920px;margin:0 auto;}
+.section-title::after{content:"";display:block;width:96px;height:6px;background:var(--accent);border-radius:4px;margin:18px auto 22px;}
+.section-lede{text-align:center;font-size:18px;color:var(--text-body);max-width:760px;margin:0 auto 34px;line-height:1.55;}
+.note{max-width:760px;margin:26px auto 0;font-size:16px;text-align:center;color:var(--text-body);line-height:1.6;}
+
+/* ===== ERAS TIMELINE ===== */
+.eras{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+@media(max-width:780px){.eras{grid-template-columns:1fr;}}
+.era{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 0 24px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05);position:relative;}
+.era .bar{height:7px;width:100%;}
+.era.past .bar{background:var(--past);} .era.present .bar{background:var(--present);} .era.future .bar{background:var(--future);}
+.era .inner{padding:22px 24px 0;}
+.era .tag{display:inline-block;font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:#fff;padding:4px 10px;border-radius:5px;margin-bottom:12px;}
+.era.past .tag{background:var(--past);} .era.present .tag{background:var(--present);} .era.future .tag{background:var(--future);}
+.era .years{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.5px;}
+.era h3{font-size:23px;font-weight:900;color:var(--text-dark);line-height:1.12;margin:4px 0 10px;letter-spacing:-.5px;}
+.era p{font-size:14.5px;line-height:1.55;color:var(--text-body);}
+.era.future{border-color:var(--future);box-shadow:0 8px 26px rgba(200,16,46,.14);}
+.era .badge{position:absolute;top:18px;right:18px;font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--future);background:#fdf0f2;padding:3px 9px;border-radius:12px;}
+
+/* ===== SHIFT COMPARISON ===== */
+.shift{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;}
+.shift-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);}
+.shift-row:last-child{border-bottom:none;}
+.shift-row.head{background:var(--bg-dark);}
+.shift-row.head div{color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:1px;font-size:13px;padding:14px 20px;}
+.shift-row .old{padding:14px 20px;font-size:14.5px;color:var(--muted);border-right:1px solid var(--line);background:#fafbfc;}
+.shift-row .new{padding:14px 20px;font-size:14.5px;color:var(--text-dark);font-weight:600;}
+.shift-row .new strong{color:var(--accent);}
+@media(max-width:600px){.shift-row{grid-template-columns:1fr;}.shift-row .old{border-right:none;border-bottom:1px dashed var(--line);}.shift-row.head{display:none;}}
+
+/* ===== LAYERS (THE MODEL) ===== */
+.layers{display:grid;gap:12px;}
+.layer{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;}
+@media(max-width:640px){.layer{grid-template-columns:1fr;}}
+.layer .lhead{padding:20px 22px;color:#fff;display:flex;flex-direction:column;justify-content:center;}
+.layer.human .lhead{background:#3a4150;} .layer.assist .lhead{background:var(--accent);} .layer.gov .lhead{background:#1d5fa8;}
+.layer .lhead .role{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;opacity:.85;margin-bottom:4px;}
+.layer .lhead h4{font-size:20px;font-weight:900;line-height:1.15;}
+.layer .lbody{padding:18px 22px;font-size:14.5px;line-height:1.55;color:var(--text-body);}
+.foundation{margin-top:14px;background:linear-gradient(135deg,#11161f 0%,#1d2735 100%);color:#fff;border-radius:12px;padding:24px 26px;}
+.foundation .ftag{font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:#ffb3bd;}
+.foundation h4{font-size:21px;font-weight:900;margin:5px 0 8px;}
+.foundation p{font-size:14.5px;line-height:1.55;opacity:.92;}
+.callout{margin-top:24px;background:#fff;border-left:6px solid var(--accent);border-radius:0 12px 12px 0;padding:20px 26px;box-shadow:0 4px 18px rgba(0,0,0,.05);}
+.callout h4{font-size:19px;font-weight:900;color:var(--text-dark);margin-bottom:6px;}
+.callout p{font-size:15px;line-height:1.55;color:var(--text-body);}
+
+/* ===== STAT BOXES ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:780px){.stat-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:440px){.stat-grid{grid-template-columns:1fr;}}
+.stat-box{border:2px solid #f3c9cf;background:#fdf4f5;padding:24px 18px;border-radius:10px;text-align:center;}
+.stat-num{font-size:36px;font-weight:900;color:var(--accent);line-height:1;margin-bottom:9px;letter-spacing:-1px;}
+.stat-desc{font-size:14px;font-weight:600;color:var(--text-body);line-height:1.4;}
+
+/* ===== PILLARS (reused in trust) ===== */
+.pillars{display:grid;gap:20px;}
+.pillar{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+.pillar-header{display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:center;padding:20px 24px;background:linear-gradient(135deg,#f7f8fa 0%,#fff 60%);border-bottom:1px solid var(--line);}
+.pillar-num{width:62px;height:62px;border-radius:14px;color:#fff;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center;background:var(--accent);}
+.pillar-title{font-size:clamp(20px,3vw,27px);font-weight:900;color:var(--text-dark);line-height:1.12;letter-spacing:-.5px;}
+.pillar-body2{padding:20px 24px;}
+.pillar-body2 ul{list-style:none;display:grid;gap:10px;}
+.pillar-body2 li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;line-height:1.5;}
+.pillar-body2 li strong{color:var(--text-dark);}
+.pillar-body2 li::before{content:"";flex-shrink:0;width:19px;height:19px;border-radius:50%;margin-top:2px;background-color:var(--accent);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");background-size:12px 12px;background-position:center;background-repeat:no-repeat;}
+
+/* ===== BUYER CONCERN TABLE ===== */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin-top:24px;}
+table{width:100%;border-collapse:collapse;background:#fff;text-align:left;}
+th,td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:top;}
+th{background:var(--bg-dark);color:#fff;text-transform:uppercase;font-size:12px;letter-spacing:1px;font-weight:800;}
+tr:last-child td{border-bottom:none;}
+td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
+
+/* ===== BEFORE / AFTER ===== */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+@media(max-width:640px){.ba-grid{grid-template-columns:1fr;}}
+.ba-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;}
+.ba-head{padding:15px 22px;color:#fff;font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:1px;}
+.ba-col.before .ba-head{background:#6a7180;} .ba-col.after .ba-head{background:var(--accent);}
+.ba-col ul{list-style:none;}
+.ba-col li{font-size:14.5px;line-height:1.5;padding:13px 22px;border-bottom:1px solid #f1f3f6;display:flex;gap:11px;align-items:flex-start;}
+.ba-col li:last-child{border-bottom:none;}
+.ba-col .ic{flex-shrink:0;font-weight:900;font-style:normal;margin-top:1px;}
+.ba-col.before .ic{color:#9aa1ac;} .ba-col.after .ic{color:var(--accent);}
+.ba-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:640px){.ba-stats{grid-template-columns:1fr 1fr;}}
+.ba-stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;text-align:center;}
+.ba-stat .n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;}
+.ba-stat .l{font-size:12.5px;color:var(--text-body);margin-top:7px;font-weight:600;line-height:1.35;}
+.rm-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;}
+@media(max-width:780px){.rm-strip{grid-template-columns:1fr;}}
+.rm-col{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;}
+.rm-col h5{font-size:12.5px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--line);}
+.rm-col ul{list-style:none;} .rm-col li{font-size:14px;padding:5px 0;color:var(--text-body);font-weight:600;}
+.pill{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.5px;padding:2px 8px;border-radius:12px;color:#fff;}
+.pg{background:#1c7c3c;} .pa{background:#b5751a;} .pb{background:#1d5fa8;}
+
+/* ===== ECONOMICS ===== */
+.econ-leaks{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:26px;}
+@media(max-width:820px){.econ-leaks{grid-template-columns:1fr 1fr;}}
+.leak{background:#fdf4f5;border:1px solid #f3c9cf;border-radius:9px;padding:16px 12px;text-align:center;font-size:13px;font-weight:700;color:var(--accent-dk);line-height:1.35;}
+.econ-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:780px){.econ-cards{grid-template-columns:1fr;}}
+.econ-card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--accent);border-radius:12px;padding:24px;}
+.econ-card h4{font-size:18px;font-weight:900;color:var(--text-dark);margin-bottom:8px;}
+.econ-card p{font-size:14.5px;line-height:1.55;color:var(--text-body);}
+.pull{margin:30px auto 0;max-width:860px;background:#fff;border-left:6px solid var(--accent);border-radius:0 12px 12px 0;padding:22px 28px;font-size:clamp(18px,2.6vw,23px);font-weight:800;color:#5a1018;line-height:1.4;box-shadow:0 4px 18px rgba(0,0,0,.05);}
+
+/* ===== PILOT PHASES ===== */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:780px){.phases{grid-template-columns:1fr;}}
+.phase{border:2px solid var(--line);border-radius:12px;padding:24px;background:#fff;}
+.phase .pnum{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:6px;}
+.phase h4{font-size:19px;font-weight:900;color:var(--text-dark);margin-bottom:3px;line-height:1.15;}
+.phase .weeks{font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:14px;}
+.phase ul{list-style:none;margin-bottom:14px;}
+.phase li{font-size:13.5px;color:var(--text-body);padding:6px 0;border-bottom:1px solid #f1f3f6;}
+.phase li:last-child{border-bottom:none;}
+.phase .out{font-size:13px;font-weight:800;color:var(--text-dark);background:#f7f8fa;border-radius:7px;padding:11px 13px;line-height:1.4;}
+.phase .out span{color:var(--accent);text-transform:uppercase;font-size:10.5px;letter-spacing:.5px;display:block;margin-bottom:3px;}
+
+/* ===== CLOSE / FORM ===== */
+.close{background:var(--bg-dark);color:#fff;border-bottom:none;}
+.close .eyebrow{color:#fff;opacity:.8;} .close .section-title{color:#fff;} .close .section-title::after{background:#fff;} .close .section-lede{color:#cfd5de;}
+.form-card{max-width:600px;margin:0 auto;background:#fff;color:var(--text-dark);border-radius:14px;padding:38px 34px;box-shadow:0 18px 50px rgba(0,0,0,.35);}
+.fg{margin-bottom:18px;}
+.fg label{display:block;font-weight:800;margin-bottom:7px;font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-body);}
+.fg input{width:100%;padding:14px;border:2px solid #d6dbe2;border-radius:7px;font-size:16px;font-family:inherit;}
+.fg input:focus{outline:none;border-color:var(--accent);}
+.sigpad{border:2px dashed #9aa1ac;border-radius:8px;background:#f7f8fa;width:100%;height:150px;display:block;touch-action:none;cursor:crosshair;}
+.sigbar{display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+.sighint{font-size:12px;color:var(--muted);}
+.sigclear{background:none;border:none;color:var(--accent);font-weight:800;font-size:12.5px;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;}
+.submit{width:100%;background:var(--accent);color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:1px;font-size:17px;padding:17px;border:none;border-radius:8px;cursor:pointer;margin-top:8px;box-shadow:0 6px 0 var(--accent-dk);transition:all .1s;}
+.submit:active{transform:translateY(6px);box-shadow:0 0 0 var(--accent-dk);}
+.reassure{text-align:center;font-size:13px;color:var(--muted);margin-top:16px;line-height:1.5;}
+.success{display:none;text-align:center;padding:20px 10px;}
+.success .check{width:64px;height:64px;border-radius:50%;background:#1c7c3c;color:#fff;font-size:34px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.success h3{font-size:24px;font-weight:900;color:var(--text-dark);margin-bottom:8px;}
+.success p{font-size:15px;color:var(--text-body);line-height:1.55;}
+
+/* ===== FOOTER ===== */
+.srcnote{background:var(--bg-main);padding:30px 0 50px;}
+.srcnote p{max-width:920px;margin:0 auto;font-size:12.5px;color:var(--muted);font-style:italic;line-height:1.55;text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="brand"><span class="logo">M</span><span>MANTECH<span class="tag">ALWAYS ADVANCING</span></span></div>
+  <div class="eyebrow">Strategy Brief for Federal Mission Leaders</div>
+  <h1>The Next Era Of Federal Mission Delivery.</h1>
+  <p class="sub">Labor built it. Software modernized it. The next era is a hybrid workforce: human experts and Mission Assistants, governed together, delivering more mission without more headcount.</p>
+  <div class="hero-kpis">
+    <div class="hero-kpi"><div class="n">Days &rarr; Min</div><div class="l">Early planning research, compressed</div></div>
+    <div class="hero-kpi"><div class="n">Up to 90%</div><div class="l">Less rework on first submissions</div></div>
+    <div class="hero-kpi"><div class="n">Zero</div><div class="l">New hires required to gain capacity</div></div>
+  </div>
+  <a href="#eras" class="hero-cta">See How We Got Here &darr;</a>
+</header>
+
+<!-- ===== STICKY TOC ===== -->
+<nav class="toc">
+  <div class="toc-inner">
+    <span class="toc-label">Story <span class="arrow">&rarr;</span></span>
+    <a href="#eras"><span class="num">01</span> The Eras</a>
+    <a href="#problem"><span class="num">02</span> The Problem</a>
+    <a href="#shift"><span class="num">03</span> The Shift</a>
+    <a href="#model"><span class="num">04</span> The Model</a>
+    <a href="#proof"><span class="num">05</span> The Proof</a>
+    <a href="#trust"><span class="num">06</span> The Trust</a>
+    <a href="#economics"><span class="num">07</span> The Economics</a>
+    <a href="#pilot"><span class="num">08</span> The Pilot</a>
+    <a href="#start">Start</a>
+  </div>
+</nav>
+
+<!-- ===== 01 THE ERAS ===== -->
+<section class="section" id="eras">
+  <div class="container">
+    <span class="eyebrow">01 &middot; Past, Present, Future</span>
+    <h2 class="section-title">Three Eras Of Mission Capacity</h2>
+    <p class="section-lede">For sixty years, federal mission capacity has scaled in distinct technology cycles. We are entering the third.</p>
+    <div class="eras">
+      <div class="era past">
+        <div class="bar"></div>
+        <div class="inner">
+          <span class="tag">The Past</span>
+          <div class="years">1960s &ndash; 2000s</div>
+          <h3>Labor Workforce</h3>
+          <p>Agencies increased capacity by adding people. More mission work meant more employees, more contractors, more analysts, and more labor-based support.</p>
+        </div>
+      </div>
+      <div class="era present">
+        <div class="bar"></div>
+        <div class="inner">
+          <span class="tag">The Present</span>
+          <div class="years">2000s &ndash; 2020s</div>
+          <h3>Digital Infrastructure</h3>
+          <p>Agencies increased capability through software, cloud, cybersecurity, enterprise platforms, data systems, and digital modernization.</p>
+        </div>
+      </div>
+      <div class="era future">
+        <div class="bar"></div>
+        <span class="badge">We Are Here Next</span>
+        <div class="inner">
+          <span class="tag">The Future</span>
+          <div class="years">2025 &ndash; 2040</div>
+          <h3>Hybrid Workforce Infrastructure</h3>
+          <p>Human experts lead, judge, and stay accountable. Mission Assistants carry the repeatable load under human supervision. Output grows without proportional headcount or risk.</p>
+        </div>
+      </div>
+    </div>
+    <p class="note">That is the category. <strong>Mission Workforce Infrastructure.</strong> Not labor alone. Not software alone. A governed layer where human experts and Mission Assistants operate together.</p>
+  </div>
+</section>
+
+<!-- ===== 02 THE PROBLEM ===== -->
+<section class="section alt" id="problem">
+  <div class="container">
+    <span class="eyebrow">02 &middot; The Present Pain</span>
+    <h2 class="section-title">Your Mission Keeps Growing. Your Team Does Not.</h2>
+    <p class="section-lede">The old answer was simple: add people. Hire contractors, backfill retirements, grow headcount. That answer has run out of room.</p>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="stat-num">Years</div><div class="stat-desc">Typical wait to expand the workforce through hiring</div></div>
+      <div class="stat-box"><div class="stat-num">Up to 90%</div><div class="stat-desc">Of estimate rework traced to incomplete first submissions</div></div>
+      <div class="stat-box"><div class="stat-num">Days</div><div class="stat-desc">Lost per task chasing data, standards, and past projects</div></div>
+      <div class="stat-box"><div class="stat-num">Retiring</div><div class="stat-desc">Experienced experts, taking hard-won knowledge out the door</div></div>
+    </div>
+    <p class="note">Research, estimates, reviews, reporting, contract analysis, compliance checks, readiness tracking, documentation, coordination. The work piles up while budgets stay flat and hiring stalls. Agencies need more mission output from the teams they already have, without adding risk or losing control.</p>
+  </div>
+</section>
+
+<!-- ===== 03 THE SHIFT ===== -->
+<section class="section" id="shift">
+  <div class="container">
+    <span class="eyebrow">03 &middot; The Shift</span>
+    <h2 class="section-title">From Adding Labor To Adding Capacity</h2>
+    <p class="section-lede">The old model said capacity comes from more labor. The new model says capacity comes from a better workforce layer.</p>
+    <div class="shift">
+      <div class="shift-row head"><div>When the old answer was "add people"</div><div>The mission workforce answer</div></div>
+      <div class="shift-row"><div class="old">Backlog: hire more contractors</div><div class="new">Deploy a Mission Assistant to <strong>clear the execution load</strong></div></div>
+      <div class="shift-row"><div class="old">Retirements: scramble to backfill</div><div class="new">Capture repeatable knowledge in an assistant that <strong>does not leave</strong></div></div>
+      <div class="shift-row"><div class="old">More workload: add headcount</div><div class="new">Scale assistant capacity, <strong>not payroll</strong></div></div>
+      <div class="shift-row"><div class="old">Budget pressure: do less</div><div class="new">Raise the output of <strong>every person already on the team</strong></div></div>
+      <div class="shift-row"><div class="old">Compliance pressure: add review cycles</div><div class="new">Build audit, escalation, and traceability <strong>into the work itself</strong></div></div>
+      <div class="shift-row"><div class="old">Readiness gaps: work longer</div><div class="new">Restore capacity <strong>where the mission is strained</strong></div></div>
+    </div>
+    <p class="note">You are no longer competing for scarce hires just to keep up. You are increasing what every trusted expert can accomplish.</p>
+  </div>
+</section>
+
+<!-- ===== 04 THE MODEL ===== -->
+<section class="section alt" id="model">
+  <div class="container">
+    <span class="eyebrow">04 &middot; The Model</span>
+    <h2 class="section-title">The Mission Workforce Model</h2>
+    <p class="section-lede">A federal mission workforce now has three layers, resting on a governed data foundation. The assistants create capacity. The governance creates trust.</p>
+    <div class="layers">
+      <div class="layer human">
+        <div class="lhead"><span class="role">Layer 1</span><h4>Human Workforce</h4></div>
+        <div class="lbody">Program leaders, analysts, planners, engineers, acquisition and compliance professionals, and subject matter experts. Their role: judgment, accountability, leadership, oversight, validation, approval, and mission decisions.</div>
+      </div>
+      <div class="layer assist">
+        <div class="lhead"><span class="role">Layer 2</span><h4>Mission Assistant Layer</h4></div>
+        <div class="lbody">Mission-specific assistants that perform repeatable execution: research, documentation, monitoring, drafting, data gathering, analysis support, and workflow coordination. Built for one defined function, supervised, and accountable to a human.</div>
+      </div>
+      <div class="layer gov">
+        <div class="lhead"><span class="role">Layer 3</span><h4>Governance Layer</h4></div>
+        <div class="lbody">The controls that make the workforce safe in federal environments: escalation, auditability, human approval, security review, performance monitoring, drift detection, source traceability, and cleared operational support.</div>
+      </div>
+    </div>
+    <div class="foundation">
+      <div class="ftag">The Foundation</div>
+      <h4>Mission Assistants Run On A Modern Data Platform</h4>
+      <p>An assistant is only as trustworthy as the data beneath it. The model rests on ManTech's Modern Data Platform: a governed multicloud data fabric, real-time pipelines, converged data, and core-to-edge deployment, on a proven Oracle foundation. The platform makes the data trustworthy. Mission Workforce Infrastructure turns trustworthy data into mission capacity.</p>
+    </div>
+    <div class="callout">
+      <h4>Your People Move Up, Not Out</h4>
+      <p>This does not replace the agency team. It elevates it. As assistants take on repetitive execution, human experts move toward the work only they can do: oversight, judgment, mission decisions, and supervision. And when experts retire, the repeatable parts of their work stay captured in the workforce, not out the door.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 THE PROOF ===== -->
+<section class="section" id="proof">
+  <div class="container">
+    <span class="eyebrow">05 &middot; The Proof</span>
+    <h2 class="section-title">Start Where The Proof Already Exists</h2>
+    <p class="section-lede">The first assistant to field is the one with operational results behind it: the Cost Estimator, built on ManTech's deployed Real Property Lifecycle AI. Here is the change on a single planning team.</p>
+    <div class="ba-grid">
+      <div class="ba-col before">
+        <div class="ba-head">Before</div>
+        <ul>
+          <li><span class="ic">&times;</span> A planner spends days chasing data, standards, and past projects</li>
+          <li><span class="ic">&times;</span> First submissions arrive incomplete and get rejected</li>
+          <li><span class="ic">&times;</span> Multiple review cycles before an estimate holds up</li>
+          <li><span class="ic">&times;</span> Quality varies team to team and installation to installation</li>
+          <li><span class="ic">&times;</span> Knowledge walks out the door at retirement</li>
+        </ul>
+      </div>
+      <div class="ba-col after">
+        <div class="ba-head">After</div>
+        <ul>
+          <li><span class="ic">&check;</span> A defensible, auditable estimate package the same day</li>
+          <li><span class="ic">&check;</span> Uncertain scope pre-flagged for human confirmation</li>
+          <li><span class="ic">&check;</span> Review cycles shorten on a complete first pass</li>
+          <li><span class="ic">&check;</span> Consistent estimates across teams and installations</li>
+          <li><span class="ic">&check;</span> Repeatable knowledge captured in the workforce layer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ba-stats">
+      <div class="ba-stat"><div class="n">Days&rarr;Min</div><div class="l">Research time on early planning tasks</div></div>
+      <div class="ba-stat"><div class="n">Up to 90%</div><div class="l">Reduction in rework</div></div>
+      <div class="ba-stat"><div class="n">Shorter</div><div class="l">Review cycles from first-pass completeness</div></div>
+      <div class="ba-stat"><div class="n">Consistent</div><div class="l">Estimate quality across the portfolio</div></div>
+    </div>
+    <div class="rm-strip">
+      <div class="rm-col"><h5><span class="pill pg">Deployed</span></h5><ul><li>Cost Estimator</li><li>Code Rationalization Assistant</li></ul></div>
+      <div class="rm-col"><h5><span class="pill pa">In Development</span></h5><ul><li>Acquisition Researcher</li><li>Contract Review Specialist</li><li>Compliance Analyst</li><li>Report Generator</li></ul></div>
+      <div class="rm-col"><h5><span class="pill pb">Roadmap</span></h5><ul><li>Mission Readiness Analyst</li><li>Program Intelligence Analyst</li><li>Risk Assessment Assistant</li><li>Workforce &amp; Mission Planning Assistants</li></ul></div>
+    </div>
+    <p class="note">This is a roadmap, not a current inventory. Two assistants are deployed with operational proof. The rest are a deliberate expansion path, fielded only when results justify it.</p>
+  </div>
+</section>
+
+<!-- ===== 06 THE TRUST ===== -->
+<section class="section alt" id="trust">
+  <div class="container">
+    <span class="eyebrow">06 &middot; The Trust</span>
+    <h2 class="section-title">Why Agencies Can Trust It</h2>
+    <p class="section-lede">The honest concern with AI: what if it confidently does the wrong thing and my name is on it. Mission Workforce Infrastructure is built so that cannot happen quietly. Every assistant operates inside four controls.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-header"><div class="pillar-num">4</div><div class="pillar-title">Four Controls On Every Assistant</div></div>
+        <div class="pillar-body2"><ul>
+          <li><strong>It knows when to stop.</strong> When unsure, it does not guess. It flags the issue and routes the task to a human.</li>
+          <li><strong>Everything leaves a trail.</strong> Every action, source, and decision path is logged and traceable for audits and oversight.</li>
+          <li><strong>It watches itself.</strong> Continuous monitoring for accuracy, reliability, quality, and drift surfaces problems early.</li>
+          <li><strong>Humans stay in command.</strong> People approve, reject, and decide. Assistants execute. Accountability never leaves the chain of command.</li>
+        </ul></div>
+      </div>
+    </div>
+    <h3 style="text-align:center;font-size:20px;font-weight:900;color:var(--text-dark);margin:34px 0 0;">Built To Pass Federal Review, Not Just Demos</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Buyer concern</th><th>ManTech proof</th></tr>
+        <tr><td>Can it run inside our systems?</td><td>The AI Sandbox lets a DoD client build and deploy AI directly within mission systems.</td></tr>
+        <tr><td>Secure or disconnected environments?</td><td>Containerized for restricted and unrestricted, deployable cloud-connected or disconnected.</td></tr>
+        <tr><td>Will it survive security and oversight?</td><td>Mapped to NIST AI RMF, RMF and ATO, OMB M-24-10, AI use-case inventories, FedRAMP and zero-trust.</td></tr>
+        <tr><td>Are the people behind it cleared?</td><td>80% of ManTech staff hold clearances; 45% are veterans; five decades in federal missions.</td></tr>
+      </table>
+    </div>
+    <p class="note">A vendor sells a tool and walks away. An operator stands up the workforce, governs it, monitors it, trains your people to supervise it, and stays accountable for performance.</p>
+  </div>
+</section>
+
+<!-- ===== 07 THE ECONOMICS ===== -->
+<section class="section" id="economics">
+  <div class="container">
+    <span class="eyebrow">07 &middot; The Economics</span>
+    <h2 class="section-title">Redirect Spend You Are Already Making</h2>
+    <p class="section-lede">This is not a new line item competing for new money. Agencies already pay, every year, for the exact problems this addresses. Mission Workforce Infrastructure turns that recurring spend into returned capacity.</p>
+    <div class="econ-leaks">
+      <div class="leak">Contractor hours and backfills</div>
+      <div class="leak">Rework and rejected submissions</div>
+      <div class="leak">Overtime and extended schedules</div>
+      <div class="leak">Duplicate and overlapping software</div>
+      <div class="leak">Knowledge lost at retirement</div>
+    </div>
+    <div class="econ-cards">
+      <div class="econ-card"><h4>Saves money already spent</h4><p>Capacity comes from reclaiming wasted cycles and duplicate spend, not a net-new headcount line. The Cost Estimator returns rework dollars; the Code Rationalization Assistant surfaces duplicate spend to retire.</p></div>
+      <div class="econ-card"><h4>Infrastructure, not a one-time buy</h4><p>Each assistant compounds, capturing knowledge and standardizing work, returning more capacity the longer it runs. A foundation for every mission function that follows.</p></div>
+      <div class="econ-card"><h4>Lowers risk while it does it</h4><p>Human-in-the-loop by design, with every decision logged, every source traceable, and agency data kept protected inside governed, authorized environments.</p></div>
+    </div>
+    <div class="pull">The question is not "what does this cost." The question is: what is the work you are already paying for that this returns to the mission, and what does that capacity make possible next?</div>
+  </div>
+</section>
+
+<!-- ===== 08 THE PILOT ===== -->
+<section class="section alt" id="pilot">
+  <div class="container">
+    <span class="eyebrow">08 &middot; The Pilot</span>
+    <h2 class="section-title">One Assistant. One Team. Twelve Weeks.</h2>
+    <p class="section-lede">Agencies do not need a large transformation program to find out if this works. Start with one measurable capacity problem. The recommended first pilot is the Cost Estimator.</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="pnum">Phase 1</div><h4>Baseline &amp; Authorization</h4><div class="weeks">Weeks 1 to 4</div>
+        <ul><li>Set the current performance baseline</li><li>Identify the mission function</li><li>Complete security, RMF/ATO, and AI use-case review up front</li><li>Configure to your data and review process</li></ul>
+        <div class="out"><span>You get</span>A clear before-picture and an authorized assistant</div>
+      </div>
+      <div class="phase">
+        <div class="pnum">Phase 2</div><h4>Live Mission Use</h4><div class="weeks">Weeks 5 to 8</div>
+        <ul><li>Run the assistant beside your team on real work</li><li>Track cycle time and escalation rates</li><li>Track rework reduction and review quality</li><li>Track user acceptance and outcomes</li></ul>
+        <div class="out"><span>You get</span>Live results on actual mission tasks, not a demo</div>
+      </div>
+      <div class="phase">
+        <div class="pnum">Phase 3</div><h4>Capacity Assessment</h4><div class="weeks">Weeks 9 to 12</div>
+        <ul><li>Measure hours returned and backlog cleared</li><li>Measure cycle time cut and rework reduced</li><li>Measure capacity gained and risk reduced</li><li>All in the agency's own terms</li></ul>
+        <div class="out"><span>You get</span>An evidence-based decision to scale or add the next assistant</div>
+      </div>
+    </div>
+    <p class="note">The workforce grows only at the pace results justify.</p>
+  </div>
+</section>
+
+<!-- ===== START / CLOSE ===== -->
+<section class="section close" id="start">
+  <div class="container">
+    <span class="eyebrow">Next Step</span>
+    <h2 class="section-title">Start With One Assistant</h2>
+    <p class="section-lede">No new headcount. No large transformation program. One measurable capacity problem, proven in your own environment. Authorize a no-obligation capacity pilot briefing.</p>
+    <div class="form-card">
+      <form id="pilotForm">
+        <div class="fg"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+        <div class="fg"><label for="agency">Agency / Program Office</label><input type="text" id="agency" name="agency" required></div>
+        <div class="fg"><label for="email">Government Email</label><input type="email" id="email" name="email" required></div>
+        <div class="fg">
+          <label>Intent To Pilot (sign below)</label>
+          <canvas class="sigpad" id="sigpad"></canvas>
+          <div class="sigbar"><span class="sighint">Draw your signature to express interest. Not a contract or commitment.</span><button type="button" class="sigclear" id="sigclear">Clear</button></div>
+        </div>
+        <button type="submit" class="submit">Request The Capacity Pilot Briefing</button>
+        <p class="reassure">Human-in-the-loop by design. Your data stays protected inside governed, authorized environments. We measure capacity in your terms before anything scales.</p>
+      </form>
+      <div class="success" id="success">
+        <div class="check">&check;</div>
+        <h3>Request Received</h3>
+        <p>Thank you. Your interest in a Mission Workforce Infrastructure capacity pilot has been recorded. A ManTech mission team will follow up to scope your baseline and authorization path.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOURCE NOTE ===== -->
+<div class="srcnote">
+  <div class="container">
+    <p style="font-weight:700;color:var(--text-body);font-style:normal;margin-bottom:14px;">A repositioning concept prepared for ManTech by Kawani Ali &middot; Freelance Marketing Consultant. Independent work; not an official ManTech publication. ManTech names and marks belong to their respective owners.</p>
+    <p>Capability and outcome details reflect ManTech's deployed Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, the Modern Data Platform, and containerized deployment. Deployment-status labels reflect current maturity and should be confirmed before external use. Capacity examples are illustrative, not guaranteed figures. Compliance-framework references describe design intent and alignment, not completed authorizations; actual ATO status is established per system and environment. Actual results are measured per mission, account, environment, data quality, and pilot scope.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var canvas = document.getElementById('sigpad');
+  var ctx = canvas.getContext('2d');
+  var drawing = false, hasInk = false;
+  function resize(){
+    var ratio = window.devicePixelRatio || 1;
+    var w = canvas.offsetWidth, h = canvas.offsetHeight;
+    canvas.width = w * ratio; canvas.height = h * ratio;
+    ctx.setTransform(1,0,0,1,0,0); ctx.scale(ratio, ratio);
+    ctx.lineWidth = 2.5; ctx.lineCap = 'round'; ctx.strokeStyle = '#0b1220';
+  }
+  setTimeout(resize, 0);
+  function pos(e){ var r = canvas.getBoundingClientRect(); var p = e.touches ? e.touches[0] : e; return { x: p.clientX - r.left, y: p.clientY - r.top }; }
+  function start(e){ drawing = true; hasInk = true; var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); e.preventDefault(); }
+  function move(e){ if(!drawing) return; var p = pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); e.preventDefault(); }
+  function end(){ drawing = false; }
+  canvas.addEventListener('mousedown', start); canvas.addEventListener('mousemove', move); window.addEventListener('mouseup', end);
+  canvas.addEventListener('touchstart', start); canvas.addEventListener('touchmove', move); canvas.addEventListener('touchend', end);
+  document.getElementById('sigclear').addEventListener('click', function(){ ctx.clearRect(0,0,canvas.width,canvas.height); hasInk = false; });
+  document.getElementById('pilotForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var payload = {
+      name: document.getElementById('name').value,
+      agency: document.getElementById('agency').value,
+      email: document.getElementById('email').value,
+      signature: hasInk ? canvas.toDataURL('image/png') : null,
+      signed: hasInk,
+      submittedAt: new Date().toISOString()
+    };
+    try { var all = JSON.parse(localStorage.getItem('mwiPilotRequests') || '[]'); all.push(payload); localStorage.setItem('mwiPilotRequests', JSON.stringify(all)); } catch(err){}
+    document.getElementById('pilotForm').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  });
+})();
+</script>
+</body>
+</html>
