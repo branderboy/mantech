@@ -29,7 +29,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 /* UTILITIES */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
-.padding-y { padding: 120px 0; }
+.padding-y { padding: 80px 0; }
 .bg-soft { background: var(--bg-soft); }
 .bg-navy { background: var(--navy); color: #fff; }
 .text-center { text-align: center; }
@@ -40,7 +40,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .topnav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: box-shadow 0.3s ease; }
 .nav-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 5vw; height: 70px; }
 .nav-links { grid-column: 2; justify-self: center; display: flex; overflow-x: auto; scrollbar-width: none; }
-.nav-logo { grid-column: 3; justify-self: end; display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 14px; color: var(--accent); text-decoration: none; }
+.nav-logo { grid-column: 1; justify-self: start; display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 14px; color: var(--accent); text-decoration: none; }
 .nav-logo .logo { width: 28px; height: 28px; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; }
 .nav-links::-webkit-scrollbar { display: none; }
 .nav-links a { display: inline-flex; align-items: center; height: 70px; padding: 0 15px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
@@ -72,7 +72,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 }
 
 /* DEFINITION - OVERSIZED TYPOGRAPHY */
-.defn-section { padding: 130px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.defn-section { padding: 90px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .defn-wrap { max-width: 900px; margin: 0 auto; }
 .defn-wrap .term { font-size: clamp(36px, 5vw, 64px); letter-spacing: -1px; margin-bottom: 10px; }
 .defn-wrap .pos { font-style: italic; color: var(--muted); font-size: 20px; margin-bottom: 40px; font-family: var(--serif); }
@@ -85,7 +85,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .wall-sticky h2 { font-size: clamp(40px, 5vw, 60px); line-height: 1; letter-spacing: -1.5px; }
 .wall-sticky .line { width: 60px; height: 3px; background: var(--accent); margin: 30px 0; }
 .wall-content p { font-size: 20px; line-height: 1.8; margin-bottom: 30px; color: var(--body); }
-.wall-content .large-quote { margin: 60px 0; padding-left: 30px; border-left: 4px solid var(--navy); }
+.wall-content .large-quote { margin: 40px 0; padding-left: 30px; border-left: 4px solid var(--navy); }
 
 @media(max-width: 900px) {
   .wall-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -93,7 +93,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 }
 
 /* THE ERAS - COMPARATIVE CARDS */
-.eras-header { max-width: 700px; margin: 0 auto 80px; text-align: center; }
+.eras-header { max-width: 700px; margin: 0 auto 50px; text-align: center; }
 .eras-header h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
 .eras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .era-card { padding: 40px 30px; background: #fff; border: 1px solid var(--line); position: relative; transition: transform 0.3s, box-shadow 0.3s; }
@@ -124,11 +124,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .role-item p { font-size: 18px; color: var(--slate); line-height: 1.6; }
 
 /* CAPACITY - THE LEDGER */
-.capacity-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: center; }
-.capacity-stat { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--line); }
+.capacity-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 60px; align-items: start; }
+.capacity-stat { max-width: 760px; margin: 60px auto 0; padding-top: 40px; border-top: 1px solid var(--line); text-align: center; }
 .capacity-stat .num { font-family: var(--serif); font-size: clamp(52px, 7vw, 76px); font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -2px; }
-.capacity-stat .lbl { font-size: 16px; color: var(--slate); line-height: 1.6; margin-top: 14px; max-width: 380px; }
-.capacity-stat .src { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 14px; max-width: 400px; }
+.capacity-stat .lbl { font-size: 18px; color: var(--slate); line-height: 1.6; margin: 16px auto 0; max-width: 600px; }
+.capacity-stat .src { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 14px auto 0; max-width: 560px; }
 .ledger { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.03); }
 .ledger-header { display: flex; padding: 20px 30px; background: var(--bg-soft); border-bottom: 2px solid var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
 .ledger-header span:first-child { flex: 1; }
@@ -145,8 +145,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 }
 
 /* THE ARCHITECTURE - STICKY STACKING */
-.arch-container { position: relative; padding-bottom: 100px; }
-.arch-intro { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+.arch-container { position: relative; padding-bottom: 56px; }
+.arch-intro { text-align: center; max-width: 700px; margin: 0 auto 50px; }
 .arch-intro h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
 .stack-wrapper { max-width: 800px; margin: 0 auto; position: relative; }
 .stack-layer { position: sticky; padding: 44px 50px; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 30px; box-shadow: 0 -10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; transition: all 0.3s ease; }
@@ -176,7 +176,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .proof-section { background: var(--navy); color: #fff; }
 .proof-section .eyebrow { color: #9fb0c6; margin-bottom: 24px; }
 .proof-section h2 { color: #fff; font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
-.proof-section .subtext { color: #d4dbe4; max-width: 700px; margin-bottom: 60px; }
+.proof-section .subtext { color: #d4dbe4; max-width: 700px; margin-bottom: 44px; }
 
 .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; text-align: left; }
 .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid var(--accent); padding: 40px; border-radius: 4px; position: relative; }
@@ -186,11 +186,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 .deploy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
 .deploy-item { border-left: 2px solid var(--slate); padding-left: 20px; }
-.deploy-item h4 { color: #fff; font-size: 18px; margin-bottom: 8px; font-family: var(--sans); }
+.deploy-item h4 { color: #8ec5ff; font-size: 18px; margin-bottom: 8px; font-family: var(--sans); }
 .deploy-item p { color: #cdd5df; font-size: 15px; line-height: 1.5; }
 
 /* FOOTER FORM - SINGLE BUTTON CTA */
-.form-section { background: var(--bg-soft); padding: 120px 0; border-top: 1px solid var(--line); }
+.form-section { background: var(--bg-soft); padding: 90px 0; border-top: 1px solid var(--line); }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .form-info h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 30px; }
 .form-info p { font-size: 20px; color: var(--slate); line-height: 1.7; margin-bottom: 40px; }
@@ -213,6 +213,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <!-- TOP NAV -->
 <nav class="topnav" id="navbar">
   <div class="nav-inner">
+    <a class="nav-logo" href="#top"><span class="logo">M</span> MANTECH</a>
     <div class="nav-links">
       <a href="#wall">The Wall</a>
       <a href="#eras">The Eras</a>
@@ -222,7 +223,6 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <a href="#proof">Proof</a>
       <a href="#start">Start</a>
     </div>
-    <a class="nav-logo" href="#top"><span class="logo">M</span> MANTECH</a>
   </div>
 </nav>
 
@@ -383,17 +383,13 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 <!-- CAPACITY -->
 <section class="padding-y bg-soft" id="capacity">
-  <div class="container capacity-grid">
+  <div class="container">
+    <div class="capacity-grid">
     <div class="capacity-text reveal">
       <span class="eyebrow">Where The Hours Go</span>
       <h2 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; line-height:1.1;">You Cannot Hire Your Way Out Of This</h2>
       <p class="subtext" style="margin-bottom: 20px;">Federal agencies don't have an AI problem. They have a time problem.</p>
       <p class="subtext">Time leaks away every day through work that demands expertise but devours schedules. None of it is optional. All of it pulls thousands of hours from the very people whose expertise is hardest to replace.</p>
-      <div class="capacity-stat">
-        <div class="num">Nearly 1 in 3</div>
-        <div class="lbl">federal employees are already eligible to retire, ready to carry decades of irreplaceable mission expertise out the door.</div>
-        <div class="src">Source: OPM workforce data, cited in GAO reporting on the aging federal workforce (2022 and 2023).</div>
-      </div>
     </div>
     <div class="ledger reveal">
       <div class="ledger-header">
@@ -420,6 +416,12 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
         <span class="ledger-func">Readiness Ops</span>
         <span class="ledger-drain">Reporting, reconciliation, tracking</span>
       </div>
+    </div>
+    </div>
+    <div class="capacity-stat reveal">
+      <div class="num">Nearly 1 in 3</div>
+      <div class="lbl">federal employees are already eligible to retire, ready to carry decades of irreplaceable mission expertise out the door.</div>
+      <div class="src">Source: OPM workforce data, cited in GAO reporting on the aging federal workforce (2022 and 2023).</div>
     </div>
   </div>
 </section>
@@ -513,7 +515,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <p style="color: var(--slate); margin-bottom: 35px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
 
       <!-- Single Executive Button -->
-      <a href="mailto:contact@mantech.com?subject=Mission%20Capacity%20Assessment%20Request" class="btn" style="padding: 22px 40px; font-size: 14px; width: 100%;">Schedule A Mission Capacity Assessment</a>
+      <a href="mailto:contact@mantech.com?subject=Mission%20Capacity%20Assessment%20Request" class="btn" style="padding: 22px 20px; font-size: 13px; letter-spacing: 1px; width: 100%; white-space: nowrap;">Get A Mission Capacity Assessment</a>
 
       <p class="reassure" style="margin-top: 25px; font-size: 12px;">This is an exploratory briefing. All discussions are handled in governed, authorized channels.</p>
     </div>
