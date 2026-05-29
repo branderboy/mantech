@@ -1,0 +1,657 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission Workforce Infrastructure | ManTech</title>
+<style>
+:root{
+  --bg-main:#ffffff; --bg-soft:#f7f8fa; --navy:#16243b;
+  --accent:#b3132b; --accent-dk:#8a0f21;
+  --past:#9aa3b0; --present:#2f4a6b; --future:#b3132b;
+  --ink:#16243b; --body:#39424f; --muted:#7b828d; --slate:#53606f; --line:#e7ebef;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+}
+
+/* RESET & BASE */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg-main);color:var(--body);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased; overflow-x:hidden;}
+img, svg {max-width: 100%; display: block;}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
+.eyebrow { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+.subtext { font-size: 18px; color: var(--slate); line-height: 1.8; }
+.large-quote { font-family: var(--serif); font-size: clamp(24px, 4vw, 40px); line-height: 1.2; letter-spacing: -0.5px; color: var(--ink); }
+
+/* UTILITIES */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+.padding-y { padding: 120px 0; }
+.bg-soft { background: var(--bg-soft); }
+.bg-navy { background: var(--navy); color: #fff; }
+.text-center { text-center; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* TOP NAV - REFINED */
+.topnav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: transform 0.3s ease; }
+.nav-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; height: 70px; }
+.nav-logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 14px; color: var(--accent); text-decoration: none; }
+.nav-logo .logo { width: 28px; height: 28px; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; }
+.nav-links { display: flex; gap: 24px; overflow-x: auto; scrollbar-width: none; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+@media(max-width: 900px) {
+  .nav-inner { flex-direction: column; justify-content: center; height: auto; padding: 15px 5vw; gap: 15px; }
+  .nav-links { width: 100%; padding-bottom: 5px; }
+}
+
+/* HERO - EDITORIAL SPLIT */
+.hero { min-height: 100vh; display: flex; align-items: center; padding-top: 70px; position: relative; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-content h1 { font-size: clamp(48px, 6vw, 84px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 30px; }
+.hero-content .subtext { margin-bottom: 40px; max-width: 500px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; padding: 18px 40px; border-radius: 0; text-decoration: none; transition: background 0.3s; border: none; cursor: pointer; }
+.btn:hover { background: var(--accent-dk); }
+.hero-visual { position: relative; height: 100%; min-height: 500px; display: flex; align-items: center; justify-content: center; }
+.graphic-circle { width: 40vw; height: 40vw; max-width: 500px; max-height: 500px; border-radius: 50%; border: 1px solid var(--line); position: absolute; }
+.graphic-circle:nth-child(2) { width: 30vw; height: 30vw; border-color: var(--past); opacity: 0.3; transform: translateX(20px); }
+.graphic-circle:nth-child(3) { width: 20vw; height: 20vw; background: var(--bg-soft); border-color: var(--accent); opacity: 0.1; transform: translateX(-20px); }
+.graphic-text { font-family: var(--serif); font-size: 140px; font-style: italic; color: var(--line); opacity: 0.5; position: absolute; z-index: -1; top: 10%; right: -5%; }
+
+@media(max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 20px; }
+  .hero-content .subtext { margin: 0 auto 40px; }
+  .hero-visual { display: none; }
+}
+
+/* DEFINITION - OVERSIZED TYPOGRAPHY */
+.defn-section { padding: 150px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.defn-wrap { max-width: 900px; margin: 0 auto; }
+.defn-wrap .term { font-size: clamp(36px, 5vw, 64px); letter-spacing: -1px; margin-bottom: 10px; }
+.defn-wrap .pos { font-style: italic; color: var(--muted); font-size: 20px; margin-bottom: 40px; font-family: var(--serif); }
+.defn-wrap .text { font-size: clamp(20px, 3vw, 32px); line-height: 1.5; color: var(--slate); font-weight: 300; }
+.defn-wrap .text strong { color: var(--ink); font-weight: 700; }
+
+/* THE WALL - STICKY EDITORIAL */
+.wall-grid { display: grid; grid-template-columns: 4fr 6fr; gap: 80px; align-items: start; }
+.wall-sticky { position: sticky; top: 120px; }
+.wall-sticky h2 { font-size: clamp(40px, 5vw, 60px); line-height: 1; letter-spacing: -1.5px; }
+.wall-sticky .line { width: 60px; height: 3px; background: var(--accent); margin: 30px 0; }
+.wall-content p { font-size: 20px; line-height: 1.8; margin-bottom: 30px; color: var(--body); }
+.wall-content .large-quote { margin: 60px 0; padding-left: 30px; border-left: 4px solid var(--navy); }
+.insight-box { background: var(--bg-soft); padding: 40px; border-radius: 2px; margin-top: 50px; border: 1px solid var(--line); border-top: 3px solid var(--accent); }
+.insight-box h4 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; color: var(--accent); font-family: var(--sans); }
+
+@media(max-width: 900px) {
+  .wall-grid { grid-template-columns: 1fr; gap: 40px; }
+  .wall-sticky { position: relative; top: 0; }
+}
+
+/* THE ERAS - COMPARATIVE CARDS */
+.eras-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+.eras-header h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
+.eras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.era-card { padding: 40px 30px; background: #fff; border: 1px solid var(--line); position: relative; transition: transform 0.3s, box-shadow 0.3s; }
+.era-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); z-index: 10; }
+.era-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.era-card.past::before { background: var(--past); }
+.era-card.present::before { background: var(--present); }
+.era-card.future { background: var(--navy); color: #fff; border: none; box-shadow: 0 20px 50px rgba(22, 36, 59, 0.2); transform: scale(1.02); z-index: 5; }
+.era-card.future::before { background: var(--future); }
+.era-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.era-card.past .era-meta { color: var(--past); }
+.era-card.present .era-meta { color: var(--present); }
+.era-card.future .era-meta { color: var(--past); }
+.era-card h3 { font-size: 28px; margin-bottom: 20px; line-height: 1.2; }
+.era-card.future h3 { color: #fff; }
+.era-card p { font-size: 15px; color: var(--slate); line-height: 1.7; }
+.era-card.future p { color: #e7ecf2; }
+
+@media(max-width: 900px) {
+  .eras-grid { grid-template-columns: 1fr; }
+  .era-card.future { transform: none; }
+}
+
+/* CAPACITY - THE LEDGER */
+.capacity-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: center; }
+.ledger { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.03); }
+.ledger-header { display: flex; padding: 20px 30px; background: var(--bg-soft); border-bottom: 2px solid var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.ledger-header span:first-child { flex: 1; }
+.ledger-header span:last-child { width: 50%; padding-left: 20px; }
+.ledger-row { display: flex; padding: 25px 30px; border-bottom: 1px solid var(--line); transition: background 0.2s; }
+.ledger-row:hover { background: var(--bg-soft); }
+.ledger-row:last-child { border-bottom: none; }
+.ledger-func { flex: 1; font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); padding-right: 20px; }
+.ledger-drain { width: 50%; font-size: 15px; color: var(--slate); border-left: 1px dashed var(--past); padding-left: 20px; }
+
+@media(max-width: 900px) {
+  .capacity-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ledger-header span:last-child, .ledger-drain { width: auto; flex: 1; }
+}
+
+/* THE ARCHITECTURE - STICKY STACKING */
+.arch-container { position: relative; padding-bottom: 100px; }
+.arch-intro { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+.stack-wrapper { max-width: 800px; margin: 0 auto; position: relative; }
+.stack-layer { position: sticky; padding: 50px; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 40px; box-shadow: 0 -10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; transition: all 0.3s ease; }
+/* Layer Stacking Offsets */
+.stack-layer:nth-child(1) { top: 120px; background: #fff; z-index: 1; border-top: 4px solid var(--slate); }
+.stack-layer:nth-child(2) { top: 140px; background: var(--bg-soft); z-index: 2; border-top: 4px solid var(--accent); }
+.stack-layer:nth-child(3) { top: 160px; background: #fff; z-index: 3; border-top: 4px solid var(--present); }
+.stack-layer:nth-child(4) { top: 180px; background: var(--navy); color: #fff; z-index: 4; border-top: 4px solid var(--future); }
+
+.layer-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
+.stack-layer:nth-child(4) .layer-num { color: var(--past); }
+.layer-title { font-size: 32px; margin-bottom: 15px; }
+.stack-layer:nth-child(4) .layer-title { color: #fff; }
+.layer-desc { font-size: 16px; line-height: 1.7; color: var(--body); }
+.stack-layer:nth-child(4) .layer-desc { color: #e7ecf2; }
+
+@media(max-width: 768px) {
+  .stack-layer { flex-direction: column; gap: 20px; padding: 30px; }
+  .stack-layer:nth-child(1) { top: 80px; }
+  .stack-layer:nth-child(2) { top: 90px; }
+  .stack-layer:nth-child(3) { top: 100px; }
+  .stack-layer:nth-child(4) { top: 110px; }
+}
+
+/* GROUND TRUTH - MASONRY/GRID ALTERNATIVE */
+.ground-truth { background: var(--navy); color: #fff; }
+.ground-truth .eyebrow { color: var(--past); }
+.ground-truth h2, .ground-truth .large-quote { color: #fff; }
+.ground-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
+.ground-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 4px; }
+.ground-card .category { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
+.ground-card h3 { font-size: 24px; color: #fff; margin-bottom: 15px; line-height: 1.3; }
+.ground-card p { font-size: 16px; color: #aab2bd; line-height: 1.6; }
+
+/* FIND YOUR ROLE - INTERACTIVE LIST LOOK */
+.role-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.role-item { border-bottom: 1px solid var(--line); padding: 30px 0; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
+.role-item:first-child { border-top: 1px solid var(--line); }
+.role-item h4 { font-size: 22px; font-family: var(--sans); font-weight: 700; color: var(--ink); }
+.role-item p { font-size: 18px; color: var(--slate); line-height: 1.6; }
+
+@media(max-width: 768px) {
+  .role-grid { grid-template-columns: 1fr; }
+  .role-item { grid-template-columns: 1fr; gap: 10px; padding: 20px 0; }
+}
+
+/* WHY MANTECH - STAGGERED LIST */
+.mantech-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 800px; margin: 0 auto; }
+.mt-item { display: flex; gap: 40px; padding: 40px; background: #fff; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+.mt-item:nth-child(even) { transform: translateX(40px); background: var(--bg-soft); }
+.mt-icon { font-size: 40px; font-family: var(--serif); color: var(--accent); font-weight: 700; line-height: 1; }
+.mt-content h4 { font-size: 22px; margin-bottom: 10px; }
+.mt-content p { font-size: 16px; color: var(--slate); }
+
+@media(max-width: 768px) {
+  .mt-item { flex-direction: column; gap: 20px; padding: 30px; }
+  .mt-item:nth-child(even) { transform: none; }
+}
+
+/* FOOTER FORM - SPLIT LAYOUT */
+.form-section { background: var(--navy); color: #fff; padding: 120px 0; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.form-info h2 { color: #fff; font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 30px; }
+.form-info p { font-size: 20px; color: #aab2bd; line-height: 1.7; margin-bottom: 40px; }
+
+.form-card { background: #fff; padding: 50px; border-radius: 4px; color: var(--ink); }
+.fg { margin-bottom: 24px; }
+.fg label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); margin-bottom: 10px; }
+.fg input { width: 100%; padding: 16px; border: 1px solid #d6dbe2; border-radius: 2px; font-size: 16px; font-family: inherit; transition: border-color 0.2s; background: var(--bg-soft); }
+.fg input:focus { outline: none; border-color: var(--accent); background: #fff; }
+
+.sigpad-wrap { position: relative; }
+.sigpad { width: 100%; height: 120px; background: var(--bg-soft); border: 1px dashed #aab2bd; border-radius: 2px; cursor: crosshair; touch-action: none; }
+.sig-tools { display: flex; justify-content: space-between; margin-top: 10px; align-items: center; }
+.sig-tools span { font-size: 12px; color: var(--muted); }
+.btn-clear { background: none; border: none; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); cursor: pointer; }
+
+.btn-submit { width: 100%; margin-top: 20px; }
+.reassure { font-size: 13px; color: var(--muted); text-align: center; margin-top: 20px; }
+
+.success-state { display: none; text-align: center; padding: 40px 0; }
+.success-state .check { width: 70px; height: 70px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 20px; }
+
+@media(max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-card { padding: 30px; }
+}
+
+/* SOURCE NOTE */
+.srcnote { background: #111b2c; color: #5a6b82; padding: 40px 5vw; text-align: center; font-size: 12px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top"><span class="logo">M</span> MANTECH</a>
+    <div class="nav-links">
+      <a href="#wall">The Wall</a>
+      <a href="#eras">The Eras</a>
+      <a href="#capacity">Capacity</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#impact">Impact</a>
+      <a href="#mantech">Why Us</a>
+      <a href="#start">Start</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="graphic-text">MWI.</div>
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <span class="eyebrow">Prepared for Federal Mission Leaders</span>
+      <h1>The Work Is Growing.<br>The Workforce Isn't.</h1>
+      <p class="subtext">You can't hire your way out. So we built a way to expand what your agency delivers without expanding its payroll. It's called Mission Workforce Infrastructure.</p>
+      <a href="#wall" class="btn">Discover The Model</a>
+    </div>
+    <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+      <div class="graphic-circle"></div>
+      <div class="graphic-circle"></div>
+      <div class="graphic-circle"></div>
+    </div>
+  </div>
+</header>
+
+<!-- DEFINITION -->
+<section class="defn-section bg-soft">
+  <div class="container text-center reveal">
+    <div class="defn-wrap">
+      <div class="term serif">Mission Workforce Infrastructure</div>
+      <div class="pos">noun</div>
+      <div class="text">A governed operating model in which <strong>human experts and supervised AI assistants work as one team</strong>, so an agency can expand what it delivers without expanding its payroll. People hold authority. Assistants carry the execution.</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE WALL -->
+<section class="padding-y" id="wall">
+  <div class="container wall-grid">
+    <div class="wall-sticky reveal">
+      <span class="eyebrow">A Structural Shift</span>
+      <h2>The Workforce Wall Is Here</h2>
+      <div class="line"></div>
+    </div>
+    <div class="wall-content">
+      <p class="large-quote reveal">Federal agencies are entering the largest workforce transition since the arrival of enterprise software.</p>
+      <p class="reveal">Mission demands keep climbing. Operational complexity keeps climbing. Compliance keeps climbing. The workforce does not.</p>
+      <p class="reveal">Experienced personnel are retiring faster than they can be replaced. Hiring timelines stretch. Deep expertise is difficult to recruit and harder to keep. Yet agencies are still asked to move faster, spend smarter, raise readiness, tighten security, and answer for all of it.</p>
+      <div class="insight-box reveal">
+        <h4>What You Already Know</h4>
+        <p>The mission grows every year. The budget doesn't. And every retirement carries thirty years of judgment out the door in a single afternoon. You've been covering the gap with overtime, heroics, and quietly lowered expectations. You already know that stops being survivable soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ERAS -->
+<section class="padding-y bg-soft" id="eras">
+  <div class="container">
+    <div class="eras-header reveal">
+      <span class="eyebrow">Sixty Years In Three Moves</span>
+      <h2>The Next Era Of Mission Capacity</h2>
+      <p class="subtext">Every era has its own way of expanding what an organization can deliver. We are entering the third.</p>
+    </div>
+    <div class="eras-grid">
+      <div class="era-card past reveal">
+        <div class="era-meta"><span>The Past</span><span>1960s—2000s</span></div>
+        <h3>Labor Workforce</h3>
+        <p>When demand rose, agencies added people: more analysts, more engineers, more contractors. Output was measured strictly in headcount.</p>
+      </div>
+      <div class="era-card present reveal" style="transition-delay: 0.1s;">
+        <div class="era-meta"><span>The Present</span><span>2000s—2020s</span></div>
+        <h3>Digital Infrastructure</h3>
+        <p>Software reshaped operations—cloud, enterprise platforms, cyber systems. Teams could do more without growing. Yet software still waited on people to run it.</p>
+      </div>
+      <div class="era-card future reveal" style="transition-delay: 0.2s;">
+        <div class="era-meta"><span>The Next Era</span><span>2025—2040</span></div>
+        <h3>Mission Workforce Infrastructure</h3>
+        <p>The next step is neither labor nor software alone. Human experts and trusted assistants work side by side under one governance framework. People keep judgment and approvals. Assistants take on the recurring execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPACITY -->
+<section class="padding-y" id="capacity">
+  <div class="container capacity-grid">
+    <div class="capacity-text reveal">
+      <span class="eyebrow">Where The Hours Go</span>
+      <h2 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; line-height:1.1;">You Cannot Hire Your Way Out Of This</h2>
+      <p class="subtext" style="margin-bottom: 20px;">Federal agencies don't have an AI problem. They have a capacity problem.</p>
+      <p class="subtext">It leaks away every day through work that demands expertise but devours time. None of it is optional. All of it matters. And all of it pulls thousands of hours from the very people whose expertise is hardest to replace.</p>
+    </div>
+    <div class="ledger reveal">
+      <div class="ledger-header">
+        <span>Mission Function</span>
+        <span>Where Capacity Is Lost Today</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Facility Planning</span>
+        <span class="ledger-drain">Cost research, estimate preparation, validation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Acquisition</span>
+        <span class="ledger-drain">Market research, requirements gathering, documentation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Compliance</span>
+        <span class="ledger-drain">Evidence collection, reporting, validation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Program Mgmt</span>
+        <span class="ledger-drain">Status reporting, coordination, documentation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Readiness Ops</span>
+        <span class="ledger-drain">Reporting, reconciliation, tracking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MODEL (ARCHITECTURE) -->
+<section class="padding-y bg-soft arch-container" id="architecture">
+  <div class="container">
+    <div class="arch-intro reveal">
+      <span class="eyebrow">The Architecture</span>
+      <h2>Four Layers, One Workforce</h2>
+      <p class="subtext">Built in tiers, each with one job: assistants create capacity, governance earns trust, data builds confidence. Scroll to build the stack.</p>
+    </div>
+    
+    <div class="stack-wrapper">
+      <div class="stack-layer reveal">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 1</span>
+          <h3 class="layer-title serif">Human Workforce</h3>
+          <p class="layer-desc">Mission leaders, program managers, engineers, analysts, planners, compliance professionals, and subject matter experts. They own judgment, approval, leadership, and the decisions that carry consequence.</p>
+        </div>
+      </div>
+      
+      <div class="stack-layer reveal">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 2</span>
+          <h3 class="layer-title serif">Mission Assistant Layer</h3>
+          <p class="layer-desc">Dedicated assistants, each handling the recurring work of a single function under human supervision (e.g., MILCON Cost Estimators, Contract Review Assistants, RMF Compliance Assistants).</p>
+        </div>
+      </div>
+      
+      <div class="stack-layer reveal">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 3</span>
+          <h3 class="layer-title serif">Governance Layer</h3>
+          <p class="layer-desc">Escalation controls, auditability, human approval, source traceability, performance monitoring, drift detection, security review, and operational oversight.</p>
+        </div>
+      </div>
+      
+      <div class="stack-layer reveal">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 4</span>
+          <h3 class="layer-title serif">Mission Data Foundation</h3>
+          <p class="layer-desc">Governed enterprise data, authoritative sources, multicloud architecture, core to edge deployment, and containerized execution. The ground that makes an assistant worth trusting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT CHANGES ON THE GROUND -->
+<section class="padding-y ground-truth" id="impact">
+  <div class="container">
+    <span class="eyebrow">The World After</span>
+    <p class="large-quote reveal" style="max-width: 800px; margin-bottom: 20px;">What Changes On The Ground</p>
+    <p class="subtext reveal" style="color: #aab2bd;">Not in theory. In the work your teams touch every week.</p>
+    
+    <div class="ground-grid">
+      <div class="ground-card reveal">
+        <span class="category">Velocity</span>
+        <h3 class="serif">Cycles That Took Weeks Now Take Hours</h3>
+        <p>A MILCON estimate that once took three days is ready by midmorning. Compliance packages clear review on the first pass. Briefings assemble overnight.</p>
+      </div>
+      <div class="ground-card reveal" style="transition-delay: 0.1s;">
+        <span class="category">Retention</span>
+        <h3 class="serif">Expertise That Stays In The Building</h3>
+        <p>When an expert of thirty years leaves, the way they worked stays in the system. New analysts are productive almost at once, drawing on captured organizational knowledge.</p>
+      </div>
+      <div class="ground-card reveal" style="transition-delay: 0.2s;">
+        <span class="category">Scale</span>
+        <h3 class="serif">Capacity That Compounds</h3>
+        <p>The backlog finally clears. When a new mission lands, you stand up capacity in weeks, not budget cycles. Surge without burnout—the capacity is already standing by.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIND YOUR ROLE -->
+<section class="padding-y">
+  <div class="container">
+    <div class="reveal" style="margin-bottom: 60px;">
+      <span class="eyebrow">Direct Application</span>
+      <h2 style="font-size: clamp(36px, 4vw, 50px); margin-bottom: 15px;">Find Your Job On This List</h2>
+      <p class="subtext">Whatever you own, the change is the same shape: the recurring work shrinks, the judgment stays with you, and the time comes back to the mission.</p>
+    </div>
+    
+    <div class="role-grid reveal">
+      <div class="role-item">
+        <h4>Facilities Planning</h4>
+        <p>Cost estimates in hours instead of days, with far less rework before they hold up.</p>
+      </div>
+      <div class="role-item">
+        <h4>Acquisition</h4>
+        <p>Market research and requirements documentation drafted in a fraction of the time.</p>
+      </div>
+      <div class="role-item">
+        <h4>Compliance</h4>
+        <p>Evidence assembled for you, so audits stop consuming the calendar.</p>
+      </div>
+      <div class="role-item">
+        <h4>Readiness</h4>
+        <p>Reporting cycles that close overnight instead of running for weeks.</p>
+      </div>
+      <div class="role-item">
+        <h4>Software Portfolio</h4>
+        <p>Duplicate licenses and overlapping tools surfaced, so the spend can be cut.</p>
+      </div>
+      <div class="role-item">
+        <h4>Leadership</h4>
+        <p>Briefings assembled before the meeting, not pulled together the night before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MANTECH -->
+<section class="padding-y bg-soft" id="mantech">
+  <div class="container">
+    <div class="text-center reveal" style="max-width: 800px; margin: 0 auto 80px;">
+      <span class="eyebrow">The Partner</span>
+      <h2 style="font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px;">Why ManTech Is Positioned To Build This</h2>
+      <p class="subtext">This is not a roadmap of things to acquire. The pieces already exist, deployed, cleared, and in the mission today. Most partners would have to build these first. ManTech already operates them.</p>
+    </div>
+    
+    <div class="mantech-grid">
+      <div class="mt-item reveal">
+        <div class="mt-icon">01</div>
+        <div class="mt-content">
+          <h4 class="serif">Cleared Workforce & Existing Access</h4>
+          <p>Cleared experts already embedded across federal programs, ready to hold the judgment layer from day one, with active access and trusted relationships where this work already lives.</p>
+        </div>
+      </div>
+      <div class="mt-item reveal">
+        <div class="mt-icon">02</div>
+        <div class="mt-content">
+          <h4 class="serif">Deployed AI in Production</h4>
+          <p>AI already at work across real property lifecycles, software portfolio rationalization (ORI), and Defense Health automation. Not a concept, running systems.</p>
+        </div>
+      </div>
+      <div class="mt-item reveal">
+        <div class="mt-icon">03</div>
+        <div class="mt-content">
+          <h4 class="serif">Governed Environment & Foundation</h4>
+          <p>An authorized AI Sandbox to build and test assistants, backed by a Modern Data Platform handling governed, multicloud data from core to edge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE / FORM -->
+<section class="form-section" id="start">
+  <div class="container form-grid">
+    <div class="form-info reveal">
+      <span class="eyebrow" style="color: var(--past);">Take The Step</span>
+      <h2 class="serif">See It On Your Own Mission</h2>
+      <p>One function, one team, twelve weeks, measured against your own baseline. The first proof is the MILCON Cost Estimator.</p>
+      <div style="width: 60px; height: 2px; background: var(--accent);"></div>
+    </div>
+    
+    <div class="form-card reveal" style="transition-delay: 0.2s;">
+      <form id="pilotForm">
+        <div class="fg">
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="fg">
+          <label for="agency">Agency / Program Office</label>
+          <input type="text" id="agency" required>
+        </div>
+        <div class="fg">
+          <label for="email">Government Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="fg">
+          <label>Intent to Pilot</label>
+          <div class="sigpad-wrap">
+            <canvas class="sigpad" id="sigpad"></canvas>
+            <div class="sig-tools">
+              <span>Sign to express interest. Not a commitment.</span>
+              <button type="button" class="btn-clear" id="sigclear">Clear</button>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-submit">Request a Briefing</button>
+        <p class="reassure">People stay in the loop by design. Your data stays inside governed, authorized environments.</p>
+      </form>
+      
+      <div class="success-state" id="success">
+        <div class="check">&check;</div>
+        <h3 class="serif" style="font-size: 28px; margin-bottom: 10px;">Request Received</h3>
+        <p style="color: var(--slate); font-size: 16px;">A ManTech mission team will follow up to scope your baseline and authorization path.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCE NOTE -->
+<div class="srcnote">
+  <div class="container">
+    Capability references reflect ManTech's deployed Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, the Modern Data Platform, and containerized deployment. Assistant names denote intended mission functions; deployment status and performance figures should be confirmed per system before external use.
+  </div>
+</div>
+
+<script>
+// Scroll Reveal Animation
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 100;
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    }
+  }
+}
+window.addEventListener("scroll", reveal);
+reveal(); // Trigger on load
+
+// Nav Scroll Effect
+window.addEventListener("scroll", function() {
+  var nav = document.getElementById("navbar");
+  if (window.scrollY > 50) {
+    nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)";
+    nav.style.padding = "0";
+  } else {
+    nav.style.boxShadow = "none";
+    nav.style.padding = "10px 0 0 0";
+  }
+});
+
+// Active Link Highlight
+const sections = document.querySelectorAll("section[id], header[id]");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute("id");
+    }
+  });
+  document.querySelectorAll(".nav-links a").forEach((li) => {
+    li.classList.remove("active");
+    if (li.getAttribute("href").includes(current)) {
+      li.classList.add("active");
+    }
+  });
+});
+
+// Signature Pad Logic
+(function(){
+  var canvas = document.getElementById('sigpad');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d'), drawing=false, hasInk=false;
+  
+  function resize(){ 
+    var rect = canvas.parentNode.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = 120;
+    ctx.lineWidth = 2.5; 
+    ctx.lineCap = 'round'; 
+    ctx.strokeStyle = '#16243b'; 
+  }
+  window.addEventListener('resize', resize);
+  setTimeout(resize, 0);
+
+  function pos(e){ 
+    var rc = canvas.getBoundingClientRect(), 
+    p = e.touches ? e.touches[0] : e; 
+    return {x: p.clientX - rc.left, y: p.clientY - rc.top}; 
+  }
+  
+  function start(e){ drawing=true; hasInk=true; var p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); e.preventDefault(); }
+  function move(e){ if(!drawing)return; var p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); e.preventDefault(); }
+  function end(){ drawing=false; }
+  
+  canvas.addEventListener('mousedown',start); 
+  canvas.addEventListener('mousemove',move); 
+  window.addEventListener('mouseup',end);
+  canvas.addEventListener('touchstart',start, {passive: false}); 
+  canvas.addEventListener('touchmove',move, {passive: false}); 
+  canvas.addEventListener('touchend',end);
+  
+  document.getElementById('sigclear').addEventListener('click',function(){ 
+    ctx.clearRect(0,0,canvas.width,canvas.height); 
+    hasInk=false; 
+  });
+  
+  document.getElementById('pilotForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('pilotForm').style.display='none';
+    document.getElementById('success').style.display='block';
+  });
+})();
+</script>
+</body>
+</html>
