@@ -265,7 +265,25 @@ These follow the same model: carry repetitive workload, flag uncertainty, route 
 
 These assistants prepare, organize, analyze, and brief. They support decisions. They do not make them.
 
-**Honest scoping matters.** Today, two assistants are deployed with operational proof. The rest represent a deliberate expansion path, not shipping capability. We field each assistant only when its results justify it — which is precisely why the engagement begins with a single proven assistant and grows from measured evidence.
+**Honest scoping matters.** The assistant *catalog* is a roadmap, not a current inventory. But the underlying *capability* is not a single demo: ManTech already runs AI in production across multiple missions and agencies. Each new assistant productizes a proven pattern, fielded only when its results justify it.
+
+---
+
+## This Is Not One Demo In One Domain
+
+The Mission Assistant model generalizes because the proof already does. ManTech's deployed AI spans several missions and agencies:
+
+- **Real Property cost estimating (DoD):** Real Property Lifecycle AI returns days of research in minutes, cuts rework by up to 90 percent, and produces auditable estimate packages. This becomes the Cost Estimator.
+- **Software portfolio (enterprise):** ORI identifies overlapping and duplicated software functions across the enterprise, surfacing duplicate spend to retire. This becomes the Code Rationalization Assistant.
+- **Defense Health:** Form Automation for the Reserve Health Readiness Assessment streamlines DoD clinician workflows, returning time with patients and reducing errors.
+- **Enterprise generative AI (DHS and DoD):** the MESA-RA accelerator integrates generative AI into enterprise services, with organizations realizing substantial efficiency gains.
+- **In-mission deployment (DoD):** the AI Sandbox lets a client build, test, and deploy AI directly inside mission systems, with containerized models for restricted and unrestricted environments.
+
+**Why these numbers survive a skeptical review.** A contracting officer or inspector general does not have to believe a vendor's figures. The motion is built so the evidence is the customer's own:
+
+1. **Attributable by baseline.** Pilot Phase 1 captures the current before-picture first. Every gain is measured against the agency's own baseline, so the result is attributable to its data and process, not a borrowed claim.
+2. **Measured in the customer's terms.** Cycle time, rework, escalation rate, and hours returned are tracked on real mission tasks during live use. The agency produces its own figure before a dollar scales.
+3. **A beachhead, not a ceiling.** Cost estimating went first because its data was cleanest. The architecture, multi-agent reasoning, retrieval grounded in authoritative sources, and human-in-the-loop, carries to every assistant on the roadmap.
 
 ---
 
