@@ -33,30 +33,24 @@ strong{color:var(--text-dark);font-weight:800;}
 .hero .eyebrow{margin-top:32px;font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:800;color:var(--accent);}
 .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;font-weight:900;letter-spacing:-1.5px;margin:14px auto 12px;max-width:900px;color:var(--text-dark);}
 .hero .sub{font-size:clamp(16px,2.4vw,20px);font-weight:500;color:var(--text-body);max-width:740px;margin:0 auto 28px;line-height:1.5;}
-.hero-arc{display:flex;align-items:stretch;justify-content:center;gap:12px;flex-wrap:wrap;margin:8px auto 30px;}
-.arc-step{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 22px;border-radius:10px;border:1px solid var(--line);background:#fff;min-width:140px;}
-.arc-step .arc-era{font-size:16px;font-weight:800;color:var(--slate);letter-spacing:-.2px;}
-.arc-step .arc-yr{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);}
-.arc-step.now{border-color:var(--accent);box-shadow:0 6px 20px rgba(200,16,46,.12);}
-.arc-step.now .arc-era{color:var(--accent);}
-.arc-sep{display:flex;align-items:center;color:var(--muted);font-size:20px;font-weight:700;}
-.arc-cap{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:2px 0 12px;}
-@media(max-width:560px){.hero-arc{gap:8px;}.arc-step{min-width:0;padding:11px 10px;flex:1;}.arc-step .arc-era{font-size:14px;}.arc-sep{font-size:14px;}}
+.hero-path{display:inline-flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:6px auto 30px;font-size:clamp(15px,2vw,18px);font-weight:800;color:var(--slate);}
+.hero-path .sep{color:var(--muted);font-weight:600;}
+.hero-path .now{color:var(--accent);}
+.arc-cap{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:2px 0 10px;}
 .hero-cta{display:inline-block;background:var(--accent);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:14px;padding:15px 30px;border-radius:8px;text-decoration:none;transition:background .15s;}
 .hero-cta:hover{background:var(--accent-dk);}
 
-/* ===== TOP NAV (slim, pinned) ===== */
-.topnav{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 20px;height:58px;}
-.nav-logo{display:inline-flex;align-items:center;gap:8px;font-weight:800;letter-spacing:1.5px;font-size:16px;color:var(--accent);flex-shrink:0;text-decoration:none;}
+/* ===== TOP NAV / CONTENTS BAR ===== */
+.topnav{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(20,30,50,.05);}
+.nav-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:0 20px;height:56px;}
+.nav-logo{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-weight:800;letter-spacing:1.5px;font-size:16px;color:var(--accent);text-decoration:none;}
 .nav-logo .logo{width:25px;height:25px;border:2.5px solid var(--accent);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
-.nav-links{display:flex;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.nav-links{justify-self:center;display:flex;align-items:stretch;gap:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
 .nav-links::-webkit-scrollbar{height:0;display:none;}
-.nav-links a{font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--slate);text-decoration:none;padding:8px 11px;border-radius:6px;white-space:nowrap;transition:color .15s,background .15s;}
-.nav-links a:hover{color:var(--accent);background:var(--bg-gray);}
-.nav-links a.nav-cta{background:var(--accent);color:#fff;padding:8px 18px;margin-left:8px;}
-.nav-links a.nav-cta:hover{background:var(--accent-dk);color:#fff;}
-@media(max-width:760px){.nav-inner{height:52px;gap:12px;}.nav-links a{padding:8px 9px;}}
+.nav-links a{display:inline-flex;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--slate);text-decoration:none;padding:0 13px;height:55px;white-space:nowrap;transition:color .15s;border-bottom:3px solid transparent;}
+.nav-links a:hover{color:var(--accent);}
+.nav-links a.active{color:var(--accent);border-bottom-color:var(--accent);}
+@media(max-width:860px){.nav-inner{grid-template-columns:1fr;justify-items:center;height:auto;padding:8px 12px 0;gap:4px;}.nav-logo{justify-self:center;}.nav-links a{height:44px;padding:0 10px;}}
 
 /* ===== SECTIONS ===== */
 .section{padding:60px 0;scroll-margin-top:70px;border-bottom:1px solid var(--line);}
@@ -67,20 +61,23 @@ strong{color:var(--text-dark);font-weight:800;}
 .section-lede{text-align:center;font-size:18px;color:var(--text-body);max-width:760px;margin:0 auto 34px;line-height:1.55;}
 .note{max-width:760px;margin:26px auto 0;font-size:16px;text-align:center;color:var(--text-body);line-height:1.6;}
 
-/* ===== ERAS TIMELINE ===== */
-.eras{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
-@media(max-width:780px){.eras{grid-template-columns:1fr;}}
-.era{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 0 24px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05);position:relative;}
-.era .bar{height:7px;width:100%;}
-.era.past .bar{background:var(--past);} .era.present .bar{background:var(--present);} .era.future .bar{background:var(--future);}
-.era .inner{padding:22px 24px 0;}
-.era .tag{display:inline-block;font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:#fff;padding:4px 10px;border-radius:5px;margin-bottom:12px;}
-.era.past .tag{background:var(--past);} .era.present .tag{background:var(--present);} .era.future .tag{background:var(--future);}
-.era .years{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.5px;}
-.era h3{font-size:23px;font-weight:900;color:var(--text-dark);line-height:1.12;margin:4px 0 10px;letter-spacing:-.5px;}
-.era p{font-size:14.5px;line-height:1.55;color:var(--text-body);}
-.era.future{border-color:var(--future);box-shadow:0 8px 26px rgba(200,16,46,.14);}
-.era .badge{position:absolute;top:18px;right:18px;font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--future);background:#fdf0f2;padding:3px 9px;border-radius:12px;}
+/* ===== ERAS VERTICAL TIMELINE ===== */
+.timeline{position:relative;max-width:740px;margin:14px auto 0;padding-left:40px;}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:10px;width:3px;border-radius:2px;background:linear-gradient(to bottom,var(--past) 0%,var(--present) 52%,var(--future) 100%);}
+.tl-stop{position:relative;padding:0 0 36px;}
+.tl-stop:last-child{padding-bottom:0;}
+.tl-stop::before{content:"";position:absolute;left:-38px;top:3px;width:21px;height:21px;border-radius:50%;background:#fff;border:4px solid var(--past);}
+.tl-stop.present::before{border-color:var(--present);}
+.tl-stop.future::before{width:25px;height:25px;left:-40px;border-color:var(--future);box-shadow:0 0 0 5px rgba(200,16,46,.12);}
+.tl-meta{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:5px;}
+.tl-phase{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--past);padding:3px 9px;border-radius:4px;}
+.tl-stop.present .tl-phase{background:var(--present);}
+.tl-stop.future .tl-phase{background:var(--future);}
+.tl-yr{font-size:12.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);}
+.tl-stop h3{font-size:23px;font-weight:900;color:var(--text-dark);line-height:1.14;letter-spacing:-.5px;margin:2px 0 8px;}
+.tl-stop.future h3{color:var(--accent);}
+.tl-stop p{font-size:14.5px;line-height:1.58;color:var(--text-body);}
+@media(max-width:560px){.timeline{padding-left:32px;}.tl-stop::before{left:-30px;}.tl-stop.future::before{left:-32px;}}
 
 /* ===== SHIFT COMPARISON ===== */
 .shift{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;}
@@ -226,7 +223,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
       <a href="#trust">Trust</a>
       <a href="#economics">Economics</a>
       <a href="#pilot">Pilot</a>
-      <a href="#start" class="nav-cta">Start</a>
+      <a href="#start">Start</a>
     </div>
   </div>
 </nav>
@@ -237,14 +234,8 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
   <h1>Your Mission Keeps Growing.<br>Your Team Doesn't.</h1>
   <p class="sub">The old answer was to add people, and it has run out of room. Mission Workforce Infrastructure adds mission capacity without adding headcount: human experts in command, Mission Assistants carrying the repeatable load.</p>
   <div class="arc-cap">How agencies have scaled mission capacity</div>
-  <div class="hero-arc">
-    <div class="arc-step past"><span class="arc-era">Labor</span><span class="arc-yr">1960s&ndash;2000s</span></div>
-    <span class="arc-sep">&rarr;</span>
-    <div class="arc-step past"><span class="arc-era">Software</span><span class="arc-yr">2000s&ndash;2020s</span></div>
-    <span class="arc-sep">&rarr;</span>
-    <div class="arc-step now"><span class="arc-era">Mission Workforce</span><span class="arc-yr">2025 onward</span></div>
-  </div>
-  <a href="#eras" class="hero-cta">See The Shift &darr;</a>
+  <div class="hero-path"><span>Labor</span><span class="sep">&rarr;</span><span>Software</span><span class="sep">&rarr;</span><span class="now">Mission Workforce</span></div>
+  <a href="#eras" class="hero-cta">Walk The Timeline &darr;</a>
 </header>
 
 <!-- ===== 01 THE ERAS ===== -->
@@ -253,34 +244,21 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
     <span class="eyebrow">01 &middot; Past, Present, Future</span>
     <h2 class="section-title">Three Eras Of Mission Capacity</h2>
     <p class="section-lede">For sixty years, federal mission capacity has scaled in distinct technology cycles. We are entering the third.</p>
-    <div class="eras">
-      <div class="era past">
-        <div class="bar"></div>
-        <div class="inner">
-          <span class="tag">The Past</span>
-          <div class="years">1960s &ndash; 2000s</div>
-          <h3>Labor Workforce</h3>
-          <p>Agencies increased capacity by adding people. More mission work meant more employees, more contractors, more analysts, and more labor-based support.</p>
-        </div>
+    <div class="timeline">
+      <div class="tl-stop past">
+        <div class="tl-meta"><span class="tl-phase">The Past</span><span class="tl-yr">1960s &ndash; 2000s</span></div>
+        <h3>Labor Workforce</h3>
+        <p>When the mission grew, agencies grew the payroll. More work meant more employees, more contractors, more analysts. Capacity was measured in people, and every increment cost a hire.</p>
       </div>
-      <div class="era present">
-        <div class="bar"></div>
-        <div class="inner">
-          <span class="tag">The Present</span>
-          <div class="years">2000s &ndash; 2020s</div>
-          <h3>Digital Infrastructure</h3>
-          <p>Agencies increased capability through software, cloud, cybersecurity, enterprise platforms, data systems, and digital modernization.</p>
-        </div>
+      <div class="tl-stop present">
+        <div class="tl-meta"><span class="tl-phase">The Present</span><span class="tl-yr">2000s &ndash; 2020s</span></div>
+        <h3>Digital Infrastructure</h3>
+        <p>Software changed the math. Cloud, cybersecurity, enterprise platforms, and data systems let a team do more without growing in lockstep. But the software still waited on people to run it.</p>
       </div>
-      <div class="era future">
-        <div class="bar"></div>
-        <span class="badge">We Are Here Next</span>
-        <div class="inner">
-          <span class="tag">The Future</span>
-          <div class="years">2025 &ndash; 2040</div>
-          <h3>Hybrid Workforce Infrastructure</h3>
-          <p>Human experts lead, judge, and stay accountable. Mission Assistants carry the repeatable load under human supervision. Output grows without proportional headcount or risk.</p>
-        </div>
+      <div class="tl-stop future">
+        <div class="tl-meta"><span class="tl-phase">The Next Era</span><span class="tl-yr">2025 &ndash; 2040</span></div>
+        <h3>Hybrid Workforce Infrastructure</h3>
+        <p>Now capacity comes from a workforce layer. Human experts lead, judge, and stay accountable while Mission Assistants carry the repeatable load. Output grows without growing headcount or risk. This is where you are headed.</p>
       </div>
     </div>
     <p class="note">That is the category. <strong>Mission Workforce Infrastructure.</strong> Not labor alone. Not software alone. A governed layer where human experts and Mission Assistants operate together.</p>
@@ -534,6 +512,23 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
 </div>
 
 <script>
+// ===== Contents-bar scrollspy =====
+(function(){
+  var links = {};
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    links[a.getAttribute('href').slice(1)] = a;
+  });
+  var ids = ['eras','problem','shift','model','proof','trust','economics','pilot','start'];
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        Object.keys(links).forEach(function(k){ links[k].classList.remove('active'); });
+        if(links[e.target.id]) links[e.target.id].classList.add('active');
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+  ids.forEach(function(id){ var el=document.getElementById(id); if(el) obs.observe(el); });
+})();
 (function(){
   var canvas = document.getElementById('sigpad');
   var ctx = canvas.getContext('2d');
