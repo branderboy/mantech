@@ -105,11 +105,15 @@ td:first-child{font-weight:700;color:var(--ink);width:38%;}
 .layer .lbody li{font-size:14.5px;color:var(--ink);font-weight:600;position:relative;padding-left:15px;}
 .layer .lbody li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 
-/* AFTER */
-.after{max-width:680px;margin:8px auto 0;}
-.after p{font-size:18.5px;line-height:1.6;color:var(--body);padding:20px 0;border-bottom:1px solid var(--line);margin:0;}
-.after p:first-child{border-top:1px solid var(--line);}
-.after p .hl{color:var(--ink);font-weight:700;}
+/* AFTER (editorial) */
+.ground{max-width:720px;margin:14px auto 0;}
+.ground-group{margin-bottom:48px;}
+.ground-group:last-child{margin-bottom:0;}
+.ground-head{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.3px;padding-bottom:15px;margin-bottom:6px;border-bottom:2px solid var(--navy);}
+.ground-item{padding:17px 0;border-bottom:1px solid var(--line);}
+.ground-item:last-child{border-bottom:none;}
+.ground-item p{font-size:17.5px;line-height:1.62;color:var(--body);margin:0;}
+.ground-item .lead-in{font-weight:700;color:var(--ink);}
 
 /* ASSETS */
 .assets{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:16px;max-width:820px;margin:8px auto 0;}
@@ -299,15 +303,24 @@ td:first-child{font-weight:700;color:var(--ink);width:38%;}
     <span class="eyebrow">The World After</span>
     <h2 class="section-title">What Changes On The Ground</h2>
     <p class="lede">Not in theory. In the work your teams touch every week.</p>
-    <div class="after">
-      <p>An estimate that once took three days is ready by mid-morning, with the <span class="hl">uncertain pieces already flagged</span> for a person to settle.</p>
-      <p>Compliance packages reach review complete the first time, instead of <span class="hl">bouncing back twice</span> and burning a month.</p>
-      <p>A readiness report assembles overnight, so the briefing is <span class="hl">built before the meeting starts</span>.</p>
-      <p>When a thirty-year expert retires, the way they worked <span class="hl">stays behind in the system</span>, not out the door with them.</p>
-      <p>A new analyst is useful in weeks instead of years, because the <span class="hl">hard-won knowledge is already there</span> to draw on.</p>
-      <p>The backlog that defined the office for years <span class="hl">finally clears</span>, because throughput no longer waits on a hire you can't make.</p>
-      <p>When a new mission lands, you stand up the capacity to meet it in <span class="hl">weeks, not budget cycles</span>.</p>
-      <p>A surge stops meaning overtime and burnout. The <span class="hl">capacity is already standing by</span>.</p>
+    <div class="ground">
+      <div class="ground-group">
+        <h3 class="ground-head">Cycles That Took Weeks Now Take Hours</h3>
+        <div class="ground-item"><p><span class="lead-in">An estimate that once took three days is ready by mid-morning</span> &mdash; with the uncertain pieces already flagged for a person to settle.</p></div>
+        <div class="ground-item"><p><span class="lead-in">Compliance packages reach review-complete the first time</span> &mdash; instead of bouncing back twice and burning a month.</p></div>
+        <div class="ground-item"><p><span class="lead-in">A readiness report assembles overnight</span> &mdash; so the briefing is built before the meeting starts.</p></div>
+      </div>
+      <div class="ground-group">
+        <h3 class="ground-head">Expertise That Stays In The Building</h3>
+        <div class="ground-item"><p><span class="lead-in">When a thirty-year expert retires, the way they worked stays behind in the system</span> &mdash; not out the door with them.</p></div>
+        <div class="ground-item"><p><span class="lead-in">A new analyst is useful in weeks instead of years</span> &mdash; because the hard-won knowledge is already there to draw on.</p></div>
+      </div>
+      <div class="ground-group">
+        <h3 class="ground-head">Capacity That Compounds</h3>
+        <div class="ground-item"><p><span class="lead-in">The backlog that defined the office for years finally clears</span> &mdash; because throughput no longer waits on a hire you can't make.</p></div>
+        <div class="ground-item"><p><span class="lead-in">When a new mission lands, you stand up the capacity to meet it in weeks</span> &mdash; not budget cycles.</p></div>
+        <div class="ground-item"><p><span class="lead-in">A surge stops meaning overtime and burnout</span> &mdash; the capacity is already standing by.</p></div>
+      </div>
     </div>
     <p class="big-say">No one is working longer. The agency simply has capacity it could never have hired, and it compounds with every month it runs.</p>
   </div>
