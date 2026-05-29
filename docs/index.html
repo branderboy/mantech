@@ -54,8 +54,9 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 }
 
 /* HERO - EDITORIAL SPLIT */
-.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-visual { align-self: center; }
 .hero-content h1 { font-size: clamp(48px, 5.5vw, 76px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 30px; }
 .hero-content .subtext { margin-bottom: 40px; max-width: 500px; }
 .hero-content .btn { margin-bottom: 32px; }
@@ -188,6 +189,15 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .deploy-item { border-left: 2px solid var(--slate); padding-left: 20px; }
 .deploy-item h4 { color: #8ec5ff; font-size: 18px; margin-bottom: 8px; font-family: var(--sans); }
 .deploy-item p { color: #cdd5df; font-size: 15px; line-height: 1.5; }
+.proof-grid { display: grid; grid-template-columns: 4fr 7fr; gap: 70px; align-items: center; }
+.proof-visual { display: flex; justify-content: center; }
+.proof-clock { width: 100%; max-width: 340px; height: auto; }
+.proof-content .deploy-grid { grid-template-columns: repeat(2, 1fr); }
+@media(max-width: 900px) {
+  .proof-grid { grid-template-columns: 1fr; gap: 40px; }
+  .proof-visual { max-width: 240px; margin: 0 auto; }
+  .proof-content .deploy-grid { grid-template-columns: 1fr; }
+}
 
 /* FOOTER FORM - SINGLE BUTTON CTA */
 .form-section { background: var(--bg-soft); padding: 90px 0; border-top: 1px solid var(--line); }
@@ -195,8 +205,15 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .form-info h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 30px; }
 .form-info p { font-size: 20px; color: var(--slate); line-height: 1.7; margin-bottom: 40px; }
 
-.form-card { background: #fff; padding: 60px 40px; border-radius: 4px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--ink); text-align: center; }
+.form-card { background: #fff; padding: 50px 40px; border-radius: 4px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--ink); text-align: center; }
 .reassure { color: var(--muted); }
+.form-card form { text-align: left; }
+.form-card .fg { margin-bottom: 18px; }
+.form-card .fg label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); margin-bottom: 8px; }
+.form-card .fg input { width: 100%; padding: 14px; border: 1px solid #d6dbe2; border-radius: 2px; font-size: 16px; font-family: inherit; background: var(--bg-soft); transition: border-color 0.2s; }
+.form-card .fg input:focus { outline: none; border-color: var(--accent); background: #fff; }
+.success-state { display: none; }
+.success-state .check { width: 64px; height: 64px; background: #1c7c3c; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 16px; }
 
 @media(max-width: 900px) {
   .form-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -473,28 +490,53 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 <!-- PROOF SECTION -->
 <section class="padding-y proof-section" id="proof">
-  <div class="container">
-    <span class="eyebrow">Proven In The Mission</span>
-    <h2 class="serif">Deployed Today. Not Tomorrow.</h2>
-    <p class="subtext reveal">This is not a concept. These are the active systems and authorized environments already running in federal missions today.</p>
+  <div class="container proof-grid">
+    <div class="proof-visual reveal">
+      <svg viewBox="0 0 500 500" class="proof-clock" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <circle cx="250" cy="250" r="216" stroke="#2f4a6b" stroke-width="2"/>
+        <circle cx="250" cy="250" r="200" stroke="#33455f" stroke-width="1"/>
+        <g fill="#9fb0c6">
+          <circle cx="250" cy="60" r="7" fill="#b3132b"/>
+          <circle cx="345" cy="85" r="5"/>
+          <circle cx="415" cy="155" r="5"/>
+          <circle cx="440" cy="250" r="5"/>
+          <circle cx="415" cy="345" r="5"/>
+          <circle cx="345" cy="415" r="5"/>
+          <circle cx="250" cy="440" r="5"/>
+          <circle cx="155" cy="415" r="5"/>
+          <circle cx="85" cy="345" r="5"/>
+          <circle cx="60" cy="250" r="5"/>
+          <circle cx="85" cy="155" r="5"/>
+          <circle cx="155" cy="85" r="5"/>
+        </g>
+        <line x1="250" y1="250" x2="250" y2="120" stroke="#8ec5ff" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="250" x2="358" y2="250" stroke="#b3132b" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="250" cy="250" r="13" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="proof-content">
+      <span class="eyebrow">Proven In The Mission</span>
+      <h2 class="serif">Deployed Today. Not Tomorrow.</h2>
+      <p class="subtext reveal">This is not a concept. These are the active systems and authorized environments already running in federal missions today.</p>
 
-    <!-- Active Deployments -->
-    <div class="deploy-grid reveal">
-      <div class="deploy-item">
-        <h4>Real Property Lifecycle AI</h4>
-        <p>AI actively deployed across the facilities, military construction, and real property mission space.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>ORI</h4>
-        <p>The Overlapping Resource Identification tool, proven at surfacing duplicate software spend across enterprise portfolios.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>Defense Health Automation</h4>
-        <p>Automation running securely in one of the most demanding, regulated mission environments in government.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>ManTech AI Sandbox</h4>
-        <p>An authorized environment to build, test, and prove assistants on governed data before touching a production mission.</p>
+      <!-- Active Deployments -->
+      <div class="deploy-grid reveal">
+        <div class="deploy-item">
+          <h4>Real Property Lifecycle AI</h4>
+          <p>AI actively deployed across the facilities, military construction, and real property mission space.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>ORI</h4>
+          <p>The Overlapping Resource Identification tool, proven at surfacing duplicate software spend across enterprise portfolios.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>Defense Health Automation</h4>
+          <p>Automation running securely in one of the most demanding, regulated mission environments in government.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>ManTech AI Sandbox</h4>
+          <p>An authorized environment to build, test, and prove assistants on governed data before touching a production mission.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -511,13 +553,22 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     </div>
 
     <div class="form-card reveal" style="transition-delay: 0.2s;">
-      <h3 class="serif" style="font-size: 32px; margin-bottom: 15px;">Ready to see the model?</h3>
-      <p style="color: var(--slate); margin-bottom: 35px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
+      <h3 class="serif" style="font-size: 32px; margin-bottom: 15px;">Ready To See The Model?</h3>
+      <p style="color: var(--slate); margin-bottom: 30px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
 
-      <!-- Single Executive Button -->
-      <a href="mailto:contact@mantech.com?subject=Mission%20Capacity%20Assessment%20Request" class="btn" style="padding: 22px 20px; font-size: 13px; letter-spacing: 1px; width: 100%; white-space: nowrap;">Get A Mission Capacity Assessment</a>
+      <form id="pilotForm">
+        <div class="fg"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+        <div class="fg"><label for="agency">Agency / Program Office</label><input type="text" id="agency" name="agency" required></div>
+        <div class="fg"><label for="email">Government Email</label><input type="email" id="email" name="email" required></div>
+        <button type="submit" class="btn" style="padding: 18px 20px; font-size: 13px; letter-spacing: 1px; width: 100%; white-space: nowrap; margin-top: 6px;">Get A Mission Capacity Assessment</button>
+        <p class="reassure" style="margin-top: 20px; font-size: 12px; text-align: center;">This is an exploratory briefing. All discussions are handled in governed, authorized channels.</p>
+      </form>
 
-      <p class="reassure" style="margin-top: 25px; font-size: 12px;">This is an exploratory briefing. All discussions are handled in governed, authorized channels.</p>
+      <div class="success-state" id="success">
+        <div class="check">&check;</div>
+        <h3 class="serif" style="font-size: 26px; margin-bottom: 10px;">Request Received</h3>
+        <p style="color: var(--slate); font-size: 16px;">A ManTech mission team will follow up to scope your baseline and authorization path.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -565,6 +616,17 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+// Pilot form submit
+(function(){
+  var pf = document.getElementById('pilotForm');
+  if (!pf) return;
+  pf.addEventListener('submit', function(e){
+    e.preventDefault();
+    pf.style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  });
+})();
 </script>
 </body>
 </html>
