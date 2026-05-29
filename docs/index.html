@@ -226,6 +226,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
       <a href="#vision">Vision</a>
       <a href="#shift">Shift</a>
       <a href="#model">Model</a>
+      <a href="#tools">Tools</a>
       <a href="#proof">Proof</a>
       <a href="#trust">Trust</a>
       <a href="#economics">Economics</a>
@@ -348,6 +349,25 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
   </div>
 </section>
 
+<!-- ===== THE TOOLS ===== -->
+<section class="section" id="tools">
+  <div class="container">
+    <span class="eyebrow">The Tools</span>
+    <h2 class="section-title">You Already Own The Tools</h2>
+    <p class="section-lede">A tool is something you operate. An assistant is someone you hand a job to. ManTech doesn't have to build anything new, its deployed tools become the assistants, the way a drill becomes a finished cabinet once a carpenter picks it up.</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tool ManTech runs today</th><th>Becomes</th><th>The job it does</th></tr>
+        <tr><td>Real Property Lifecycle AI</td><td>Cost Estimator</td><td>Builds defensible facility cost estimates, flags uncertain scope for a person, returns an auditable package.</td></tr>
+        <tr><td>ORI</td><td>Code Rationalization Assistant</td><td>Finds duplicated and overlapping software, recommends what to retire, consolidate, or keep.</td></tr>
+        <tr><td>Defense Health Form Automation</td><td>Clinician Documentation Assistant</td><td>Handles readiness paperwork, gives clinicians time back with patients, cuts errors.</td></tr>
+        <tr><td>AI Sandbox + containerized models</td><td>Where the assistants run</td><td>Builds and runs AI inside mission systems, connected or fully disconnected.</td></tr>
+      </table>
+    </div>
+    <p class="note">These are real and running today. The other assistants on the roadmap are built on the same pattern, and ManTech fields them only when results justify it.</p>
+  </div>
+</section>
+
 <!-- ===== 05 THE PROOF ===== -->
 <section class="section" id="proof">
   <div class="container">
@@ -383,16 +403,6 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
       <div class="ba-stat"><div class="n">Consistent</div><div class="l">Estimate quality across the portfolio</div></div>
     </div>
     <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:12px;">Operational proof-of-concept results from Real Property Lifecycle AI. The pilot establishes <em>your</em> figures against <em>your</em> baseline.</p>
-
-    <h3 style="text-align:center;font-size:20px;font-weight:900;color:var(--text-dark);margin:38px 0 6px;">This Is Not One Demo In One Domain</h3>
-    <p style="text-align:center;font-size:15px;color:var(--text-body);max-width:760px;margin:0 auto 22px;line-height:1.55;">ManTech already runs AI in production across multiple missions and agencies. The Mission Assistant model generalizes because the proof already does.</p>
-    <div class="econ-cards">
-      <div class="econ-card"><div style="font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">Real Property &middot; DoD</div><h4>Cost Estimating</h4><p>Real Property Lifecycle AI: days of research to minutes, up to 90% less rework, auditable estimate packages. Becomes the Cost Estimator.</p></div>
-      <div class="econ-card"><div style="font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">Software Portfolio</div><h4>Code Rationalization</h4><p>ORI identifies overlapping and duplicated software functions across the enterprise, surfacing duplicate spend to retire. Becomes the Code Rationalization Assistant.</p></div>
-      <div class="econ-card"><div style="font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">Defense Health</div><h4>Clinician Form Automation</h4><p>Form Automation for the Reserve Health Readiness Assessment streamlines DoD clinician workflows, returning time with patients and reducing errors.</p></div>
-      <div class="econ-card"><div style="font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">Enterprise GenAI &middot; DHS + DoD</div><h4>MESA-RA Accelerator</h4><p>ManTech's accelerator integrates generative AI into enterprise services. DHS and DoD organizations are realizing substantial efficiency gains.</p></div>
-      <div class="econ-card"><div style="font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">In-Mission &middot; DoD</div><h4>AI Sandbox</h4><p>A DoD client builds, tests, and deploys its own AI directly inside mission systems, with containerized models for restricted and unrestricted environments.</p></div>
-    </div>
 
     <h3 style="text-align:center;font-size:20px;font-weight:900;color:var(--text-dark);margin:40px 0 6px;">Why These Numbers Survive A Skeptical Review</h3>
     <p style="text-align:center;font-size:15px;color:var(--text-body);max-width:760px;margin:0 auto 22px;line-height:1.55;">A contracting officer or inspector general does not have to believe a vendor's figures. The motion is built so the evidence is the customer's own.</p>
@@ -534,7 +544,7 @@ td:first-child{font-weight:700;color:var(--text-dark);width:38%;}
   document.querySelectorAll('.nav-links a').forEach(function(a){
     links[a.getAttribute('href').slice(1)] = a;
   });
-  var ids = ['eras','problem','vision','shift','model','proof','trust','economics','pilot','start'];
+  var ids = ['eras','problem','vision','shift','model','tools','proof','trust','economics','pilot','start'];
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
