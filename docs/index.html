@@ -221,6 +221,15 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .assure-list li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: #1c7c3c; font-weight: 800; }
 .job-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 800px; margin: 20px auto 2px; }
 .job-chips span { font-size: 14px; color: var(--ink); background: #eef2f7; border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; line-height: 1.2; }
+.uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1000px; margin: 44px auto 0; }
+.uc-card { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 14px; padding: 26px; box-shadow: 0 10px 30px rgba(22,36,59,.06); display: flex; flex-direction: column; text-align: left; }
+.uc-agency { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.uc-card h4 { font-size: 20px; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+.uc-problem { font-size: 14.5px; color: var(--slate); line-height: 1.55; margin-bottom: 14px; }
+.uc-asst { margin-bottom: 14px; }
+.uc-asst span { display: inline-block; font-size: 12px; font-weight: 700; color: var(--ink); background: #eef2f7; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; margin: 0 6px 6px 0; }
+.uc-cap { font-size: 14.5px; color: var(--ink); font-weight: 600; line-height: 1.5; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+@media(max-width: 760px) { .uc-grid { grid-template-columns: 1fr; } }
 .safeflow { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 16px; max-width: 1120px; margin: 34px auto 0; }
 .sfnode { position: relative; flex: 1 1 170px; max-width: 200px; min-height: 204px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 14px; padding: 28px 18px 24px; text-align: center; box-shadow: 0 10px 30px rgba(22,36,59,.06); }
 .sfnode.final { border-top-color: #1c7c3c; background: var(--bg-soft); }
@@ -643,6 +652,47 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+
+<!-- USE CASES -->
+<section class="padding-y" id="use-cases">
+  <div class="container">
+    <div class="reveal" style="max-width: 760px; margin: 0 auto 10px; text-align: center;">
+      <span class="eyebrow">Use Cases</span>
+      <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 14px;">The Same Assistants, Across The Mission</h2>
+      <p class="subtext">From decades of legacy records to this month's reports, here is where Mission Assistants take the recurring work off your team.</p>
+    </div>
+    <div class="uc-grid reveal">
+      <div class="uc-card">
+        <span class="uc-agency">Army</span>
+        <h4>Find Anything In Decades Of Records</h4>
+        <p class="uc-problem">Thirty years of documents scattered across SharePoint, shared drives, PDFs, email, and wikis. Nobody knows where anything is.</p>
+        <div class="uc-asst"><span>Data Structuring</span><span>Knowledge Retrieval</span></div>
+        <p class="uc-cap">Millions of documents grouped by mission, tagged, and made searchable. Analysts stop hunting and start working.</p>
+      </div>
+      <div class="uc-card">
+        <span class="uc-agency">Defense Health</span>
+        <h4>Reports That Build Themselves</h4>
+        <p class="uc-problem">Every month, personnel hand-build readiness reports, operational briefings, and executive decks.</p>
+        <div class="uc-asst"><span>Briefing Assistant</span></div>
+        <p class="uc-cap">Drafts, summaries, and talking points generated from operational data. Thousands of analyst hours back.</p>
+      </div>
+      <div class="uc-card">
+        <span class="uc-agency">Veterans Affairs</span>
+        <h4>Search That Takes Seconds, Not Hours</h4>
+        <p class="uc-problem">Records spread across PDFs, case files, databases, and scanned documents. Employees lose hours searching.</p>
+        <div class="uc-asst"><span>Knowledge Retrieval</span></div>
+        <p class="uc-cap">Natural-language search with sources and confidence scores. Hours become seconds.</p>
+      </div>
+      <div class="uc-card">
+        <span class="uc-agency">Air Force</span>
+        <h4>Folder Permissions, Under Control</h4>
+        <p class="uc-problem">Millions of folders, thousands of users, permissions drift, audit findings, and security risk.</p>
+        <div class="uc-asst"><span>Access Governance</span></div>
+        <p class="uc-cap">Permissions mapped, conflicts flagged, audit reports generated. Security teams stop losing weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- HUMAN OVERSIGHT -->
 <section class="padding-y" id="oversight">
