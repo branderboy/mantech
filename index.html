@@ -308,22 +308,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .how-item .hn { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: 13px; margin-bottom: 14px; }
 .how-item h4 { font-size: 19px; margin-bottom: 8px; }
 .how-item p { font-size: 15px; color: var(--slate); line-height: 1.6; }
-.how-item { position: relative; cursor: pointer; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 28px; width: 100%; font: inherit; transition: transform .25s, box-shadow .25s, border-color .25s; }
-.how-item:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.06); border-color: #d6dde6; }
-.how-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.how-more { display: inline-flex; align-items: center; gap: 7px; margin-top: 16px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
-.how-more::after { content: "\002B"; font-size: 15px; line-height: 1; }
-
-/* MODAL / POPUP */
-.modal-overlay { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(22,36,59,.55); backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .25s; }
-.modal-overlay.open { opacity: 1; pointer-events: auto; }
-.modal { position: relative; background: #fff; max-width: 540px; width: 100%; border-radius: 10px; border-top: 5px solid var(--accent); padding: 46px 40px 40px; box-shadow: 0 40px 80px rgba(0,0,0,.25); transform: translateY(14px) scale(.98); transition: transform .25s; }
-.modal-overlay.open .modal { transform: none; }
-.modal-num { display: block; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-.modal h3 { font-size: 28px; margin-bottom: 16px; line-height: 1.15; }
-.modal p { font-size: 16px; line-height: 1.75; color: var(--slate); }
-.modal-close { position: absolute; top: 14px; right: 16px; width: 34px; height: 34px; border: none; background: var(--bg-soft); border-radius: 50%; font-size: 22px; line-height: 1; color: var(--slate); cursor: pointer; transition: background .2s, color .2s; }
-.modal-close:hover { background: var(--accent); color: #fff; }
+.how-item { position: relative; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 8px; padding: 30px; transition: transform .25s, box-shadow .25s; }
+.how-item:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.06); }
 @media(max-width: 760px) { .how-grid { grid-template-columns: 1fr; gap: 24px; } }
 
 /* WHY MANTECH DEEPER LIST */
@@ -545,9 +531,9 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <p class="subtext">A Mission Assistant is an AI worker that does one recurring job for you, granting folder permissions, building a briefing deck, finding a record. It works on your data inside your own environment, including closed and classified networks, and acts only after a person approves. Here is what that means in practice.</p>
     </div>
     <div class="how-grid reveal">
-      <button class="how-item" type="button" data-modal="how1"><span class="hn">1</span><h4>Runs Inside Your Walls</h4><p>Each Mission Assistant works on your own data, inside your network, including closed and classified ones. Nothing leaves your fence, and you add no headcount.</p><span class="how-more">Details</span></button>
-      <button class="how-item" type="button" data-modal="how2"><span class="hn">2</span><h4>One Job, Mastered</h4><p>Not a do-everything chatbot. Each Mission Assistant owns a single recurring job, granting folder permissions, building a briefing deck, finding a record, the way your best specialist would.</p><span class="how-more">Details</span></button>
-      <button class="how-item" type="button" data-modal="how3"><span class="hn">3</span><h4>Your People Approve Every Move</h4><p>The Mission Assistant does the work and shows the sources behind it. One of your people reviews and approves before anything happens. You decide what it can do on its own.</p><span class="how-more">Details</span></button>
+      <div class="how-item"><span class="hn">1</span><h4>Runs Inside Your Walls</h4><p>Each Mission Assistant works on your own data, inside your network, including closed and classified ones. Nothing leaves your fence, and you add no headcount.</p></div>
+      <div class="how-item"><span class="hn">2</span><h4>One Job, Mastered</h4><p>Not a do-everything chatbot. Each Mission Assistant owns a single recurring job, granting folder permissions, building a briefing deck, finding a record, the way your best specialist would.</p></div>
+      <div class="how-item"><span class="hn">3</span><h4>Your People Approve Every Move</h4><p>The Mission Assistant does the work and shows the sources behind it. One of your people reviews and approves before anything happens. You decide what it can do on its own.</p></div>
     </div>
   </div>
 </section>
@@ -789,32 +775,6 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </div>
 
-<!-- HOW WE DO IT - POPUPS -->
-<div class="modal-overlay" id="how1" role="dialog" aria-modal="true" aria-labelledby="how1-t">
-  <div class="modal">
-    <button class="modal-close" type="button" aria-label="Close">&times;</button>
-    <span class="modal-num">Point 01</span>
-    <h3 id="how1-t">Runs Inside Your Walls</h3>
-    <p>Each Mission Assistant deploys into your own accredited environment and runs on your governed data, never reaching out to the public internet. It operates the same way in air gapped, on premises, and classified closed networks where commercial AI cannot go. Your data stays behind your fence, and you add no new headcount to run it.</p>
-  </div>
-</div>
-<div class="modal-overlay" id="how2" role="dialog" aria-modal="true" aria-labelledby="how2-t">
-  <div class="modal">
-    <button class="modal-close" type="button" aria-label="Close">&times;</button>
-    <span class="modal-num">Point 02</span>
-    <h3 id="how2-t">One Job, Mastered</h3>
-    <p>A Mission Assistant is not a do everything chatbot. It is built and tuned for one recurring job, such as granting folder permissions, building a briefing deck, or finding a record, the way your best specialist would. Because it focuses on a single task, it gets measurably better at it the more your people supervise and correct it.</p>
-  </div>
-</div>
-<div class="modal-overlay" id="how3" role="dialog" aria-modal="true" aria-labelledby="how3-t">
-  <div class="modal">
-    <button class="modal-close" type="button" aria-label="Close">&times;</button>
-    <span class="modal-num">Point 03</span>
-    <h3 id="how3-t">Your People Approve Every Move</h3>
-    <p>Every output a Mission Assistant produces carries a confidence score and the sources behind it. One of your people reviews and approves before anything acts. You set the thresholds: high confidence routine work can run automatically, while anything below your line is held for review or escalated. Nothing happens that a person has not authorized.</p>
-  </div>
-</div>
-
 <script>
 // Scroll Reveal Animation via Intersection Observer
 document.addEventListener("DOMContentLoaded", function() {
@@ -851,25 +811,6 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-
-// How We Do It popups
-(function(){
-  function closeAll(){
-    document.querySelectorAll('.modal-overlay.open').forEach(function(o){ o.classList.remove('open'); });
-    document.body.style.overflow = '';
-  }
-  document.querySelectorAll('[data-modal]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var o = document.getElementById(btn.getAttribute('data-modal'));
-      if (o) { o.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    });
-  });
-  document.querySelectorAll('.modal-overlay').forEach(function(o){
-    o.addEventListener('click', function(e){ if (e.target === o) closeAll(); });
-  });
-  document.querySelectorAll('.modal-close').forEach(function(c){ c.addEventListener('click', closeAll); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
-})();
 
 // Pilot form submit
 (function(){
