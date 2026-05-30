@@ -228,8 +228,28 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .uc-problem { font-size: 14.5px; color: var(--slate); line-height: 1.55; margin-bottom: 14px; }
 .uc-asst { margin-bottom: 14px; }
 .uc-asst span { display: inline-block; font-size: 12px; font-weight: 700; color: var(--ink); background: #eef2f7; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; margin: 0 6px 6px 0; }
+.uc-does { font-size: 13px; color: var(--slate); line-height: 1.5; margin-bottom: 14px; }
+.uc-does b { color: var(--ink); }
 .uc-cap { font-size: 14.5px; color: var(--ink); font-weight: 600; line-height: 1.5; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
 @media(max-width: 760px) { .uc-grid { grid-template-columns: 1fr; } }
+.daygrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 980px; margin: 40px auto 0; text-align: left; }
+.day-col { border-radius: 14px; padding: 30px 28px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(22,36,59,.06); }
+.day-col.mwi { background: #fff; border: 2px solid #2f4a6b; }
+.day-tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
+.day-col.today .day-tag { color: var(--muted); }
+.day-col.mwi .day-tag { color: #2f4a6b; }
+.day-col ul { list-style: none; margin: 0 0 22px; padding: 0; }
+.day-col li { font-size: 15px; line-height: 1.5; padding: 8px 0 8px 26px; position: relative; }
+.day-col.today li { color: var(--slate); }
+.day-col.today li::before { content: "\2022"; position: absolute; left: 6px; color: var(--muted); }
+.day-col.mwi li { color: var(--slate); }
+.day-col.mwi li::before { content: "\2713"; position: absolute; left: 0; color: #7fe0a3; font-weight: 800; }
+.day-time { font-family: var(--serif); font-weight: 700; letter-spacing: -1px; line-height: 1; font-size: clamp(32px, 4vw, 48px); }
+.day-col.today .day-time { color: var(--ink); }
+.day-col.mwi .day-time { color: #1c7c3c; }
+.day-time small { display: block; font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.day-col.mwi .day-time small { color: #1c7c3c; }
+@media(max-width: 760px) { .daygrid { grid-template-columns: 1fr; } }
 .safeflow { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 16px; max-width: 1120px; margin: 34px auto 0; }
 .sfnode { position: relative; flex: 1 1 170px; max-width: 200px; min-height: 204px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 14px; padding: 28px 18px 24px; text-align: center; box-shadow: 0 10px 30px rgba(22,36,59,.06); }
 .sfnode.final { border-top-color: #1c7c3c; background: var(--bg-soft); }
@@ -689,6 +709,39 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
         <p class="uc-problem">Millions of folders, thousands of users, permissions drift, audit findings, and security risk.</p>
         <div class="uc-asst"><span>Access Governance</span></div>
         <p class="uc-cap">Permissions mapped, conflicts flagged, audit reports generated. Security teams stop losing weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A DAY IN THE LIFE (KILLER SLIDE) -->
+<section class="padding-y bg-soft" id="day">
+  <div class="container reveal" style="text-align: center;">
+    <span class="eyebrow">A Day In The Life</span>
+    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 14px;">One Program Manager. One Request.</h2>
+    <p class="subtext" style="max-width: 700px; margin: 0 auto;">A leadership request lands. Same task, before and after.</p>
+    <div class="daygrid">
+      <div class="day-col today">
+        <span class="day-tag">Today, By Hand</span>
+        <ul>
+          <li>Search 5 repositories</li>
+          <li>Find 20 documents</li>
+          <li>Review permissions</li>
+          <li>Organize the findings</li>
+          <li>Build the PowerPoint</li>
+          <li>Write the executive summary</li>
+        </ul>
+        <div class="day-time"><small>Time Required</small>6 to 8 Hours</div>
+      </div>
+      <div class="day-col mwi">
+        <span class="day-tag">With Mission Assistants</span>
+        <ul>
+          <li>The Program Manager makes the request</li>
+          <li>Assistants search, check permissions, and organize</li>
+          <li>A briefing draft and summary are generated</li>
+          <li>The Program Manager reviews and approves</li>
+        </ul>
+        <div class="day-time"><small>Time Required</small>Minutes</div>
       </div>
     </div>
   </div>
