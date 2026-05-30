@@ -301,17 +301,18 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 /* WHY MANTECH DEEPER LIST */
 .why-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 50px; max-width: 880px; margin: 42px auto 0; text-align: left; }
 .why-list .wl { padding: 20px 0; border-top: 1px solid var(--line); }
+.why-list .wl.full { grid-column: 1 / -1; }
 .why-list .wl h4 { font-size: 18px; margin-bottom: 6px; }
 .why-list .wl p { font-size: 15px; color: var(--slate); line-height: 1.55; }
 @media(max-width: 760px) { .why-list { grid-template-columns: 1fr; } }
 
 /* COST EXAMPLE */
-.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 860px; margin: 36px auto 0; }
-.cost-stat { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 6px; padding: 38px 24px; box-shadow: 0 20px 44px rgba(0,0,0,.04); }
-.cost-stat .cn { font-family: var(--serif); font-size: clamp(40px, 6vw, 64px); font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -2px; }
-.cost-stat .ck { font-size: 13px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--slate); margin-top: 14px; }
-.cost-src { font-size: 12.5px; color: var(--muted); line-height: 1.6; max-width: 700px; margin: 26px auto 0; }
-@media(max-width: 640px) { .cost-grid { grid-template-columns: 1fr; gap: 18px; } }
+.cost-formula { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; max-width: 880px; margin: 32px auto 0; }
+.cost-formula span { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 16px 20px; font-weight: 700; color: var(--ink); font-size: 15px; }
+.cost-formula span.hot { background: var(--navy); color: #fff; border-color: var(--navy); }
+.cost-formula i { font-style: normal; font-family: var(--serif); font-size: 24px; color: var(--accent); font-weight: 700; }
+.cost-src { font-size: 12.5px; color: var(--muted); line-height: 1.6; max-width: 720px; margin: 26px auto 0; }
+@media(max-width: 600px) { .cost-formula span { font-size: 13px; padding: 12px 14px; } .cost-formula i { font-size: 18px; } }
 
 /* MOBILE TUNING */
 @media(max-width: 600px) {
@@ -446,12 +447,12 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <section class="padding-y bg-soft" id="cost">
   <div class="container reveal" style="text-align: center;">
     <span class="eyebrow">What It Costs Today</span>
-    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.1; max-width: 760px; margin: 0 auto;">One Agency. One Year. The Bill For Doing It By Hand.</h2>
-    <div class="cost-grid">
-      <div class="cost-stat"><div class="cn">9 Million</div><div class="ck">Hours Lost To Manual Work</div></div>
-      <div class="cost-stat"><div class="cn">$150 Million</div><div class="ck">In Labor, Every Year</div></div>
+    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.1; max-width: 760px; margin: 0 auto 10px;">Run The Number On Your Own Workforce</h2>
+    <p class="subtext" style="max-width: 720px; margin: 0 auto;">Knowledge workers lose about nine hours a week just searching for and gathering information (McKinsey). Multiply that across your people and your loaded rate.</p>
+    <div class="cost-formula">
+      <span>Your Knowledge Staff</span><i>&times;</i><span>~9 Hrs A Week</span><i>&times;</i><span>Your Loaded Rate</span><i>=</i><span class="hot">Recoverable Capacity</span>
     </div>
-    <p class="cost-src">Illustrative example. Basis: a 20,000 person knowledge workforce spending roughly 9 hours a week searching for and gathering information (McKinsey). Confirm against your own baseline before external use.</p>
+    <p class="cost-src">Example only: 20,000 people at roughly 9 hours a week is about 9 million hours a year. At federal loaded labor rates that runs into the tens to hundreds of millions. We measure your real number against your own baseline in the first twelve weeks.</p>
   </div>
 </section>
 
@@ -692,6 +693,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <div class="wl"><h4>Governed Data Foundation</h4><p>The Modern Data Platform and AI Sandbox give every assistant governed, authorized ground to stand on.</p></div>
       <div class="wl"><h4>Systems Integration Depth</h4><p>Decades integrating into the systems and programs agencies already run.</p></div>
       <div class="wl"><h4>Outcomes, Measured</h4><p>Success tracked as hours recovered and mission throughput, with people approving every step.</p></div>
+      <div class="wl full"><h4>Continued Guidance, Not A Handoff</h4><p>We stay with your team after go live, tuning each assistant, training your people, and adjusting thresholds as the mission and the threats change. The role you bought support for keeps getting our guidance.</p></div>
     </div>
     <p class="large-quote" style="margin-top: 44px;">The Technology Is Only Part Of It. Execution Is The Difference.</p>
   </div>
