@@ -36,6 +36,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
+/* SECTION SEPARATOR */
+.sep { display: flex; align-items: center; gap: 18px; max-width: 1100px; margin: 0 auto; padding: 26px 5vw; }
+.sep::before, .sep::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+.sep i { flex: 0 0 auto; width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); }
+
 /* TOP NAV - REFINED */
 .topnav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: box-shadow 0.3s ease; }
 .nav-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 5vw; height: 70px; }
@@ -464,6 +469,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+<div class="sep" aria-hidden="true"><i></i></div>
+
 <!-- CAPACITY -->
 <section class="padding-y bg-soft" id="capacity">
   <div class="container">
@@ -510,21 +517,25 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+<div class="sep" aria-hidden="true"><i></i></div>
+
 <!-- HOW WE DO IT -->
 <section class="padding-y" id="how">
   <div class="container">
     <div class="how-lead reveal">
       <span class="eyebrow">How We Do It</span>
-      <h2>A Trusted Assistant On Every Recurring Job</h2>
-      <p class="subtext">We do not replace your people or rip out your systems. We put a supervised assistant on each task that drains them.</p>
+      <h2>AI That Does One Job. A Person Who Stays In Command.</h2>
+      <p class="subtext">When we say "assistant" we mean a piece of AI software, not a new hire and not a general chatbot. Each one is built to run a single recurring task end to end, on your servers, with one of your people approving every action it takes.</p>
     </div>
     <div class="how-grid reveal">
-      <div class="how-item"><span class="hn">1</span><h4>On Your Data</h4><p>Assistants run on your governed data, inside your own environment, including closed and classified networks.</p></div>
-      <div class="how-item"><span class="hn">2</span><h4>One Job At A Time</h4><p>Each assistant takes a single recurring task off your experts, the way a specialist would.</p></div>
-      <div class="how-item"><span class="hn">3</span><h4>Nothing Without Approval</h4><p>A person reviews the output and approves before it acts. You set the thresholds.</p></div>
+      <div class="how-item"><span class="hn">1</span><h4>It Is Software, Not A Person</h4><p>An assistant is an AI program that runs on your own servers, inside your network, including closed and classified ones. No new headcount, and none of your data leaves your fence.</p></div>
+      <div class="how-item"><span class="hn">2</span><h4>Built For One Specific Task</h4><p>Not a generic chatbot. Each assistant is built for one recurring job, such as granting folder permissions, building a briefing deck, or finding a record, the same task a specialist on your team does today.</p></div>
+      <div class="how-item"><span class="hn">3</span><h4>A Named Person Approves Each Action</h4><p>The AI prepares the work and shows the sources behind it. A named member of your team reviews it and clicks approve before anything happens. You decide what it can do on its own and what must be approved.</p></div>
     </div>
   </div>
 </section>
+
+<div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- MISSION ASSISTANTS -->
 <section class="padding-y bg-soft" id="assistants">
@@ -563,6 +574,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+<div class="sep" aria-hidden="true"><i></i></div>
+
 <!-- HUMAN OVERSIGHT -->
 <section class="padding-y" id="oversight">
   <div class="container">
@@ -598,6 +611,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     </div>
   </div>
 </section>
+
+<div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- THE PROCESS / SCALE -->
 <section class="padding-y bg-soft" id="scale">
@@ -707,6 +722,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     <p class="large-quote" style="margin-top: 44px;">The Technology Is Only Part Of It. Execution Is The Difference.</p>
   </div>
 </section>
+
+<div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- CLOSE / EXECUTIVE CTA -->
 <section class="form-section" id="start">
