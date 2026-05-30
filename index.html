@@ -282,6 +282,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .tier.t-rev { border-left-color: #d98a0f; }
 .tier.t-esc { border-left-color: var(--accent); }
 @media(max-width: 860px) { .oversight-grid { grid-template-columns: 1fr; gap: 36px; } }
+.sec-support { max-width: 980px; margin: 48px auto 0; text-align: center; border-top: 1px solid var(--line); padding-top: 36px; }
+.sec-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.sec-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px; }
+.sec-chips span { font-size: 13px; font-weight: 700; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--line); border-radius: 30px; padding: 9px 16px; }
+.sec-result { font-family: var(--serif); font-size: clamp(18px, 2.4vw, 24px); line-height: 1.4; color: var(--ink); max-width: 680px; margin: 0 auto; }
 
 /* MOBILE TUNING */
 @media(max-width: 600px) {
@@ -626,10 +631,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 <!-- HUMAN OVERSIGHT -->
 <section class="padding-y" id="oversight">
-  <div class="container oversight-grid">
+  <div class="container">
+    <div class="oversight-grid">
     <div class="oversight-intro reveal">
-      <span class="eyebrow">Trust By Design</span>
-      <h2>Confidence You Can See. Authority You Keep.</h2>
+      <span class="eyebrow">Confidence &amp; Security</span>
+      <h2>Confidence You Can See. Security Your ISSO Approves.</h2>
       <p class="subtext">Every output carries a confidence score and the sources behind it. Nothing acts on its own until your thresholds say it can.</p>
       <div class="score-chip">
         <div class="score-num">96<span>%</span></div>
@@ -641,6 +647,20 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <div class="tier t-rec"><span class="t-range">85 to 94</span><span class="t-act">Recommended action, a person confirms</span></div>
       <div class="tier t-rev"><span class="t-range">70 to 84</span><span class="t-act">Human review required</span></div>
       <div class="tier t-esc"><span class="t-range">Below 70</span><span class="t-act">Escalation required</span></div>
+    </div>
+    </div>
+    <div class="sec-support reveal">
+      <span class="sec-label">Designed To Support</span>
+      <div class="sec-chips">
+        <span>ISSO Requirements</span>
+        <span>ATO Process</span>
+        <span>NIST 800-53 Controls</span>
+        <span>Continuous Monitoring</span>
+        <span>Role Based Access Control</span>
+        <span>Audit Logging</span>
+        <span>Human Oversight</span>
+      </div>
+      <p class="sec-result">Mission capacity increases without compromising security, compliance, or governance.</p>
     </div>
   </div>
 </section>
