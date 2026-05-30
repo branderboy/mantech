@@ -260,6 +260,9 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .dash-bars { display: flex; align-items: flex-end; gap: 8px; height: 60px; }
 .dash-bars span { flex: 1; background: linear-gradient(to top, var(--accent), #e0556a); border-radius: 3px 3px 0 0; }
 .dash-cap { font-size: 11px; color: #8ea3bd; margin-top: 10px; letter-spacing: .4px; }
+.dash .hitl { display: flex; align-items: center; gap: 10px; background: rgba(126,224,163,.08); border: 1px solid rgba(126,224,163,.25); border-radius: 6px; padding: 12px 14px; font-size: 13px; color: #d7e3ee; line-height: 1.4; margin-top: 4px; margin-bottom: 14px; }
+.dash .hitl b { color: #fff; }
+.dash .hitl .dot { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #7fe0a3; }
 @media(max-width: 860px) { .scale-grid { grid-template-columns: 1fr; gap: 36px; } }
 
 /* HUMAN OVERSIGHT */
@@ -654,13 +657,14 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
         <div class="step"><span class="n">4</span><div><h4>Compound</h4><p>Recovered hours become capacity that grows every month it runs.</p></div></div>
       </div>
       <div class="dash reveal">
-        <div class="dash-head"><span>Mission Capacity</span><span class="tagx">Example</span></div>
+        <div class="dash-head"><span>Mission Capacity Console</span><span class="tagx">Example</span></div>
         <div class="dash-tiles">
           <div class="dtile"><div class="v">1,240</div><div class="k">Hours Recovered / Mo</div></div>
           <div class="dtile"><div class="v">94%</div><div class="k">Avg Confidence</div></div>
           <div class="dtile"><div class="v">38<b style="font-size:18px;">k</b></div><div class="k">Documents Processed</div></div>
           <div class="dtile"><div class="v"><b>+31%</b></div><div class="k">Mission Throughput</div></div>
         </div>
+        <div class="hitl"><span class="dot"></span><span>Human in the loop: <b>M. Alvarez, Program Lead</b> &middot; 12 approved today &middot; 1 escalated</span></div>
         <div class="dash-bars">
           <span style="height:30%;"></span><span style="height:42%;"></span><span style="height:50%;"></span><span style="height:64%;"></span><span style="height:79%;"></span><span style="height:100%;"></span>
         </div>
