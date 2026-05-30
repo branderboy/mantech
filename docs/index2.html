@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission Data Assistants | ManTech</title>
+<style>
+:root{
+  --bg-main:#ffffff; --bg-soft:#f7f8fa; --navy:#16243b;
+  --accent:#b3132b; --accent-dk:#8a0f21;
+  --ink:#16243b; --body:#39424f; --muted:#7b828d; --slate:#53606f; --line:#e7ebef;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg-main);color:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+section[id]{scroll-margin-top:84px;}
+h1,h2,h3,h4,.serif{font-family:var(--serif);color:var(--ink);}
+.container{max-width:1140px;margin:0 auto;padding:0 5vw;}
+.eyebrow{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px;}
+.subtext{font-size:18px;color:var(--slate);line-height:1.8;}
+.padding-y{padding:96px 0;}
+.bg-soft{background:var(--bg-soft);}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;font-size:12.5px;padding:18px 38px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background .3s;white-space:nowrap;}
+.btn:hover{background:var(--accent-dk);}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+/* NAV */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.nav-logo{display:inline-flex;align-items:center;gap:9px;font-weight:800;letter-spacing:2px;font-size:14px;color:var(--accent);text-decoration:none;}
+.nav-logo .logo{width:27px;height:27px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.nav-cta{font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);text-decoration:none;}
+
+/* HERO */
+.hero{padding:84px 0 76px;}
+.hero .eyebrow{margin-bottom:20px;}
+.hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.05;letter-spacing:-1.5px;max-width:14ch;margin-bottom:26px;}
+.hero h1 b{color:var(--accent);font-weight:700;}
+.hero .subtext{max-width:620px;margin-bottom:34px;}
+.hero-note{margin-top:20px;font-size:13px;font-weight:600;color:var(--muted);}
+
+/* PROBLEM */
+.prob-head{max-width:720px;margin-bottom:48px;}
+.prob-head h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:16px;}
+.prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.prob-item{background:#fff;padding:34px 32px;}
+.prob-item h4{font-size:20px;margin-bottom:10px;}
+.prob-item p{font-size:16px;color:var(--slate);line-height:1.6;}
+.prob-fence{grid-column:1 / -1;background:var(--navy);color:#fff;display:flex;gap:18px;align-items:center;}
+.prob-fence h4{color:#fff;}
+.prob-fence p{color:#cfd8e2;}
+.prob-fence .mark{flex:0 0 auto;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8ec5ff;}
+@media(max-width:760px){.prob-grid{grid-template-columns:1fr;}.prob-fence{flex-direction:column;align-items:flex-start;gap:8px;}}
+
+/* SOLUTION */
+.sol-head{max-width:720px;margin-bottom:44px;}
+.sol-head h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:16px;}
+.sol-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.sol-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px;padding:32px;}
+.sol-card .cat{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.sol-card h4{font-size:21px;line-height:1.2;margin-bottom:12px;}
+.sol-card p{font-size:16px;color:var(--slate);line-height:1.6;}
+@media(max-width:760px){.sol-grid{grid-template-columns:1fr;}}
+
+/* MOAT BAND */
+.moat{background:var(--navy);color:#fff;text-align:center;}
+.moat .eyebrow{color:#8ec5ff;}
+.moat h2{color:#fff;font-size:clamp(28px,4vw,44px);line-height:1.15;max-width:880px;margin:0 auto;}
+.moat h2 b{color:#ff8a9b;font-weight:700;}
+
+/* PROOF */
+.proof-head{max-width:720px;margin-bottom:40px;}
+.proof-head h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:16px;}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;}
+.proof-item{border-left:2px solid var(--accent);padding-left:20px;}
+.proof-item h4{font-size:18px;margin-bottom:8px;font-family:var(--sans);}
+.proof-item p{font-size:15px;color:var(--slate);line-height:1.55;}
+
+/* CTA */
+.cta{background:var(--navy);color:#fff;}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+.cta-info h2{color:#fff;font-size:clamp(32px,4.4vw,52px);line-height:1.1;margin-bottom:22px;}
+.cta-info p{font-size:19px;color:#aab2bd;line-height:1.7;}
+.cta-card{background:#fff;border-radius:4px;padding:40px;color:var(--ink);}
+.cta-card h3{font-size:26px;margin-bottom:8px;}
+.cta-card .lead{font-size:15px;color:var(--slate);margin-bottom:26px;}
+.fg{margin-bottom:16px;}
+.fg label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--slate);margin-bottom:7px;}
+.fg input{width:100%;padding:14px;border:1px solid #d6dbe2;border-radius:2px;font-size:16px;font-family:inherit;background:var(--bg-soft);}
+.fg input:focus{outline:none;border-color:var(--accent);background:#fff;}
+.cta-card .btn{width:100%;margin-top:6px;}
+.reassure{margin-top:18px;font-size:12px;color:var(--muted);text-align:center;}
+.success{display:none;text-align:center;}
+.success .check{width:60px;height:60px;border-radius:50%;background:#1c7c3c;color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+@media(max-width:860px){.cta-grid{grid-template-columns:1fr;gap:38px;}.cta-card{padding:30px;}}
+
+.srcnote{background:#111b2c;color:#5a6b82;padding:34px 5vw;text-align:center;font-size:12.5px;line-height:1.6;}
+
+@media(max-width:600px){.padding-y{padding:62px 0;}.hero{padding:54px 0;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#top"><span class="logo">M</span> MANTECH</a>
+    <a class="nav-cta" href="#start">Request An Assessment</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container reveal">
+    <span class="eyebrow">For Federal Mission Teams</span>
+    <h1>Your Experts Spend Their Day On Work A Machine Should Do</h1>
+    <p class="subtext">Permissions, data wrangling, briefings, and search still happen by hand, even inside closed networks. ManTech assistants take that work off your people, under their supervision, where the mission actually runs.</p>
+    <a href="#start" class="btn">Request An Assessment</a>
+    <p class="hero-note">Runs in <b style="color:var(--accent);">air gapped and classified closed networks</b>.</p>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="padding-y bg-soft" id="problem">
+  <div class="container">
+    <div class="prob-head reveal">
+      <span class="eyebrow">The Problem Today</span>
+      <h2>The Work Quietly Draining Your Team</h2>
+      <p class="subtext">None of it is optional. All of it is manual. And it pulls hours from the people you can least afford to lose.</p>
+    </div>
+    <div class="prob-grid reveal">
+      <div class="prob-item">
+        <h4>Folder Permissions By Hand</h4>
+        <p>Access is granted, revoked, and audited one ticket at a time across sensitive shares.</p>
+      </div>
+      <div class="prob-item">
+        <h4>Data With No Structure</h4>
+        <p>Large volumes of data pile up with no fast way to group, organize, or use them.</p>
+      </div>
+      <div class="prob-item">
+        <h4>Briefings Built From Scratch</h4>
+        <p>Every leadership deck is assembled by hand from data that already exists.</p>
+      </div>
+      <div class="prob-item">
+        <h4>Records Nobody Can Search</h4>
+        <p>Critical information is buried in files and formats no one can find quickly.</p>
+      </div>
+      <div class="prob-item prob-fence">
+        <span class="mark">And</span>
+        <div>
+          <h4>It All Lives Behind The Fence</h4>
+          <p>Most of this sits in closed, air gapped, or classified networks where commercial AI cannot go.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="padding-y" id="assistants">
+  <div class="container">
+    <div class="sol-head reveal">
+      <span class="eyebrow">The Fix</span>
+      <h2>Assistants That Take The Work</h2>
+      <p class="subtext">Each one handles a single recurring job under human supervision. Your people keep the judgment and the approvals.</p>
+    </div>
+    <div class="sol-grid reveal">
+      <div class="sol-card">
+        <span class="cat">Compliance &amp; Security</span>
+        <h4>Access Governance Assistant</h4>
+        <p>Keeps the right people on the right folders and shares, with every change audit ready, and removes the manual permissions burden.</p>
+      </div>
+      <div class="sol-card">
+        <span class="cat">Data Foundation</span>
+        <h4>Data Structuring Assistant</h4>
+        <p>Turns large, unusable volumes of data into organized, mission ready information your people can work from.</p>
+      </div>
+      <div class="sol-card">
+        <span class="cat">Leadership &amp; Readiness</span>
+        <h4>Briefing Assistant</h4>
+        <p>Builds leadership briefings and slide decks straight from your data in minutes, ready before the meeting starts.</p>
+      </div>
+      <div class="sol-card">
+        <span class="cat">Acquisition &amp; Research</span>
+        <h4>Knowledge Retrieval Assistant</h4>
+        <p>Makes scattered records searchable in seconds, so answers are easy to find and knowledge stays in the building.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOAT -->
+<section class="padding-y moat">
+  <div class="container reveal">
+    <span class="eyebrow">The Difference</span>
+    <h2>Built To Run Where <b>Commercial AI Cannot</b>, Inside Air Gapped, On Premises, And Classified Networks</h2>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="padding-y" id="proof">
+  <div class="container">
+    <div class="proof-head reveal">
+      <span class="eyebrow">Proven In The Mission</span>
+      <h2>Deployed Today, Not Tomorrow</h2>
+      <p class="subtext">These are active systems and authorized environments already running in federal missions.</p>
+    </div>
+    <div class="proof-grid reveal">
+      <div class="proof-item">
+        <h4>Real Property Lifecycle AI</h4>
+        <p>AI deployed across the facilities, military construction, and real property mission space.</p>
+      </div>
+      <div class="proof-item">
+        <h4>ORI</h4>
+        <p>The Overlapping Resource Identification tool, surfacing duplicate software spend across enterprise portfolios.</p>
+      </div>
+      <div class="proof-item">
+        <h4>Defense Health Automation</h4>
+        <p>Automation running securely in one of the most demanding, regulated environments in government.</p>
+      </div>
+      <div class="proof-item">
+        <h4>ManTech AI Sandbox</h4>
+        <p>An authorized environment to build and prove assistants on governed data before production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="padding-y cta" id="start">
+  <div class="container cta-grid">
+    <div class="cta-info reveal">
+      <span class="eyebrow" style="color:#8ec5ff;">Take The Step</span>
+      <h2>See It On Your Own Data In Twelve Weeks</h2>
+      <p>One function, one team, measured against your own baseline, inside your own environment.</p>
+    </div>
+    <div class="cta-card reveal">
+      <h3 class="serif">Request An Assessment</h3>
+      <p class="lead">Tell us where the manual work hurts most. We will scope a pilot and the authorization path.</p>
+      <form id="pilotForm">
+        <div class="fg"><label for="name">Name</label><input type="text" id="name" required></div>
+        <div class="fg"><label for="agency">Agency / Program Office</label><input type="text" id="agency" required></div>
+        <div class="fg"><label for="email">Government Email</label><input type="email" id="email" required></div>
+        <button type="submit" class="btn">Request An Assessment</button>
+        <p class="reassure">People stay in the loop by design. Discussions stay in governed, authorized channels.</p>
+      </form>
+      <div class="success" id="success">
+        <div class="check">&check;</div>
+        <h3 class="serif">Request Received</h3>
+        <p class="lead" style="margin-top:8px;">A ManTech mission team will follow up to scope your baseline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCE NOTE -->
+<div class="srcnote">
+  <div class="container">Capability references reflect ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. Deployment status should be confirmed per system and environment before external use.</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var obs=new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("active");o.unobserve(e.target);}});},{threshold:.1,rootMargin:"0px 0px -50px 0px"});
+  document.querySelectorAll(".reveal").forEach(function(el){obs.observe(el);});
+  var pf=document.getElementById("pilotForm");
+  if(pf){pf.addEventListener("submit",function(e){e.preventDefault();pf.style.display="none";document.getElementById("success").style.display="block";});}
+});
+</script>
+</body>
+</html>
