@@ -36,6 +36,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
+/* SECTION SEPARATOR */
+.sep { display: flex; align-items: center; gap: 18px; max-width: 1100px; margin: 0 auto; padding: 26px 5vw; }
+.sep::before, .sep::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+.sep i { flex: 0 0 auto; width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); }
+
 /* TOP NAV - REFINED */
 .topnav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: box-shadow 0.3s ease; }
 .nav-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 5vw; height: 70px; }
@@ -135,12 +140,13 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .capacity-stat .src { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 14px auto 0; max-width: 560px; }
 .ledger { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.03); }
 .ledger-header { display: flex; padding: 20px 30px; background: var(--bg-soft); border-bottom: 2px solid var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
-.ledger-header span:first-child { flex: 1; }
+.ledger-header span:first-child { flex: 1; padding-left: 38px; }
 .ledger-header span:last-child { width: 50%; padding-left: 20px; }
 .ledger-row { display: flex; padding: 25px 30px; border-bottom: 1px solid var(--line); transition: background 0.2s; }
 .ledger-row:hover { background: var(--bg-soft); }
 .ledger-row:last-child { border-bottom: none; }
-.ledger-func { flex: 1; font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); padding-right: 20px; }
+.ledger-func { flex: 1; display: flex; align-items: center; gap: 14px; font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); padding-right: 20px; }
+.ledger-func .lc { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: #1c7c3c; color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(28,124,60,.3); }
 .ledger-drain { width: 50%; font-size: 15px; color: var(--slate); border-left: 1px dashed var(--past); padding-left: 20px; }
 
 @media(max-width: 900px) {
@@ -464,6 +470,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+<div class="sep" aria-hidden="true"><i></i></div>
+
 <!-- CAPACITY -->
 <section class="padding-y bg-soft" id="capacity">
   <div class="container">
@@ -481,23 +489,23 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
         <span>Where Time Is Lost Today</span>
       </div>
       <div class="ledger-row">
-        <span class="ledger-func">Folder Permissions</span>
+        <span class="ledger-func"><i class="lc" aria-hidden="true">&check;</i>Folder Permissions</span>
         <span class="ledger-drain">Granted, revoked, and audited one ticket at a time</span>
       </div>
       <div class="ledger-row">
-        <span class="ledger-func">Grouping Data</span>
+        <span class="ledger-func"><i class="lc" aria-hidden="true">&check;</i>Grouping Data</span>
         <span class="ledger-drain">Large volumes pile up with no structure to use</span>
       </div>
       <div class="ledger-row">
-        <span class="ledger-func">Executive Briefings</span>
+        <span class="ledger-func"><i class="lc" aria-hidden="true">&check;</i>Executive Briefings</span>
         <span class="ledger-drain">Built by hand from data that already exists</span>
       </div>
       <div class="ledger-row">
-        <span class="ledger-func">Records And Search</span>
+        <span class="ledger-func"><i class="lc" aria-hidden="true">&check;</i>Records And Search</span>
         <span class="ledger-drain">Critical information buried where no one can find it</span>
       </div>
       <div class="ledger-row">
-        <span class="ledger-func">Closed Networks</span>
+        <span class="ledger-func"><i class="lc" aria-hidden="true">&check;</i>Closed Networks</span>
         <span class="ledger-drain">Where commercial AI cannot operate at all</span>
       </div>
     </div>
@@ -510,21 +518,25 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+<div class="sep" aria-hidden="true"><i></i></div>
+
 <!-- HOW WE DO IT -->
 <section class="padding-y" id="how">
   <div class="container">
     <div class="how-lead reveal">
       <span class="eyebrow">How We Do It</span>
-      <h2>A Trusted Assistant On Every Recurring Job</h2>
-      <p class="subtext">We do not replace your people or rip out your systems. We put a supervised assistant on each task that drains them.</p>
+      <h2>Meet The Mission Assistant</h2>
+      <p class="subtext">A Mission Assistant is an AI worker that does one recurring job for you, granting folder permissions, building a briefing deck, finding a record. It works on your data inside your own environment, including closed and classified networks, and acts only after a person approves. Here is what that means in practice.</p>
     </div>
     <div class="how-grid reveal">
-      <div class="how-item"><span class="hn">1</span><h4>On Your Data</h4><p>Assistants run on your governed data, inside your own environment, including closed and classified networks.</p></div>
-      <div class="how-item"><span class="hn">2</span><h4>One Job At A Time</h4><p>Each assistant takes a single recurring task off your experts, the way a specialist would.</p></div>
-      <div class="how-item"><span class="hn">3</span><h4>Nothing Without Approval</h4><p>A person reviews the output and approves before it acts. You set the thresholds.</p></div>
+      <div class="how-item"><span class="hn">1</span><h4>Runs Inside Your Walls</h4><p>Each Mission Assistant works on your own data, inside your network, including closed and classified ones. Nothing leaves your fence, and you add no headcount.</p></div>
+      <div class="how-item"><span class="hn">2</span><h4>One Job, Mastered</h4><p>Not a do-everything chatbot. Each Mission Assistant owns a single recurring job, granting folder permissions, building a briefing deck, finding a record, the way your best specialist would.</p></div>
+      <div class="how-item"><span class="hn">3</span><h4>Your People Approve Every Move</h4><p>The Mission Assistant does the work and shows the sources behind it. One of your people reviews and approves before anything happens. You decide what it can do on its own.</p></div>
     </div>
   </div>
 </section>
+
+<div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- MISSION ASSISTANTS -->
 <section class="padding-y bg-soft" id="assistants">
@@ -563,6 +575,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+<div class="sep" aria-hidden="true"><i></i></div>
+
 <!-- HUMAN OVERSIGHT -->
 <section class="padding-y" id="oversight">
   <div class="container">
@@ -598,6 +612,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     </div>
   </div>
 </section>
+
+<div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- THE PROCESS / SCALE -->
 <section class="padding-y bg-soft" id="scale">
@@ -707,6 +723,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     <p class="large-quote" style="margin-top: 44px;">The Technology Is Only Part Of It. Execution Is The Difference.</p>
   </div>
 </section>
+
+<div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- CLOSE / EXECUTIVE CTA -->
 <section class="form-section" id="start">
