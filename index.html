@@ -367,6 +367,25 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .cost-stat .ck { font-size: 13px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--slate); margin-top: 14px; }
 .cost-src { font-size: 12.5px; color: var(--muted); line-height: 1.6; max-width: 720px; margin: 26px auto 0; }
 @media(max-width: 640px) { .cost-grid { grid-template-columns: 1fr; gap: 18px; } }
+.versus { max-width: 780px; margin: 28px auto 10px; display: flex; flex-direction: column; gap: 12px; }
+.versus-q { font-family: var(--serif); font-size: clamp(18px, 2.4vw, 24px); color: var(--ink); font-style: italic; margin-bottom: 6px; }
+.vrow { display: grid; grid-template-columns: 1fr auto 1.3fr; align-items: center; gap: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; box-shadow: 0 8px 22px rgba(22,36,59,.06); text-align: left; }
+.vrow .vo { color: var(--muted); font-size: 15px; }
+.vrow .varr { color: var(--accent); font-weight: 800; font-size: 18px; }
+.vrow .vm { color: var(--ink); font-weight: 700; font-size: 15.5px; }
+@media(max-width: 620px) { .vrow { grid-template-columns: 1fr; gap: 5px; text-align: center; } .vrow .varr { display: none; } }
+.capmath { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 18px; max-width: 1040px; margin: 36px auto 0; }
+.cmcard { position: relative; flex: 1 1 200px; max-width: 240px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 16px; padding: 28px 20px; text-align: center; box-shadow: 0 12px 30px rgba(22,36,59,.08); }
+.cmcard.final { background: var(--navy); border-top-color: var(--accent); }
+.cmcard .cmb { font-family: var(--serif); font-weight: 700; font-size: clamp(30px, 4vw, 44px); color: var(--accent); line-height: 1; letter-spacing: -1px; }
+.cmcard.final .cmb { color: #fff; }
+.cmcard .cmk { font-size: 13px; color: var(--slate); margin-top: 10px; line-height: 1.4; }
+.cmcard.final .cmk { color: #cdd8e6; }
+.cmcard:not(:last-child)::after { content: "\2192"; position: absolute; right: -16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 22px; font-weight: 700; z-index: 2; }
+@media(max-width: 720px) { .cmcard { flex-basis: 100%; max-width: 340px; } .cmcard:not(:last-child)::after { content: "\2193"; right: auto; left: 50%; top: auto; bottom: -17px; transform: translateX(-50%); } }
+.cliff-list { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px; margin: 16px auto 0; max-width: 540px; padding: 0; }
+.cliff-list li { font-size: 14px; font-weight: 700; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; }
+.cliff-line { font-size: 16px; color: var(--ink); font-weight: 600; max-width: 600px; margin: 18px auto 0; line-height: 1.5; }
 
 /* MOBILE TUNING */
 @media(max-width: 600px) {
@@ -554,8 +573,16 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     </div>
     </div>
     <div class="capacity-stat reveal">
+      <span class="eyebrow" style="display:block; margin-bottom:10px;">The Knowledge Cliff</span>
       <div class="num">Nearly 1 in 3</div>
-      <div class="lbl">federal employees are already eligible to retire, ready to carry decades of irreplaceable mission expertise out the door.</div>
+      <div class="lbl">federal employees are eligible to retire. When they walk out, it is not just an empty seat:</div>
+      <ul class="cliff-list">
+        <li>Knowledge leaves</li>
+        <li>Processes leave</li>
+        <li>Relationships leave</li>
+        <li>Tribal expertise leaves</li>
+      </ul>
+      <p class="cliff-line">Mission Assistants capture how the work is actually done and preserve that institutional knowledge before it disappears.</p>
       <div class="src">Source: OPM workforce data, cited in GAO reporting on the aging federal workforce (2022 and 2023).</div>
     </div>
   </div>
@@ -672,10 +699,12 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <div class="dash reveal">
         <div class="dash-head"><span>Mission Capacity Console</span><span class="tagx">Example</span></div>
         <div class="dash-tiles">
-          <div class="dtile"><div class="v">1,240</div><div class="k">Hours Recovered / Mo</div></div>
+          <div class="dtile"><div class="v"><b>+31%</b></div><div class="k">Capacity Created</div></div>
+          <div class="dtile"><div class="v">1,240</div><div class="k">Hours Returned / Mo</div></div>
+          <div class="dtile"><div class="v">7<b style="font-size:18px;"> FTE</b></div><div class="k">Hiring Avoided</div></div>
           <div class="dtile"><div class="v">94%</div><div class="k">Avg Confidence</div></div>
-          <div class="dtile"><div class="v">38<b style="font-size:18px;">k</b></div><div class="k">Documents Processed</div></div>
-          <div class="dtile"><div class="v"><b>+31%</b></div><div class="k">Mission Throughput</div></div>
+          <div class="dtile"><div class="v">18,442</div><div class="k">Mission Tasks Completed</div></div>
+          <div class="dtile"><div class="v"><b>$2.1M</b></div><div class="k">Cost Avoidance</div></div>
         </div>
         <div class="hitl"><span class="dot"></span><span>Human in the loop: <b>M. Alvarez, Program Lead</b> &middot; 12 approved today &middot; 1 escalated</span></div>
         <div class="dalert"><span class="adot"></span><span><b>3 mission alerts:</b> 2 permission conflicts, 1 policy change, low confidence items held for review.</span></div>
@@ -686,6 +715,38 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       </div>
     </div>
     <p class="serif reveal" style="text-align: center; max-width: 800px; margin: 50px auto 0; font-size: clamp(21px, 2.6vw, 30px); line-height: 1.3; letter-spacing: -.3px; color: var(--ink);">As The Process Grows, So Does The Workforce Of The Future.</p>
+  </div>
+</section>
+
+<!-- CAPACITY MATH -->
+<section class="padding-y" id="capacity-math">
+  <div class="container reveal" style="text-align: center;">
+    <span class="eyebrow">Do The Math</span>
+    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin-bottom: 14px;">Capacity Compounds. Fast.</h2>
+    <p class="subtext" style="max-width: 720px; margin: 0 auto;">One assistant gives a team back about ten hours a week. Run it across your functions and the recovered time adds up to people you never had to hire.</p>
+    <div class="capmath">
+      <div class="cmcard"><div class="cmb">1</div><div class="cmk">Mission Assistant returns about 10 hours / week</div></div>
+      <div class="cmcard"><div class="cmb">100</div><div class="cmk">Assistants return about 1,000 hours / week</div></div>
+      <div class="cmcard"><div class="cmb">52,000</div><div class="cmk">hours returned per year</div></div>
+      <div class="cmcard final"><div class="cmb">25 FTE</div><div class="cmk">of capacity, without hiring 25 people</div></div>
+    </div>
+    <p class="cost-src" style="text-align: center;">Illustrative model. We measure the real numbers against your own baseline during the assessment.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU ARE BUYING -->
+<section class="padding-y bg-soft" id="product">
+  <div class="container reveal" style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <span class="eyebrow">What You Are Actually Buying</span>
+    <h2 style="font-size: clamp(28px, 3.6vw, 42px); line-height: 1.12; margin-bottom: 14px;">The Assistants Are The Feature. Capacity Is The Product.</h2>
+    <p class="subtext" style="max-width: 720px; margin: 0 auto;">Mission Workforce Infrastructure is how you buy mission capacity. The assistants, dashboards, confidence scores, and accreditation are the proof it is delivered safely.</p>
+    <div class="job-chips" style="margin-top: 24px;">
+      <span><strong>Capacity</strong></span>
+      <span><strong>Governance</strong></span>
+      <span><strong>Confidence</strong></span>
+      <span><strong>Knowledge Preservation</strong></span>
+      <span><strong>Workforce Multiplication</strong></span>
+    </div>
   </div>
 </section>
 
@@ -750,6 +811,12 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 24px;">Most Vendors Sell You AI. We Deliver The Hours And Dollars Back.</h2>
     <p class="subtext" style="margin-bottom: 18px;">Most vendors hand you a model and walk away. ManTech runs the system inside your real federal environment, cleared and accredited, and is measured on one thing: the hours your people get back and the work that gets done.</p>
     <p class="subtext">We do not replace your workforce. We take the repetitive execution off them, keep your experts in command, and report the return in hours recovered and dollars saved.</p>
+    <div class="versus reveal">
+      <p class="versus-q">Why not Microsoft? Palantir? AWS? Or just build it yourself?</p>
+      <div class="vrow"><span class="vo">Others provide AI.</span><span class="varr">&rarr;</span><span class="vm">ManTech operationalizes AI inside live mission environments.</span></div>
+      <div class="vrow"><span class="vo">Others deploy models.</span><span class="varr">&rarr;</span><span class="vm">ManTech deploys governed mission workers.</span></div>
+      <div class="vrow"><span class="vo">Others sell software.</span><span class="varr">&rarr;</span><span class="vm">ManTech delivers measurable mission capacity.</span></div>
+    </div>
     <div class="hub-wrap reveal">
       <div class="hub-col left">
         <div class="spoke"><h5>Cleared, Ready Workforce</h5><p>Experts already embedded and cleared inside federal programs.</p></div>
