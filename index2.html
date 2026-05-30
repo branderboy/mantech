@@ -3,257 +3,510 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission Data Assistants | ManTech</title>
+<title>Mission Assistants | ManTech</title>
 <style>
 :root{
   --bg-main:#ffffff; --bg-soft:#f7f8fa; --navy:#16243b;
   --accent:#b3132b; --accent-dk:#8a0f21;
+  --past:#9aa3b0; --present:#2f4a6b; --future:#b3132b;
   --ink:#16243b; --body:#39424f; --muted:#7b828d; --slate:#53606f; --line:#e7ebef;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --serif:Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
 }
+
+/* RESET & BASE */
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--bg-main);color:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-section[id]{scroll-margin-top:84px;}
-h1,h2,h3,h4,.serif{font-family:var(--serif);color:var(--ink);}
-.container{max-width:1140px;margin:0 auto;padding:0 5vw;}
-.eyebrow{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px;}
-.subtext{font-size:18px;color:var(--slate);line-height:1.8;}
-.padding-y{padding:96px 0;}
-.bg-soft{background:var(--bg-soft);}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;font-size:12.5px;padding:18px 38px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background .3s;white-space:nowrap;}
-.btn:hover{background:var(--accent-dk);}
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
-.reveal.active{opacity:1;transform:translateY(0);}
+body{font-family:var(--sans);background:var(--bg-main);color:var(--body);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased; overflow-x:hidden;}
+img, svg {max-width: 100%; display: block;}
+section[id], header[id] { scroll-margin-top: 90px; }
 
-/* NAV */
-.topnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;}
-.nav-logo{display:inline-flex;align-items:center;gap:9px;font-weight:800;letter-spacing:2px;font-size:14px;color:var(--accent);text-decoration:none;}
-.nav-logo .logo{width:27px;height:27px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
-.nav-cta{font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);text-decoration:none;}
+/* TYPOGRAPHY */
+h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
+.eyebrow { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+.subtext { font-size: 18px; color: var(--slate); line-height: 1.8; }
+.large-quote { font-family: var(--serif); font-size: clamp(24px, 4vw, 40px); line-height: 1.2; letter-spacing: -0.5px; color: var(--ink); }
 
-/* HERO */
-.hero{padding:84px 0 76px;}
-.hero .eyebrow{margin-bottom:20px;}
-.hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.05;letter-spacing:-1.5px;max-width:14ch;margin-bottom:26px;}
-.hero h1 b{color:var(--accent);font-weight:700;}
-.hero .subtext{max-width:620px;margin-bottom:34px;}
-.hero-note{margin-top:20px;font-size:13px;font-weight:600;color:var(--muted);}
+/* UTILITIES */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+.padding-y { padding: 80px 0; }
+.bg-soft { background: var(--bg-soft); }
+.bg-navy { background: var(--navy); color: #fff; }
+.text-center { text-align: center; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-/* PROBLEM */
-.prob-head{max-width:720px;margin-bottom:48px;}
-.prob-head h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:16px;}
-.prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-.prob-item{background:#fff;padding:34px 32px;}
-.prob-item h4{font-size:20px;margin-bottom:10px;}
-.prob-item p{font-size:16px;color:var(--slate);line-height:1.6;}
-.prob-fence{grid-column:1 / -1;background:var(--navy);color:#fff;display:flex;gap:18px;align-items:center;}
-.prob-fence h4{color:#fff;}
-.prob-fence p{color:#cfd8e2;}
-.prob-fence .mark{flex:0 0 auto;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8ec5ff;}
-@media(max-width:760px){.prob-grid{grid-template-columns:1fr;}.prob-fence{flex-direction:column;align-items:flex-start;gap:8px;}}
+/* TOP NAV - REFINED */
+.topnav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: box-shadow 0.3s ease; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 5vw; height: 70px; }
+.nav-links { grid-column: 2; justify-self: center; display: flex; align-items: center; overflow-x: auto; scrollbar-width: none; }
+.nav-logo { grid-column: 1; justify-self: start; display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 14px; color: var(--accent); text-decoration: none; }
+.nav-logo .logo { width: 28px; height: 28px; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { display: inline-flex; align-items: center; height: 70px; padding: 0 16px; font-size: 13.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-/* SOLUTION */
-.sol-head{max-width:720px;margin-bottom:44px;}
-.sol-head h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:16px;}
-.sol-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.sol-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px;padding:32px;}
-.sol-card .cat{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
-.sol-card h4{font-size:21px;line-height:1.2;margin-bottom:12px;}
-.sol-card p{font-size:16px;color:var(--slate);line-height:1.6;}
-@media(max-width:760px){.sol-grid{grid-template-columns:1fr;}}
+@media(max-width: 900px) {
+  .nav-inner { display: flex; flex-direction: column; justify-content: center; height: auto; padding: 14px 5vw; gap: 8px; }
+  .nav-links { width: 100%; justify-content: center; gap: 8px; }
+  .nav-links a { height: 40px; padding: 0 8px; }
+  .nav-logo { justify-self: center; }
+}
 
-/* MOAT BAND */
-.moat{background:var(--navy);color:#fff;text-align:center;}
-.moat .eyebrow{color:#8ec5ff;}
-.moat h2{color:#fff;font-size:clamp(28px,4vw,44px);line-height:1.15;max-width:880px;margin:0 auto;}
-.moat h2 b{color:#ff8a9b;font-weight:700;}
+/* HERO - EDITORIAL SPLIT */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
+.nav-links .navplay { flex: 0 0 auto; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 9px; border-color: transparent transparent transparent var(--accent); margin-left: 18px; margin-right: 3px; align-self: center; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-visual { align-self: center; }
+.hero-content h1 { font-size: clamp(48px, 5.5vw, 76px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 30px; }
+.hero-content .subtext { margin-bottom: 40px; max-width: 500px; }
+.hero-content .btn { margin-bottom: 24px; }
+.hero-note { font-size: 13px; font-weight: 600; letter-spacing: 0.3px; color: var(--muted); }
+.hero-note b { color: var(--accent); }
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; padding: 18px 40px; border-radius: 2px; text-decoration: none; transition: background 0.3s; border: none; cursor: pointer; }
+.btn:hover { background: var(--accent-dk); }
+.hero-visual { position: relative; width: 100%; height: 100%; min-height: 500px; display: flex; align-items: center; justify-content: center; }
+.architecture-svg { width: 120%; max-width: 700px; height: auto; transform: translateX(10%); }
 
-/* PROOF */
-.proof-head{max-width:720px;margin-bottom:40px;}
-.proof-head h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:16px;}
-.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;}
-.proof-item{border-left:2px solid var(--accent);padding-left:20px;}
-.proof-item h4{font-size:18px;margin-bottom:8px;font-family:var(--sans);}
-.proof-item p{font-size:15px;color:var(--slate);line-height:1.55;}
+@media(max-width: 900px) {
+  .hero { min-height: 0; padding: 80px 0; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 20px; }
+  .hero-content .subtext { margin: 0 auto 40px; }
+  .hero-visual { display: none; }
+}
 
-/* CTA */
-.cta{background:var(--navy);color:#fff;}
-.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
-.cta-info h2{color:#fff;font-size:clamp(32px,4.4vw,52px);line-height:1.1;margin-bottom:22px;}
-.cta-info p{font-size:19px;color:#aab2bd;line-height:1.7;}
-.cta-card{background:#fff;border-radius:4px;padding:40px;color:var(--ink);}
-.cta-card h3{font-size:26px;margin-bottom:8px;}
-.cta-card .lead{font-size:15px;color:var(--slate);margin-bottom:26px;}
-.fg{margin-bottom:16px;}
-.fg label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--slate);margin-bottom:7px;}
-.fg input{width:100%;padding:14px;border:1px solid #d6dbe2;border-radius:2px;font-size:16px;font-family:inherit;background:var(--bg-soft);}
-.fg input:focus{outline:none;border-color:var(--accent);background:#fff;}
-.cta-card .btn{width:100%;margin-top:6px;}
-.reassure{margin-top:18px;font-size:12px;color:var(--muted);text-align:center;}
-.success{display:none;text-align:center;}
-.success .check{width:60px;height:60px;border-radius:50%;background:#1c7c3c;color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
-@media(max-width:860px){.cta-grid{grid-template-columns:1fr;gap:38px;}.cta-card{padding:30px;}}
+/* DEFINITION - OVERSIZED TYPOGRAPHY */
+.defn-section { padding: 90px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.defn-wrap { max-width: 900px; margin: 0 auto; }
+.defn-wrap .term { font-size: clamp(36px, 5vw, 64px); letter-spacing: -1px; line-height: 1.05; margin-bottom: 10px; }
+.defn-wrap .pos { font-style: italic; color: var(--muted); font-size: 20px; margin-bottom: 40px; font-family: var(--serif); }
+.defn-wrap .text { font-size: clamp(20px, 3vw, 32px); line-height: 1.5; color: var(--slate); font-weight: 300; }
+.defn-wrap .text strong { color: var(--ink); font-weight: 700; }
 
-/* CONTROL + CONSOLE */
-.ctrl-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
-.ctrl-intro{max-width:720px;margin:0 auto 40px;text-align:center;}
-.ctrl-intro h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1;margin:0 0 14px;}
-.tier-ladder{display:flex;flex-direction:column;gap:10px;margin-top:22px;}
-.tier{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-left:5px solid var(--line);border-radius:4px;padding:14px 18px;background:#fff;}
-.tier .t-range{flex:0 0 84px;font-weight:800;font-size:14px;color:var(--ink);}
-.tier .t-act{font-size:14px;color:var(--body);}
-.tier.t-auto{border-left-color:#1c7c3c;}.tier.t-rec{border-left-color:#2f6bd6;}.tier.t-rev{border-left-color:#d98a0f;}.tier.t-esc{border-left-color:var(--accent);}
-.console{background:var(--navy);border-radius:8px;padding:24px;color:#fff;box-shadow:0 24px 50px rgba(22,36,59,.22);}
-.console-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
-.console-head .name{font-weight:800;font-size:14px;color:#fff;}
-.console-head .ex{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#8ec5ff;font-weight:700;}
-.console-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
-.ctile{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:14px;}
-.ctile .v{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1;}
-.ctile .v b{color:#7fe0a3;}
-.ctile .k{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:#9fb0c6;margin-top:6px;}
-.hitl{display:flex;align-items:center;gap:10px;background:rgba(126,224,163,.08);border:1px solid rgba(126,224,163,.25);border-radius:6px;padding:12px 14px;font-size:13px;color:#d7e3ee;line-height:1.4;}
-.hitl b{color:#fff;}
-.hitl .dot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#7fe0a3;}
-.console-bars{display:flex;align-items:flex-end;gap:6px;height:44px;margin-top:12px;}
-.console-bars span{flex:1;background:linear-gradient(to top,var(--accent),#e0556a);border-radius:2px 2px 0 0;}
-.console-cap{font-size:10.5px;color:#8ea3bd;margin-top:8px;}
-.future-line{text-align:center;max-width:820px;margin:0 auto;font-size:clamp(20px,2.6vw,28px);line-height:1.3;letter-spacing:-.3px;color:var(--ink);}
-@media(max-width:820px){.ctrl-grid{grid-template-columns:1fr;gap:34px;}}
-.sec-support{max-width:980px;margin:44px auto 0;text-align:center;border-top:1px solid var(--line);padding-top:34px;}
-.sec-label{display:block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
-.sec-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:22px;}
-.sec-chips span{font-size:13px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:30px;padding:9px 16px;}
-.sec-result{font-family:var(--serif);font-size:clamp(18px,2.4vw,24px);line-height:1.4;color:var(--ink);max-width:680px;margin:0 auto;}
+/* THE WALL - STICKY EDITORIAL */
+.wall-grid { display: grid; grid-template-columns: 4fr 6fr; gap: 80px; align-items: start; }
+.wall-sticky { position: sticky; top: 120px; }
+.wall-sticky h2 { font-size: clamp(40px, 5vw, 60px); line-height: 1; letter-spacing: -1.5px; }
+.wall-sticky .line { width: 60px; height: 3px; background: var(--accent); margin: 30px 0; }
+.wall-content p { font-size: 20px; line-height: 1.8; margin-bottom: 30px; color: var(--body); }
+.wall-content .large-quote { margin: 40px 0; padding-left: 30px; border-left: 4px solid var(--navy); }
 
-.srcnote{background:#111b2c;color:#5a6b82;padding:34px 5vw;text-align:center;font-size:12.5px;line-height:1.6;}
+@media(max-width: 900px) {
+  .wall-grid { grid-template-columns: 1fr; gap: 40px; }
+  .wall-sticky { position: relative; top: 0; }
+}
 
-@media(max-width:600px){.padding-y{padding:62px 0;}.hero{padding:54px 0;}}
+/* THE ERAS - COMPARATIVE CARDS */
+.eras-header { max-width: 700px; margin: 0 auto 50px; text-align: center; }
+.eras-header h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
+.eras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.era-card { padding: 40px 30px; background: #fff; border: 1px solid var(--line); position: relative; transition: transform 0.3s, box-shadow 0.3s; }
+.era-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); z-index: 10; }
+.era-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.era-card.past::before { background: var(--past); }
+.era-card.present::before { background: var(--present); }
+.era-card.future { background: var(--navy); color: #fff; border: none; box-shadow: 0 20px 50px rgba(22, 36, 59, 0.2); transform: scale(1.02); z-index: 5; border-radius: 2px; }
+.era-card.future::before { background: var(--future); border-radius: 2px 2px 0 0; }
+.era-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.era-card.past .era-meta { color: var(--past); }
+.era-card.present .era-meta { color: var(--present); }
+.era-card.future .era-meta { color: var(--past); }
+.era-card h3 { font-size: 28px; margin-bottom: 20px; line-height: 1.2; }
+.era-card.future h3 { color: #fff; }
+.era-card p { font-size: 15px; color: var(--slate); line-height: 1.7; }
+.era-card.future p { color: #e7ecf2; }
+
+@media(max-width: 900px) {
+  .eras-grid { grid-template-columns: 1fr; }
+  .era-card.future { transform: none; }
+}
+
+/* WHY THIS MATTERS TO YOU (ROLES) */
+.role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.role-item { border: 1px solid var(--line); padding: 40px; background: #fff; border-top: 3px solid var(--navy); }
+.role-item h4 { font-size: 24px; font-family: var(--serif); font-weight: 700; color: var(--ink); margin-bottom: 15px; }
+.role-item p { font-size: 18px; color: var(--slate); line-height: 1.6; }
+
+/* CAPACITY - THE LEDGER */
+.capacity-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 60px; align-items: start; }
+.capacity-stat { max-width: 760px; margin: 60px auto 0; padding-top: 40px; border-top: 1px solid var(--line); text-align: center; }
+.capacity-stat .num { font-family: var(--serif); font-size: clamp(52px, 7vw, 76px); font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -2px; }
+.capacity-stat .lbl { font-size: 18px; color: var(--slate); line-height: 1.6; margin: 16px auto 0; max-width: 600px; }
+.capacity-stat .src { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 14px auto 0; max-width: 560px; }
+.ledger { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.03); }
+.ledger-header { display: flex; padding: 20px 30px; background: var(--bg-soft); border-bottom: 2px solid var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.ledger-header span:first-child { flex: 1; }
+.ledger-header span:last-child { width: 50%; padding-left: 20px; }
+.ledger-row { display: flex; padding: 25px 30px; border-bottom: 1px solid var(--line); transition: background 0.2s; }
+.ledger-row:hover { background: var(--bg-soft); }
+.ledger-row:last-child { border-bottom: none; }
+.ledger-func { flex: 1; font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); padding-right: 20px; }
+.ledger-drain { width: 50%; font-size: 15px; color: var(--slate); border-left: 1px dashed var(--past); padding-left: 20px; }
+
+@media(max-width: 900px) {
+  .capacity-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ledger-header span:last-child, .ledger-drain { width: auto; flex: 1; }
+}
+
+/* THE ARCHITECTURE - STICKY STACKING */
+.arch-container { position: relative; padding-bottom: 56px; }
+.arch-intro { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+.arch-intro h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
+.stack-wrapper { max-width: 800px; margin: 0 auto; position: relative; }
+.stack-layer { position: sticky; padding: 44px 50px; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 30px; box-shadow: 0 -10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; transition: all 0.3s ease; }
+.stack-layer:last-child { margin-bottom: 0; }
+/* Layer Stacking Offsets */
+.stack-layer:nth-child(1) { top: 110px; background: #fff; z-index: 1; border-top: 4px solid var(--slate); }
+.stack-layer:nth-child(2) { top: 130px; background: var(--bg-soft); z-index: 2; border-top: 4px solid var(--accent); }
+.stack-layer:nth-child(3) { top: 150px; background: #fff; z-index: 3; border-top: 4px solid var(--present); }
+.stack-layer:nth-child(4) { top: 170px; background: var(--navy); color: #fff; z-index: 4; border-top: 4px solid var(--future); }
+
+.layer-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
+.stack-layer:nth-child(4) .layer-num { color: var(--past); }
+.layer-title { font-size: 32px; margin-bottom: 15px; }
+.stack-layer:nth-child(4) .layer-title { color: #fff; }
+.layer-desc { font-size: 16px; line-height: 1.7; color: var(--body); }
+.stack-layer:nth-child(4) .layer-desc { color: #e7ecf2; }
+
+@media(max-width: 768px) {
+  .stack-layer { position: static; top: auto; flex-direction: column; gap: 12px; padding: 28px; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+  .stack-layer:nth-child(1), .stack-layer:nth-child(2), .stack-layer:nth-child(3), .stack-layer:nth-child(4) { top: auto; }
+  .arch-container { padding-bottom: 0; }
+}
+
+/* PROOF SECTION */
+.proof-section { background: var(--navy); color: #fff; }
+.proof-section .eyebrow { color: #9fb0c6; margin-bottom: 24px; }
+.proof-section h2 { color: #fff; font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
+.proof-section .subtext { color: #d4dbe4; max-width: 700px; margin-bottom: 44px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; text-align: left; }
+.stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid var(--accent); padding: 40px; border-radius: 4px; position: relative; }
+.stat-num { font-family: var(--serif); font-size: 42px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 10px; }
+.stat-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ff8a9b; margin-bottom: 20px; display: block; }
+.stat-card p { font-size: 16px; color: #d4dbe4; line-height: 1.6; }
+
+.deploy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.deploy-item { border-left: 2px solid var(--slate); padding-left: 20px; }
+.deploy-item h4 { color: #8ec5ff; font-size: 18px; margin-bottom: 8px; font-family: var(--sans); }
+.deploy-item p { color: #cdd5df; font-size: 15px; line-height: 1.5; }
+.proof-grid { display: grid; grid-template-columns: 4fr 7fr; gap: 70px; align-items: center; }
+.proof-visual { display: flex; justify-content: center; }
+.proof-clock { width: 100%; max-width: 340px; height: auto; }
+.proof-content .deploy-grid { grid-template-columns: repeat(2, 1fr); }
+@media(max-width: 900px) {
+  .proof-grid { grid-template-columns: 1fr; gap: 40px; }
+  .proof-visual { max-width: 240px; margin: 0 auto; }
+  .proof-content .deploy-grid { grid-template-columns: 1fr; }
+}
+
+/* FOOTER FORM - SINGLE BUTTON CTA */
+.form-section { background: var(--bg-soft); padding: 90px 0; border-top: 1px solid var(--line); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.form-info h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 30px; }
+.form-info p { font-size: 20px; color: var(--slate); line-height: 1.7; margin-bottom: 40px; }
+
+.form-card { background: #fff; padding: 50px 40px; border-radius: 4px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--ink); text-align: center; }
+.reassure { color: var(--muted); }
+.form-card form { text-align: left; }
+.form-card .fg { margin-bottom: 18px; }
+.form-card .fg label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); margin-bottom: 8px; }
+.form-card .fg input { width: 100%; padding: 14px; border: 1px solid #d6dbe2; border-radius: 2px; font-size: 16px; font-family: inherit; background: var(--bg-soft); transition: border-color 0.2s; }
+.form-card .fg input:focus { outline: none; border-color: var(--accent); background: #fff; }
+.success-state { display: none; }
+.success-state .check { width: 64px; height: 64px; background: #1c7c3c; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 16px; }
+
+@media(max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-card { padding: 40px 20px; }
+}
+
+/* SOURCE NOTE */
+.srcnote { background: var(--navy); color: #aab2bd; padding: 40px 5vw; text-align: center; font-size: 13px; line-height: 1.6; }
+.srcnote strong { color: #fff; }
+
+/* MISSION ASSISTANTS */
+.assist-intro { text-align: center; max-width: 720px; margin: 0 auto 38px; }
+.assist-intro h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 16px; }
+.assist-banner { display: flex; align-items: center; gap: 22px; max-width: 880px; margin: 0 auto 32px; background: var(--navy); color: #fff; border-left: 5px solid var(--accent); border-radius: 6px; padding: 26px 32px; }
+.assist-banner .tag { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8ec5ff; }
+.assist-banner p { font-size: 18px; line-height: 1.5; color: #eef2f6; font-weight: 600; margin: 0; }
+.assist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 880px; margin: 0 auto; }
+.assist-card { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 4px; padding: 30px; }
+.assist-card h4 { font-family: var(--serif); font-size: 21px; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+.assist-card p { font-size: 16px; color: var(--slate); line-height: 1.6; }
+.assist-card .cat { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+@media(max-width: 700px) {
+  .assist-banner { flex-direction: column; align-items: flex-start; gap: 10px; padding: 24px; }
+  .assist-grid { grid-template-columns: 1fr; }
+}
+
+/* PATH TO SCALE + DASHBOARD */
+.scale-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.steps { display: flex; flex-direction: column; }
+.step { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.step:last-child { border-bottom: none; }
+.step .n { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.step h4 { font-size: 18px; margin-bottom: 4px; }
+.step p { font-size: 15px; color: var(--slate); line-height: 1.55; }
+.dash { background: var(--navy); border-radius: 8px; padding: 26px; color: #fff; box-shadow: 0 24px 50px rgba(22,36,59,.22); }
+.dash-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8ea3bd; font-weight: 700; }
+.dash-head .tagx { color: #8ec5ff; }
+.dash-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+.dtile { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 16px; }
+.dtile .v { font-family: var(--serif); font-size: 28px; font-weight: 700; color: #fff; line-height: 1; }
+.dtile .v b { color: #7fe0a3; }
+.dtile .k { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; color: #9fb0c6; margin-top: 8px; }
+.dash-bars { display: flex; align-items: flex-end; gap: 8px; height: 60px; }
+.dash-bars span { flex: 1; background: linear-gradient(to top, var(--accent), #e0556a); border-radius: 3px 3px 0 0; }
+.dash-cap { font-size: 11px; color: #8ea3bd; margin-top: 10px; letter-spacing: .4px; }
+.dash .hitl { display: flex; align-items: center; gap: 10px; background: rgba(126,224,163,.08); border: 1px solid rgba(126,224,163,.25); border-radius: 6px; padding: 12px 14px; font-size: 13px; color: #d7e3ee; line-height: 1.4; margin-top: 4px; margin-bottom: 14px; }
+.dash .hitl b { color: #fff; }
+.dash .hitl .dot { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #7fe0a3; }
+@media(max-width: 860px) { .scale-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+/* HUMAN OVERSIGHT */
+.oversight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.oversight-intro h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin: 0 0 16px; }
+.oversight-intro .subtext { margin-bottom: 28px; }
+.score-chip { display: inline-flex; align-items: center; gap: 22px; background: #fff; border: 1px solid var(--line); border-left: 4px solid #1c7c3c; border-radius: 6px; padding: 20px 26px; box-shadow: 0 14px 34px rgba(0,0,0,.05); }
+.score-chip .score-num { font-family: var(--serif); font-size: 46px; font-weight: 700; color: #1c7c3c; line-height: 1; }
+.score-chip .score-num span { font-size: 22px; }
+.score-chip .score-meta { display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600; color: var(--slate); }
+.tier-ladder { display: flex; flex-direction: column; gap: 12px; }
+.tier { display: flex; align-items: center; gap: 18px; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--line); border-radius: 4px; padding: 18px 22px; }
+.tier .t-range { flex: 0 0 96px; font-weight: 800; font-size: 15px; color: var(--ink); }
+.tier .t-act { font-size: 15px; color: var(--body); }
+.tier.t-auto { border-left-color: #1c7c3c; }
+.tier.t-rec { border-left-color: #2f6bd6; }
+.tier.t-rev { border-left-color: #d98a0f; }
+.tier.t-esc { border-left-color: var(--accent); }
+@media(max-width: 860px) { .oversight-grid { grid-template-columns: 1fr; gap: 36px; } }
+.sec-support { max-width: 980px; margin: 48px auto 0; text-align: center; border-top: 1px solid var(--line); padding-top: 36px; }
+.sec-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.sec-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px; }
+.sec-chips span { font-size: 13px; font-weight: 700; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--line); border-radius: 30px; padding: 9px 16px; }
+.sec-result { font-family: var(--serif); font-size: clamp(18px, 2.4vw, 24px); line-height: 1.4; color: var(--ink); max-width: 680px; margin: 0 auto; }
+
+/* MOBILE TUNING */
+@media(max-width: 600px) {
+  .padding-y { padding: 60px 0; }
+  .defn-section { padding: 64px 0; }
+  .form-section { padding: 64px 0; }
+  .container { padding: 0 6vw; }
+  .hero { padding: 70px 0 50px; }
+  .hero-content h1 { font-size: 38px; letter-spacing: -1px; line-height: 1.08; }
+  .hero-content .subtext { font-size: 16px; }
+  .subtext { font-size: 16px; }
+  .wall-content p { font-size: 17px; line-height: 1.7; }
+  .large-quote { font-size: 23px; }
+  .wall-content .large-quote { margin: 30px 0; padding-left: 20px; }
+  .eras-header { margin-bottom: 36px; }
+  .role-grid { grid-template-columns: 1fr; gap: 16px; }
+  .role-item { padding: 28px; }
+  .role-item h4 { font-size: 21px; }
+  .role-item p { font-size: 16px; }
+  .capacity-stat { margin-top: 44px; padding-top: 32px; }
+  .capacity-stat .num { font-size: 44px; }
+  .capacity-stat .lbl { font-size: 16px; }
+  .ledger-func { font-size: 16px; }
+  .arch-container { padding-bottom: 30px; }
+  .stack-layer { padding: 26px; }
+  .layer-title { font-size: 25px; }
+  .proof-content .deploy-grid { gap: 24px; }
+  .form-card { padding: 32px 22px; }
+  .form-card .btn { white-space: normal !important; padding: 16px 18px !important; }
+  .nav-links a { font-size: 12px; padding: 0 9px; letter-spacing: 0.4px; height: 38px; }
+  .nav-logo { font-size: 13px; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="topnav">
-  <div class="container nav-inner">
+<!-- TOP NAV -->
+<nav class="topnav" id="navbar">
+  <div class="nav-inner">
     <a class="nav-logo" href="#top"><span class="logo">M</span> MANTECH</a>
-    <a class="nav-cta" href="#start">Request An Assessment</a>
+    <div class="nav-links">
+      <span class="navplay"></span>
+      <a href="#capacity">The Problem</a>
+      <a href="#assistants">Assistants</a>
+      <a href="#oversight">Trust</a>
+      <a href="#proof">Proof</a>
+      <a href="#start">Start</a>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="container reveal">
-    <span class="eyebrow">For Program Owners, CIOs, And Security Leads</span>
-    <h1>Your Experts Spend Their Day On Work A Machine Should Do</h1>
-    <p class="subtext">Permissions, data wrangling, briefings, and search still happen by hand, even inside closed networks. ManTech assistants take that work off your people, under their supervision, where the mission actually runs.</p>
-    <a href="#start" class="btn">Request An Assessment</a>
-    <p class="hero-note">Runs in <b style="color:var(--accent);">air gapped and classified closed networks</b>.</p>
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <span class="eyebrow">For Program Owners, CIOs, And Security Leads</span>
+      <h1>Your Experts Spend Their Day On Work A Machine Should Do</h1>
+      <p class="subtext">Permissions, data, briefings, and search still happen by hand, even inside closed networks. ManTech assistants take that work, under your people's supervision, where the mission actually runs.</p>
+      <a href="#start" class="btn">Request An Assessment</a>
+      <p class="hero-note">Runs in <b>air gapped and classified closed networks</b>.</p>
+    </div>
+
+    <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+      <!-- Architectural / Mission Data Network SVG -->
+      <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="architecture-svg">
+        <defs>
+          <pattern id="data-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e7ebef" stroke-width="1.5" stroke-dasharray="2 4"/>
+          </pattern>
+          <linearGradient id="fade" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f7f8fa" />
+            <stop offset="100%" stop-color="#e7ebef" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <!-- Base Grid -->
+        <rect width="500" height="500" fill="url(#data-grid)" />
+        <rect width="500" height="500" fill="url(#fade)" opacity="0.5"/>
+
+        <!-- Connecting Lines (Data Pathways) -->
+        <path d="M100 120 L280 120 L280 260 L420 260" stroke="#53606f" stroke-width="2" />
+        <path d="M100 260 L180 260 L180 380 L320 380" stroke="#9aa3b0" stroke-width="2" />
+        <path d="M280 120 L380 60" stroke="#53606f" stroke-width="2" stroke-dasharray="4 4" />
+        <path d="M180 380 L180 460" stroke="#9aa3b0" stroke-width="2" stroke-dasharray="4 4" />
+
+        <!-- Active Pathways -->
+        <path d="M100 120 L180 120 L180 260" stroke="#b3132b" stroke-width="3" />
+        <path d="M280 260 L320 260 L320 380" stroke="#16243b" stroke-width="3" />
+
+        <!-- Nodes (Systems/Infrastructure) -->
+        <!-- Top Left -->
+        <rect x="80" y="100" width="40" height="40" rx="4" fill="#fff" stroke="#b3132b" stroke-width="3" />
+        <circle cx="100" cy="120" r="4" fill="#b3132b" />
+
+        <!-- Top Right -->
+        <rect x="360" y="40" width="40" height="40" rx="4" fill="#f7f8fa" stroke="#53606f" stroke-width="2" />
+        <rect x="260" y="100" width="40" height="40" rx="4" fill="#fff" stroke="#53606f" stroke-width="3" />
+
+        <!-- Center Stack (Data Foundation) -->
+        <rect x="160" y="240" width="40" height="40" rx="4" fill="#16243b" stroke="#16243b" stroke-width="3" />
+        <rect x="260" y="240" width="40" height="40" rx="4" fill="#fff" stroke="#16243b" stroke-width="3" />
+
+        <!-- Bottom -->
+        <rect x="300" y="360" width="40" height="40" rx="4" fill="#fff" stroke="#9aa3b0" stroke-width="3" />
+        <rect x="400" y="240" width="40" height="40" rx="4" fill="#f7f8fa" stroke="#53606f" stroke-width="2" />
+
+        <!-- Decorative UI Elements -->
+        <rect x="180" y="100" width="12" height="4" fill="#b3132b" />
+        <rect x="180" y="110" width="8" height="4" fill="#b3132b" />
+        <rect x="320" y="240" width="16" height="4" fill="#16243b" />
+
+        <circle cx="280" cy="260" r="4" fill="#16243b" />
+        <circle cx="180" cy="260" r="4" fill="#fff" stroke="#16243b" stroke-width="2" />
+      </svg>
+    </div>
   </div>
 </header>
 
-<!-- PROBLEM -->
-<section class="padding-y bg-soft" id="problem">
+<!-- CAPACITY -->
+<section class="padding-y bg-soft" id="capacity">
   <div class="container">
-    <div class="prob-head reveal">
-      <span class="eyebrow">The Problem Today</span>
-      <h2>The Work Quietly Draining Your Team</h2>
-      <p class="subtext">None of it is optional. All of it is manual. And it pulls hours from the people you can least afford to lose.</p>
+    <div class="capacity-grid">
+    <div class="capacity-text reveal">
+      <span class="eyebrow">Where The Hours Go</span>
+      <h2 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; line-height:1.1;">You Cannot Hire Your Way Out Of This</h2>
+      <p class="subtext" style="margin-bottom: 20px;">Federal agencies don't have an AI problem. They have a time problem.</p>
+      <p class="subtext">Time leaks away every day through work that demands expertise but devours schedules. None of it is optional. All of it pulls thousands of hours from the very people whose expertise is hardest to replace.</p>
+      <p class="subtext" style="margin-top: 18px; color: var(--ink); font-weight: 600;">The need is not more AI. It is leverage. Recover that time and turn it into mission capacity.</p>
     </div>
-    <div class="prob-grid reveal">
-      <div class="prob-item">
-        <h4>Folder Permissions By Hand</h4>
-        <p>Access is granted, revoked, and audited one ticket at a time across sensitive shares.</p>
+    <div class="ledger reveal">
+      <div class="ledger-header">
+        <span>The Work</span>
+        <span>Where Time Is Lost Today</span>
       </div>
-      <div class="prob-item">
-        <h4>Data With No Structure</h4>
-        <p>Large volumes of data pile up with no fast way to group, organize, or use them.</p>
+      <div class="ledger-row">
+        <span class="ledger-func">Folder Permissions</span>
+        <span class="ledger-drain">Granted, revoked, and audited one ticket at a time</span>
       </div>
-      <div class="prob-item">
-        <h4>Briefings Built From Scratch</h4>
-        <p>Every leadership deck is assembled by hand from data that already exists.</p>
+      <div class="ledger-row">
+        <span class="ledger-func">Grouping Data</span>
+        <span class="ledger-drain">Large volumes pile up with no structure to use</span>
       </div>
-      <div class="prob-item">
-        <h4>Records Nobody Can Search</h4>
-        <p>Critical information is buried in files and formats no one can find quickly.</p>
+      <div class="ledger-row">
+        <span class="ledger-func">Executive Briefings</span>
+        <span class="ledger-drain">Built by hand from data that already exists</span>
       </div>
-      <div class="prob-item prob-fence">
-        <span class="mark">And</span>
-        <div>
-          <h4>It All Lives Behind The Fence</h4>
-          <p>Most of this sits in closed, air gapped, or classified networks where commercial AI cannot go.</p>
-        </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Records And Search</span>
+        <span class="ledger-drain">Critical information buried where no one can find it</span>
       </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Closed Networks</span>
+        <span class="ledger-drain">Where commercial AI cannot operate at all</span>
+      </div>
+    </div>
+    </div>
+    <div class="capacity-stat reveal">
+      <div class="num">Nearly 1 in 3</div>
+      <div class="lbl">federal employees are already eligible to retire, ready to carry decades of irreplaceable mission expertise out the door.</div>
+      <div class="src">Source: OPM workforce data, cited in GAO reporting on the aging federal workforce (2022 and 2023).</div>
     </div>
   </div>
 </section>
 
-<!-- SOLUTION -->
-<section class="padding-y" id="assistants">
+<!-- MISSION ASSISTANTS -->
+<section class="padding-y bg-soft" id="assistants">
   <div class="container">
-    <div class="sol-head reveal">
-      <span class="eyebrow">The Fix</span>
-      <h2>Assistants That Take The Work</h2>
-      <p class="subtext">Each one handles a single recurring job under human supervision. Your people keep the judgment and the approvals.</p>
+    <div class="assist-intro reveal">
+      <span class="eyebrow">The Mission Assistant Layer</span>
+      <h2>Assistants Already Doing The Work</h2>
+      <p class="subtext">Each one takes the recurring execution off your experts, under human supervision. These are running today.</p>
     </div>
-    <div class="sol-grid reveal">
-      <div class="sol-card">
+    <div class="assist-banner reveal">
+      <span class="tag">The Difference</span>
+      <p>Runs where your mission lives, including air gapped, on premises, and classified closed networks where commercial AI cannot operate.</p>
+    </div>
+    <div class="assist-grid reveal">
+      <div class="assist-card">
         <span class="cat">Compliance &amp; Security</span>
         <h4>Access Governance Assistant</h4>
-        <p>Keeps the right people on the right folders and shares, with every change audit ready, and removes the manual permissions burden.</p>
+        <p>Keeps the right people on the right folders and shares, with every change audit ready. It removes the security and RMF burden that buries your team.</p>
       </div>
-      <div class="sol-card">
+      <div class="assist-card">
         <span class="cat">Data Foundation</span>
         <h4>Data Structuring Assistant</h4>
-        <p>Turns large, unusable volumes of data into organized, mission ready information your people can work from.</p>
+        <p>Turns sprawling, unusable data into organized, mission ready information your people can actually work from.</p>
       </div>
-      <div class="sol-card">
+      <div class="assist-card">
         <span class="cat">Leadership &amp; Readiness</span>
         <h4>Briefing Assistant</h4>
-        <p>Builds leadership briefings and slide decks straight from your data in minutes, ready before the meeting starts.</p>
+        <p>Builds leadership briefings and slide decks straight from your data in minutes, so the briefing is ready before the meeting starts.</p>
       </div>
-      <div class="sol-card">
+      <div class="assist-card">
         <span class="cat">Acquisition &amp; Research</span>
         <h4>Knowledge Retrieval Assistant</h4>
-        <p>Makes scattered records searchable in seconds, so answers are easy to find and knowledge stays in the building.</p>
+        <p>Makes scattered records searchable in seconds, so answers are easy to find and institutional knowledge stays in the building.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- YOU STAY IN CONTROL -->
-<section class="padding-y bg-soft" id="control">
+<!-- HUMAN OVERSIGHT -->
+<section class="padding-y" id="oversight">
   <div class="container">
-    <div class="ctrl-intro reveal">
-      <span class="eyebrow">You Stay In Control</span>
-      <h2 class="serif">Confidence You Can See. People In The Loop.</h2>
-      <p class="subtext">Every output shows its confidence and sources, and a person approves before anything acts. The Mission Capacity Console keeps it measurable.</p>
+    <div class="oversight-grid">
+    <div class="oversight-intro reveal">
+      <span class="eyebrow">Confidence &amp; Security</span>
+      <h2>Confidence You Can See. Security Your ISSO Approves.</h2>
+      <p class="subtext">Every output carries a confidence score and the sources behind it. Nothing acts on its own until your thresholds say it can.</p>
+      <div class="score-chip">
+        <div class="score-num">96<span>%</span></div>
+        <div class="score-meta"><span>43 sources cited</span><span>1 conflict flagged</span><span>Human approved</span></div>
+      </div>
     </div>
-    <div class="ctrl-grid">
-      <div class="console reveal">
-        <div class="console-head"><span class="name">Mission Capacity Console</span><span class="ex">Example</span></div>
-        <div class="console-tiles">
-          <div class="ctile"><div class="v">1,240</div><div class="k">Hours Recovered / Mo</div></div>
-          <div class="ctile"><div class="v">94%</div><div class="k">Avg Confidence</div></div>
-          <div class="ctile"><div class="v">38,400</div><div class="k">Documents Processed</div></div>
-          <div class="ctile"><div class="v"><b>+31%</b></div><div class="k">Mission Throughput</div></div>
-        </div>
-        <div class="hitl"><span class="dot"></span><span>Human in the loop: <b>M. Alvarez, Program Lead</b> &middot; 12 approved today &middot; 1 escalated</span></div>
-        <div class="console-bars"><span style="height:32%"></span><span style="height:44%"></span><span style="height:52%"></span><span style="height:66%"></span><span style="height:80%"></span><span style="height:100%"></span></div>
-        <div class="console-cap">Capacity generated, month over month. Illustrative example.</div>
-      </div>
-      <div class="ctrl-side reveal">
-        <p class="subtext" style="margin-bottom:4px;">Nothing acts on its own. Your thresholds decide what an assistant may do and what a person must approve.</p>
-        <div class="tier-ladder">
-          <div class="tier t-auto"><span class="t-range">95 to 100</span><span class="t-act">Automated execution allowed</span></div>
-          <div class="tier t-rec"><span class="t-range">85 to 94</span><span class="t-act">Recommended, a person confirms</span></div>
-          <div class="tier t-rev"><span class="t-range">70 to 84</span><span class="t-act">Human review required</span></div>
-          <div class="tier t-esc"><span class="t-range">Below 70</span><span class="t-act">Escalation required</span></div>
-        </div>
-      </div>
+    <div class="tier-ladder reveal">
+      <div class="tier t-auto"><span class="t-range">95 to 100</span><span class="t-act">Automated execution allowed</span></div>
+      <div class="tier t-rec"><span class="t-range">85 to 94</span><span class="t-act">Recommended action, a person confirms</span></div>
+      <div class="tier t-rev"><span class="t-range">70 to 84</span><span class="t-act">Human review required</span></div>
+      <div class="tier t-esc"><span class="t-range">Below 70</span><span class="t-act">Escalation required</span></div>
+    </div>
     </div>
     <div class="sec-support reveal">
       <span class="sec-label">Designed To Support</span>
@@ -271,72 +524,121 @@ h1,h2,h3,h4,.serif{font-family:var(--serif);color:var(--ink);}
   </div>
 </section>
 
-<!-- MOAT -->
-<section class="padding-y moat">
-  <div class="container reveal">
-    <span class="eyebrow">The Difference</span>
-    <h2>Built To Run Where <b>Commercial AI Cannot</b>, Inside Air Gapped, On Premises, And Classified Networks</h2>
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="padding-y" id="proof">
+<!-- THE PROCESS / SCALE -->
+<section class="padding-y bg-soft" id="scale">
   <div class="container">
-    <div class="proof-head reveal">
+    <div class="reveal" style="max-width: 720px; margin: 0 auto 44px; text-align: center;">
+      <span class="eyebrow">The Process</span>
+      <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin-bottom: 16px;">Capacity That Grows As You Run It</h2>
+      <p class="subtext">This is not a one time install. As the system runs, your people supervise, the assistants take on more, and recovered time compounds into measurable capacity.</p>
+    </div>
+    <div class="scale-grid">
+      <div class="steps reveal">
+        <div class="step"><span class="n">1</span><div><h4>Install</h4><p>Stand up the assistants on your governed data, inside your own environment.</p></div></div>
+        <div class="step"><span class="n">2</span><div><h4>Operate</h4><p>Your people supervise, approve, and correct. The assistants learn your process.</p></div></div>
+        <div class="step"><span class="n">3</span><div><h4>Scale</h4><p>Proven assistants expand to more functions and more teams.</p></div></div>
+        <div class="step"><span class="n">4</span><div><h4>Compound</h4><p>Recovered hours become capacity that grows every month it runs.</p></div></div>
+      </div>
+      <div class="dash reveal">
+        <div class="dash-head"><span>Mission Capacity Console</span><span class="tagx">Example</span></div>
+        <div class="dash-tiles">
+          <div class="dtile"><div class="v">1,240</div><div class="k">Hours Recovered / Mo</div></div>
+          <div class="dtile"><div class="v">94%</div><div class="k">Avg Confidence</div></div>
+          <div class="dtile"><div class="v">38<b style="font-size:18px;">k</b></div><div class="k">Documents Processed</div></div>
+          <div class="dtile"><div class="v"><b>+31%</b></div><div class="k">Mission Throughput</div></div>
+        </div>
+        <div class="hitl"><span class="dot"></span><span>Human in the loop: <b>M. Alvarez, Program Lead</b> &middot; 12 approved today &middot; 1 escalated</span></div>
+        <div class="dash-bars">
+          <span style="height:30%;"></span><span style="height:42%;"></span><span style="height:50%;"></span><span style="height:64%;"></span><span style="height:79%;"></span><span style="height:100%;"></span>
+        </div>
+        <div class="dash-cap">Capacity generated, month over month. Illustrative example.</div>
+      </div>
+    </div>
+    <p class="serif reveal" style="text-align: center; max-width: 800px; margin: 50px auto 0; font-size: clamp(21px, 2.6vw, 30px); line-height: 1.3; letter-spacing: -.3px; color: var(--ink);">As The Process Grows, So Does The Workforce Of The Future.</p>
+  </div>
+</section>
+
+<!-- PROOF SECTION -->
+<section class="padding-y proof-section" id="proof">
+  <div class="container proof-grid">
+    <div class="proof-visual reveal">
+      <svg viewBox="0 0 500 500" class="proof-clock" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <circle cx="250" cy="250" r="216" stroke="#2f4a6b" stroke-width="2"/>
+        <circle cx="250" cy="250" r="200" stroke="#33455f" stroke-width="1"/>
+        <g fill="#9fb0c6">
+          <circle cx="250" cy="60" r="7" fill="#b3132b"/>
+          <circle cx="345" cy="85" r="5"/>
+          <circle cx="415" cy="155" r="5"/>
+          <circle cx="440" cy="250" r="5"/>
+          <circle cx="415" cy="345" r="5"/>
+          <circle cx="345" cy="415" r="5"/>
+          <circle cx="250" cy="440" r="5"/>
+          <circle cx="155" cy="415" r="5"/>
+          <circle cx="85" cy="345" r="5"/>
+          <circle cx="60" cy="250" r="5"/>
+          <circle cx="85" cy="155" r="5"/>
+          <circle cx="155" cy="85" r="5"/>
+        </g>
+        <line x1="250" y1="250" x2="250" y2="120" stroke="#8ec5ff" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="250" x2="358" y2="250" stroke="#b3132b" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="250" cy="250" r="13" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="proof-content">
       <span class="eyebrow">Proven In The Mission</span>
-      <h2>Deployed Today, Not Tomorrow</h2>
-      <p class="subtext">These are active systems and authorized environments already running in federal missions.</p>
-    </div>
-    <div class="proof-grid reveal">
-      <div class="proof-item">
-        <h4>Real Property Lifecycle AI</h4>
-        <p>AI deployed across the facilities, military construction, and real property mission space.</p>
-      </div>
-      <div class="proof-item">
-        <h4>ORI</h4>
-        <p>The Overlapping Resource Identification tool, surfacing duplicate software spend across enterprise portfolios.</p>
-      </div>
-      <div class="proof-item">
-        <h4>Defense Health Automation</h4>
-        <p>Automation running securely in one of the most demanding, regulated environments in government.</p>
-      </div>
-      <div class="proof-item">
-        <h4>ManTech AI Sandbox</h4>
-        <p>An authorized environment to build and prove assistants on governed data before production.</p>
+      <h2 class="serif">Deployed Today. Not Tomorrow.</h2>
+      <p class="subtext reveal">This is not a concept. These are the active systems and authorized environments already running in federal missions today.</p>
+
+      <!-- Active Deployments -->
+      <div class="deploy-grid reveal">
+        <div class="deploy-item">
+          <h4>Real Property Lifecycle AI</h4>
+          <p>AI actively deployed across the facilities, military construction, and real property mission space.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>ORI</h4>
+          <p>The Overlapping Resource Identification tool, proven at surfacing duplicate software spend across enterprise portfolios.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>Defense Health Automation</h4>
+          <p>Automation running securely in one of the most demanding, regulated mission environments in government.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>ManTech AI Sandbox</h4>
+          <p>An authorized environment to build, test, and prove assistants on governed data before touching a production mission.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FUTURE WORKFORCE LINE -->
-<section class="padding-y bg-soft">
-  <div class="container reveal">
-    <p class="future-line serif">As The Process Grows, So Does The Workforce Of The Future.</p>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="padding-y cta" id="start">
-  <div class="container cta-grid">
-    <div class="cta-info reveal">
-      <span class="eyebrow" style="color:#8ec5ff;">Take The Step</span>
-      <h2>See It On Your Own Data In Twelve Weeks</h2>
-      <p>One function, one team, measured against your own baseline, inside your own environment.</p>
+<!-- CLOSE / EXECUTIVE CTA -->
+<section class="form-section" id="start">
+  <div class="container form-grid">
+    <div class="form-info reveal">
+      <span class="eyebrow">Take The Step</span>
+      <h2 class="serif">Start Building Your Mission Workforce</h2>
+      <p>One function, one team, twelve weeks, measured against your own baseline. See what Mission Workforce Infrastructure can unlock for your agency.</p>
+      <div style="width: 60px; height: 3px; background: var(--accent);"></div>
+      <p style="margin-top: 22px; font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink);">We Get Your Org. <span style="color: var(--accent);">#GovFutureReady</span></p>
     </div>
-    <div class="cta-card reveal">
-      <h3 class="serif">Request An Assessment</h3>
-      <p class="lead">Tell us where the manual work hurts most. We will scope a pilot and the authorization path.</p>
+
+    <div class="form-card reveal" style="transition-delay: 0.2s;">
+      <h3 class="serif" style="font-size: 32px; margin-bottom: 15px;">Ready To See The Model?</h3>
+      <p style="color: var(--slate); margin-bottom: 30px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
+
       <form id="pilotForm">
-        <div class="fg"><label for="name">Name</label><input type="text" id="name" required></div>
-        <div class="fg"><label for="agency">Agency / Program Office</label><input type="text" id="agency" required></div>
-        <div class="fg"><label for="email">Government Email</label><input type="email" id="email" required></div>
-        <button type="submit" class="btn">Request An Assessment</button>
-        <p class="reassure">People stay in the loop by design. Discussions stay in governed, authorized channels.</p>
+        <div class="fg"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+        <div class="fg"><label for="agency">Agency / Program Office</label><input type="text" id="agency" name="agency" required></div>
+        <div class="fg"><label for="email">Government Email</label><input type="email" id="email" name="email" required></div>
+        <button type="submit" class="btn" style="padding: 18px 20px; font-size: 13px; letter-spacing: 1px; width: 100%; white-space: nowrap; margin-top: 6px;">Get A Mission Capacity Assessment</button>
+        <p class="reassure" style="margin-top: 20px; font-size: 12px; text-align: center;">This is an exploratory briefing. All discussions are handled in governed, authorized channels.</p>
       </form>
-      <div class="success" id="success">
+
+      <div class="success-state" id="success">
         <div class="check">&check;</div>
-        <h3 class="serif">Request Received</h3>
-        <p class="lead" style="margin-top:8px;">A ManTech mission team will follow up to scope your baseline.</p>
+        <h3 class="serif" style="font-size: 26px; margin-bottom: 10px;">Request Received</h3>
+        <p style="color: var(--slate); font-size: 16px;">A ManTech mission team will follow up to scope your baseline and authorization path.</p>
       </div>
     </div>
   </div>
@@ -344,16 +646,58 @@ h1,h2,h3,h4,.serif{font-family:var(--serif);color:var(--ink);}
 
 <!-- SOURCE NOTE -->
 <div class="srcnote">
-  <div class="container">Capability references reflect ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. Deployment status should be confirmed per system and environment before external use.</div>
+  <div class="container">
+    <strong>Mission Workforce Infrastructure</strong> is powered by ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. The workforce figure reflects OPM data cited in GAO reporting on the aging federal workforce.
+  </div>
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded",function(){
-  var obs=new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("active");o.unobserve(e.target);}});},{threshold:.1,rootMargin:"0px 0px -50px 0px"});
-  document.querySelectorAll(".reveal").forEach(function(el){obs.observe(el);});
-  var pf=document.getElementById("pilotForm");
-  if(pf){pf.addEventListener("submit",function(e){e.preventDefault();pf.style.display="none";document.getElementById("success").style.display="block";});}
+// Scroll Reveal Animation via Intersection Observer
+document.addEventListener("DOMContentLoaded", function() {
+  const reveals = document.querySelectorAll(".reveal");
+  const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("active");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+  reveals.forEach(el => revealOnScroll.observe(el));
 });
+
+// Nav Scroll Effect
+window.addEventListener("scroll", function() {
+  var nav = document.getElementById("navbar");
+  nav.style.boxShadow = window.scrollY > 50 ? "0 4px 20px rgba(0,0,0,0.05)" : "none";
+});
+
+// Active Link Highlight
+const sections = document.querySelectorAll("section[id], header[id]");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+    if (window.pageYOffset >= section.offsetTop - 200) {
+      current = section.getAttribute("id");
+    }
+  });
+  document.querySelectorAll(".nav-links a").forEach((li) => {
+    li.classList.remove("active");
+    if (current && li.getAttribute("href") === "#" + current) {
+      li.classList.add("active");
+    }
+  });
+});
+
+// Pilot form submit
+(function(){
+  var pf = document.getElementById('pilotForm');
+  if (!pf) return;
+  pf.addEventListener('submit', function(e){
+    e.preventDefault();
+    pf.style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  });
+})();
 </script>
 </body>
 </html>
