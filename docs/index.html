@@ -223,6 +223,21 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .srcnote { background: var(--navy); color: #aab2bd; padding: 40px 5vw; text-align: center; font-size: 13px; line-height: 1.6; }
 .srcnote strong { color: #fff; }
 
+/* MISSION ASSISTANTS */
+.assist-intro { text-align: center; max-width: 720px; margin: 0 auto 38px; }
+.assist-intro h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 16px; }
+.assist-banner { display: flex; align-items: center; gap: 22px; max-width: 880px; margin: 0 auto 32px; background: var(--navy); color: #fff; border-left: 5px solid var(--accent); border-radius: 6px; padding: 26px 32px; }
+.assist-banner .tag { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8ec5ff; }
+.assist-banner p { font-size: 18px; line-height: 1.5; color: #eef2f6; font-weight: 600; margin: 0; }
+.assist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 880px; margin: 0 auto; }
+.assist-card { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 4px; padding: 30px; }
+.assist-card h4 { font-family: var(--serif); font-size: 21px; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+.assist-card p { font-size: 16px; color: var(--slate); line-height: 1.6; }
+@media(max-width: 700px) {
+  .assist-banner { flex-direction: column; align-items: flex-start; gap: 10px; padding: 24px; }
+  .assist-grid { grid-template-columns: 1fr; }
+}
+
 /* MOBILE TUNING */
 @media(max-width: 600px) {
   .padding-y { padding: 60px 0; }
@@ -269,6 +284,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <a href="#roles">Your Role</a>
       <a href="#capacity">Capacity</a>
       <a href="#architecture">Architecture</a>
+      <a href="#assistants">Assistants</a>
       <a href="#proof">Proof</a>
       <a href="#start">Start</a>
     </div>
@@ -515,6 +531,39 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
           <h3 class="layer-title serif">Mission Data Foundation</h3>
           <p class="layer-desc">Governed enterprise data, authoritative sources, multicloud architecture, core to edge deployment, and containerized execution. The ground that makes an assistant worth trusting.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION ASSISTANTS -->
+<section class="padding-y bg-soft" id="assistants">
+  <div class="container">
+    <div class="assist-intro reveal">
+      <span class="eyebrow">The Mission Assistant Layer</span>
+      <h2>Assistants Already Doing The Work</h2>
+      <p class="subtext">Each one takes the recurring execution off your experts, under human supervision. These are running today.</p>
+    </div>
+    <div class="assist-banner reveal">
+      <span class="tag">The Difference</span>
+      <p>Runs where your mission lives, including air gapped, on premises, and classified closed networks where commercial AI cannot operate.</p>
+    </div>
+    <div class="assist-grid reveal">
+      <div class="assist-card">
+        <h4>Access Governance Assistant</h4>
+        <p>Keeps the right people on the right folders and shares, with every change audit ready. It removes the security and RMF burden that buries your team.</p>
+      </div>
+      <div class="assist-card">
+        <h4>Data Structuring Assistant</h4>
+        <p>Turns sprawling, unusable data into organized, mission ready information your people can actually work from.</p>
+      </div>
+      <div class="assist-card">
+        <h4>Briefing Assistant</h4>
+        <p>Builds leadership briefings and slide decks straight from your data in minutes, so the briefing is ready before the meeting starts.</p>
+      </div>
+      <div class="assist-card">
+        <h4>Knowledge Retrieval Assistant</h4>
+        <p>Makes scattered records searchable in seconds, so answers are easy to find and institutional knowledge stays in the building.</p>
       </div>
     </div>
   </div>
