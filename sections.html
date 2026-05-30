@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ManTech Pitch</title>
+<style>
+:root{
+  --bg-main:#ffffff; --bg-soft:#f7f8fa; --navy:#16243b;
+  --accent:#b3132b; --accent-dk:#8a0f21;
+  --past:#9aa3b0; --present:#2f4a6b; --future:#b3132b;
+  --ink:#16243b; --body:#39424f; --muted:#7b828d; --slate:#53606f; --line:#e7ebef;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+}
+
+/* RESET & BASE */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg-main);color:var(--body);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased; overflow-x:hidden;}
+img, svg {max-width: 100%; display: block;}
+section[id], header[id] { scroll-margin-top: 90px; }
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
+.eyebrow { display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; color: var(--accent); background: rgba(179, 19, 43, 0.06); padding: 6px 14px; border-radius: 30px; margin-bottom: 20px; border: 1px solid rgba(179, 19, 43, 0.1); }
+.readtime { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .5px; color: var(--slate); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; margin-bottom: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+.readtime b { color: var(--ink); font-weight: 700; }
+.subtext { font-size: 18px; color: var(--slate); line-height: 1.8; }
+.large-quote { font-family: var(--serif); font-size: clamp(24px, 4vw, 40px); line-height: 1.25; letter-spacing: -0.5px; color: var(--ink); }
+
+/* UTILITIES */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+.padding-y { padding: 90px 0; }
+.bg-soft { background: var(--bg-soft); }
+.bg-navy { background: var(--navy); color: #fff; }
+.text-center { text-align: center; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* SECTION SEPARATOR */
+.sep { display: flex; align-items: center; gap: 18px; max-width: 1100px; margin: 0 auto; padding: 26px 5vw; }
+.sep::before, .sep::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+.sep i { flex: 0 0 auto; width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); opacity: 0.5; }
+
+/* TOP NAV - REFINED */
+.topnav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: box-shadow 0.3s ease; }
+.nav-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 5vw; height: 70px; }
+.nav-links { grid-column: 2; justify-self: center; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-logo { grid-column: 3; justify-self: end; display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 14px; color: var(--accent); text-decoration: none; }
+.nav-logo .logo { width: 28px; height: 28px; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { display: inline-flex; align-items: center; height: 70px; padding: 0 15px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+@media(max-width: 900px) {
+  .nav-inner { display: flex; flex-direction: column-reverse; justify-content: center; height: auto; padding: 15px 5vw; gap: 10px; }
+  .nav-links { width: 100%; padding-bottom: 5px; justify-content: center; gap: 15px; }
+  .nav-links a { height: 40px; padding: 0 5px; }
+  .nav-logo { justify-self: center; }
+}
+
+/* HERO - EDITORIAL SPLIT */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
+.nav-links .navplay { flex: 0 0 auto; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 9px; border-color: transparent transparent transparent var(--accent); margin-left: 18px; margin-right: 3px; align-self: center; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+.hero-visual { align-self: center; }
+.hero-content h1 { font-size: clamp(44px, 5.5vw, 76px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; }
+.hero-content .subtext { margin-bottom: 40px; max-width: 500px; }
+.hero-content .btn { margin-bottom: 24px; }
+.hero-note { font-size: 13px; font-weight: 600; letter-spacing: 0.3px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.hero-note::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px rgba(179,19,43,0.1); }
+.hero-note b { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; padding: 18px 40px; border-radius: 6px; text-decoration: none; transition: background 0.3s, transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(179, 19, 43, 0.3); }
+.btn:hover { background: var(--accent-dk); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(179, 19, 43, 0.4); }
+.hero-visual { position: relative; width: 100%; height: 100%; min-height: 500px; display: flex; align-items: center; justify-content: center; }
+.architecture-svg { width: 130%; max-width: 800px; height: auto; transform: translateX(5%); }
+
+/* SVG Animation */
+@keyframes pulseGlow { 0% { r:4; opacity:1; stroke-width:3; } 50% { r:7; opacity:0.7; stroke-width:0; } 100% { r:4; opacity:1; stroke-width:3; } }
+.pulse-node { animation: pulseGlow 2.5s infinite ease-in-out; }
+
+@media(max-width: 900px) {
+  .hero { min-height: 0; padding: 80px 0; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .hero-content .subtext { margin: 0 auto 40px; }
+  .hero-note { justify-content: center; }
+  .hero-visual { display: none; }
+}
+
+/* DEFINITION - OVERSIZED TYPOGRAPHY */
+.defn-section { padding: 90px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.defn-wrap { max-width: 900px; margin: 0 auto; text-align: center;}
+.defn-wrap .term { font-size: clamp(36px, 5vw, 64px); letter-spacing: -1px; line-height: 1.05; margin-bottom: 10px; }
+.defn-wrap .pos { font-style: italic; color: var(--muted); font-size: 20px; margin-bottom: 40px; font-family: var(--serif); }
+.defn-wrap .text { font-size: clamp(20px, 3vw, 32px); line-height: 1.5; color: var(--slate); font-weight: 300; }
+.defn-wrap .text strong { color: var(--ink); font-weight: 700; }
+
+/* THE WALL - STICKY EDITORIAL */
+.wall-grid { display: grid; grid-template-columns: 4fr 6fr; gap: 80px; align-items: start; }
+.wall-sticky { position: sticky; top: 120px; }
+.wall-sticky h2 { font-size: clamp(40px, 5vw, 60px); line-height: 1.05; letter-spacing: -1.5px; }
+.wall-sticky .line { width: 60px; height: 3px; background: var(--accent); margin: 30px 0; border-radius: 2px;}
+.wall-content p { font-size: 20px; line-height: 1.8; margin-bottom: 30px; color: var(--body); }
+.wall-content .large-quote { margin: 50px 0; padding-left: 30px; border-left: 4px solid var(--accent); position: relative;}
+.wall-content .large-quote::before { content: '"'; position: absolute; left: -10px; top: -10px; font-size: 60px; color: rgba(179,19,43,0.1); font-family: var(--serif); line-height: 1; }
+
+@media(max-width: 900px) {
+  .wall-grid { grid-template-columns: 1fr; gap: 40px; }
+  .wall-sticky { position: relative; top: 0; }
+}
+
+/* THE ERAS - COMPARATIVE CARDS */
+.eras-header { max-width: 700px; margin: 0 auto 50px; text-align: center; }
+.eras-header h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; line-height: 1.1;}
+.eras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.era-card { padding: 40px 30px; background: #fff; border: 1px solid var(--line); border-radius: 12px; position: relative; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+.era-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); z-index: 10; }
+.era-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: 12px 12px 0 0; }
+.era-card.past::before { background: var(--past); }
+.era-card.present::before { background: var(--present); }
+.era-card.future { background: linear-gradient(145deg, var(--navy), #0f1929); color: #fff; border: none; box-shadow: 0 20px 50px rgba(22, 36, 59, 0.25); transform: scale(1.03); z-index: 5; }
+.era-card.future:hover { transform: scale(1.03) translateY(-4px); }
+.era-card.future::before { background: var(--future); }
+.era-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+.era-card.past .era-meta { color: var(--past); }
+.era-card.present .era-meta { color: var(--present); }
+.era-card.future .era-meta { color: #8ec5ff; }
+.era-card h3 { font-size: 28px; margin-bottom: 16px; line-height: 1.2; letter-spacing: -0.5px;}
+.era-card.future h3 { color: #fff; }
+.era-card p { font-size: 15px; color: var(--slate); line-height: 1.7; }
+.era-card.future p { color: #cbd5e1; }
+
+@media(max-width: 900px) {
+  .eras-grid { grid-template-columns: 1fr; }
+  .era-card.future { transform: none; box-shadow: 0 10px 30px rgba(22,36,59,0.15); }
+  .era-card.future:hover { transform: translateY(-4px); }
+}
+
+/* YOUR ROLE (WHY THIS MATTERS) */
+.role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.role-item { border: 1px solid var(--line); border-radius: 12px; padding: 40px; background: #fff; border-top: 4px solid var(--navy); box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: transform 0.3s ease; }
+.role-item:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+.role-item h4 { font-size: 24px; font-family: var(--serif); font-weight: 700; color: var(--ink); margin-bottom: 15px; }
+.role-item p { font-size: 17px; color: var(--slate); line-height: 1.6; }
+
+/* CAPACITY - THE LEDGER */
+.capacity-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 60px; align-items: center; }
+.capacity-stat { max-width: 800px; margin: 80px auto 0; padding-top: 50px; border-top: 1px solid var(--line); text-align: center; }
+.capacity-stat .num { font-family: var(--serif); font-size: clamp(52px, 7vw, 76px); font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -2px; }
+.capacity-stat .lbl { font-size: 18px; color: var(--ink); font-weight: 600; line-height: 1.6; margin: 20px auto 0; max-width: 660px; }
+.capacity-stat .src { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 14px auto 0; max-width: 560px; }
+.ledger { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 16px 40px -10px rgba(0,0,0,0.08); }
+.ledger-header { display: flex; padding: 22px 30px; background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.ledger-header span:first-child { flex: 1; padding-left: 44px; }
+.ledger-header span:last-child { width: 50%; padding-left: 20px; }
+.ledger-row { display: flex; padding: 25px 30px; border-bottom: 1px solid var(--line); transition: all 0.3s ease; position: relative; border-left: 4px solid transparent; }
+.ledger-row:hover { background: var(--bg-soft); transform: translateX(4px); border-left-color: var(--accent); padding-left: 26px; }
+.ledger-row:last-child { border-bottom: none; }
+.ledger-func { flex: 1; display: flex; align-items: center; gap: 16px; font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); padding-right: 20px; }
+.ledger-func .lc { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(179,19,43,.25); }
+.ledger-drain { width: 50%; font-size: 15px; color: var(--slate); border-left: 1px dashed var(--past); padding-left: 20px; display: flex; align-items: center;}
+
+@media(max-width: 900px) {
+  .capacity-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ledger-header span:last-child, .ledger-drain { width: auto; flex: 1; }
+  .ledger-row:hover { transform: none; padding-left: 30px; }
+}
+
+/* THE ARCHITECTURE - STICKY STACKING */
+.arch-container { position: relative; padding-bottom: 56px; }
+.arch-intro { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+.arch-intro h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; line-height: 1.1;}
+.stack-wrapper { max-width: 800px; margin: 0 auto; position: relative; }
+.stack-layer { position: sticky; padding: 44px 50px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 30px; box-shadow: 0 -10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; transition: all 0.3s ease; }
+.stack-layer:last-child { margin-bottom: 0; }
+/* Layer Stacking Offsets */
+.stack-layer:nth-child(1) { top: 110px; background: #fff; z-index: 1; border-top: 4px solid var(--slate); }
+.stack-layer:nth-child(2) { top: 130px; background: var(--bg-soft); z-index: 2; border-top: 4px solid var(--accent); }
+.stack-layer:nth-child(3) { top: 150px; background: #fff; z-index: 3; border-top: 4px solid var(--present); }
+.stack-layer:nth-child(4) { top: 170px; background: var(--navy); color: #fff; z-index: 4; border-top: 4px solid var(--future); }
+
+.layer-num { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
+.stack-layer:nth-child(4) .layer-num { color: var(--past); }
+.layer-title { font-size: 32px; margin-bottom: 15px; }
+.stack-layer:nth-child(4) .layer-title { color: #fff; }
+.layer-desc { font-size: 16px; line-height: 1.7; color: var(--body); }
+.stack-layer:nth-child(4) .layer-desc { color: #e7ecf2; }
+
+@media(max-width: 768px) {
+  .stack-layer { position: static; top: auto; flex-direction: column; gap: 12px; padding: 28px; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+  .stack-layer:nth-child(1), .stack-layer:nth-child(2), .stack-layer:nth-child(3), .stack-layer:nth-child(4) { top: auto; }
+  .arch-container { padding-bottom: 0; }
+}
+
+/* PROOF SECTION */
+.proof-section { background: var(--navy); color: #fff; }
+.proof-grid { display: grid; grid-template-columns: 4.5fr 7.5fr; gap: 80px; align-items: center; }
+.proof-visual { display: flex; justify-content: center; }
+.proof-clock { width: 100%; max-width: 380px; height: auto; }
+.proof-content .eyebrow { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); color: #8ec5ff; }
+.proof-content h2 { color: #fff; font-size: clamp(36px, 4vw, 50px); margin-bottom: 20px; }
+.proof-content .subtext { color: #cbd5e1; margin-bottom: 40px; }
+.deploy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.deploy-item { border-left: 3px solid rgba(255,255,255,0.1); padding-left: 24px; transition: border-color 0.3s; }
+.deploy-item:hover { border-left-color: var(--accent); }
+.deploy-item h4 { color: #fff; font-size: 19px; margin-bottom: 10px; font-family: var(--sans); }
+.deploy-item p { color: #9fb0c6; font-size: 15.5px; line-height: 1.6; }
+
+@media(max-width: 900px) {
+  .proof-grid { grid-template-columns: 1fr; gap: 50px; }
+  .proof-visual { max-width: 280px; margin: 0 auto; }
+  .deploy-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* FOOTER FORM - SINGLE BUTTON CTA */
+.form-section { background: var(--bg-soft); padding: 120px 0; border-top: 1px solid var(--line); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.form-info h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 30px; }
+.form-info p { font-size: 20px; color: var(--slate); line-height: 1.7; margin-bottom: 40px; }
+.assure-list { list-style: none; margin: 0 0 40px; }
+.assure-list li { position: relative; padding-left: 36px; margin-bottom: 16px; font-size: 17px; color: var(--body); line-height: 1.5; }
+.assure-list li::before { content: "\2713"; position: absolute; left: 0; top: -2px; color: #fff; background: #1c7c3c; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; }
+
+.form-card { background: #fff; padding: 60px 50px; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(22,36,59,0.08); color: var(--ink); text-align: center; position: relative; overflow: hidden; }
+.form-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--accent); }
+
+@media(max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr; gap: 50px; }
+  .form-card { padding: 40px 30px; }
+}
+
+/* SOURCE NOTE */
+.srcnote { background: var(--navy); color: #aab2bd; padding: 40px 5vw; text-align: center; font-size: 13px; line-height: 1.6; }
+.srcnote strong { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="#wall">The Wall</a>
+      <a href="#eras">The Eras</a>
+      <a href="#roles">Your Role</a>
+      <a href="#capacity">Capacity</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#proof">Proof</a>
+      <a href="#start">Start</a>
+    </div>
+    <a class="nav-logo" href="#top"><span class="logo">M</span> MANTECH</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <span class="readtime"><b>2-min skim</b> &middot; 8-min full read &middot; built for short calendars</span>
+      <span class="eyebrow">The Workforce Model That Comes After Software</span>
+      <h1>The Next Era Of Federal Mission Capacity</h1>
+      <p class="subtext">Mission Workforce Infrastructure is a governed operating model that dramatically scales your agency's output without expanding its payroll. Human experts retain authority. Assistants carry the execution.</p>
+      <a href="#wall" class="btn">Discover The Category</a>
+    </div>
+
+    <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+      <!-- Architectural / Mission Data Network SVG with Animation -->
+      <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="architecture-svg">
+        <defs>
+          <pattern id="data-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="2 4"/>
+          </pattern>
+          <linearGradient id="fade" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f8f9fb" />
+            <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <!-- Base Grid -->
+        <rect width="500" height="500" fill="url(#data-grid)" />
+        <rect width="500" height="500" fill="url(#fade)" opacity="0.6"/>
+
+        <!-- Connecting Lines (Data Pathways) -->
+        <path d="M100 120 L280 120 L280 260 L420 260" stroke="#cbd5e1" stroke-width="2" />
+        <path d="M100 260 L180 260 L180 380 L320 380" stroke="#94a3b8" stroke-width="2" />
+        <path d="M280 120 L380 60" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4" />
+        <path d="M180 380 L180 460" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" />
+
+        <!-- Active Pathways -->
+        <path d="M100 120 L180 120 L180 260" stroke="#b3132b" stroke-width="3" />
+        <path d="M280 260 L320 260 L320 380" stroke="#16243b" stroke-width="3" />
+
+        <!-- Nodes (Systems/Infrastructure) -->
+        <rect x="80" y="100" width="40" height="40" rx="8" fill="#fff" stroke="#b3132b" stroke-width="3" />
+        <circle cx="100" cy="120" class="pulse-node" fill="#b3132b" stroke="#b3132b" />
+
+        <rect x="360" y="40" width="40" height="40" rx="8" fill="#f8f9fb" stroke="#cbd5e1" stroke-width="2" />
+        <rect x="260" y="100" width="40" height="40" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="3" />
+
+        <!-- Center Stack (Data Foundation) -->
+        <rect x="160" y="240" width="40" height="40" rx="8" fill="#16243b" stroke="#16243b" stroke-width="3" />
+        <rect x="260" y="240" width="40" height="40" rx="8" fill="#fff" stroke="#16243b" stroke-width="3" />
+
+        <!-- Bottom -->
+        <rect x="300" y="360" width="40" height="40" rx="8" fill="#fff" stroke="#94a3b8" stroke-width="3" />
+        <rect x="400" y="240" width="40" height="40" rx="8" fill="#f8f9fb" stroke="#cbd5e1" stroke-width="2" />
+
+        <!-- Decorative UI Elements -->
+        <rect x="180" y="100" width="12" height="4" rx="2" fill="#b3132b" />
+        <rect x="180" y="110" width="8" height="4" rx="2" fill="#b3132b" />
+        <rect x="320" y="240" width="16" height="4" rx="2" fill="#16243b" />
+
+        <circle cx="280" cy="260" r="4" fill="#16243b" />
+        <circle cx="180" cy="260" class="pulse-node" fill="#fff" stroke="#16243b" />
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- DEFINITION -->
+<section class="defn-section bg-soft">
+  <div class="container text-center reveal">
+    <div class="defn-wrap">
+      <div class="term serif">Mission Workforce Infrastructure</div>
+      <div class="pos">noun</div>
+      <div class="text">A governed operating model in which <strong>human experts and supervised AI assistants work as one team</strong>. People hold authority. Assistants carry the execution.</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE WALL -->
+<section class="padding-y" id="wall">
+  <div class="container wall-grid">
+    <div class="wall-sticky reveal">
+      <span class="eyebrow">A Structural Shift</span>
+      <h2>The Workforce Wall Is Here</h2>
+      <div class="line"></div>
+    </div>
+    <div class="wall-content">
+      <p class="large-quote reveal">Federal agencies are entering the largest workforce transition since the arrival of enterprise software.</p>
+      <p class="reveal">Mission demands, operational complexity, and compliance mandates accelerate every cycle. The workforce does not.</p>
+      <p class="reveal">Experienced personnel are retiring faster than they can be replaced. Hiring timelines stretch. Deep expertise is difficult to recruit and harder to keep. Yet agencies are still asked to move faster, spend smarter, raise readiness, tighten security, and answer for all of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE ERAS -->
+<section class="padding-y bg-soft" id="eras">
+  <div class="container">
+    <div class="eras-header reveal">
+      <span class="eyebrow">Sixty Years In Three Moves</span>
+      <h2>The Next Era Of Mission Output</h2>
+      <p class="subtext">Every era has its own way of expanding what an organization can deliver. We are entering the third.</p>
+    </div>
+    <div class="eras-grid">
+      <div class="era-card past reveal">
+        <div class="era-meta"><span>The Past</span><span>1960s—2000s</span></div>
+        <h3>Labor Workforce</h3>
+        <p>When demand rose, agencies added people: more analysts, more engineers, more contractors. Output was measured strictly in headcount.</p>
+      </div>
+      <div class="era-card present reveal" style="transition-delay: 0.1s;">
+        <div class="era-meta"><span>The Present</span><span>2000s—2020s</span></div>
+        <h3>Digital Infrastructure</h3>
+        <p>Software reshaped operations—cloud, enterprise platforms, cyber systems. Teams could do more. Yet software still waited on people to run it.</p>
+      </div>
+      <div class="era-card future reveal" style="transition-delay: 0.2s;">
+        <div class="era-meta"><span>The Next Era</span><span>2025—2040</span></div>
+        <h3>Mission Workforce Infrastructure</h3>
+        <p>The next step is neither labor nor software alone. Human experts and trusted assistants work side by side. People keep judgment and approvals. Assistants take on the recurring execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS MATTERS TO YOU -->
+<section class="padding-y" id="roles">
+  <div class="container">
+    <div class="reveal" style="margin-bottom: 60px;">
+      <span class="eyebrow">Why This Matters To You</span>
+      <h2 style="font-size: clamp(36px, 4vw, 50px); margin-bottom: 15px;">Find Your Command In The Story</h2>
+      <p class="subtext">This is not abstract technology. This is how the model changes the outcomes you personally own.</p>
+    </div>
+    
+    <div class="role-grid reveal">
+      <div class="role-item">
+        <h4>Program Manager</h4>
+        <p>Reduce backlog and cycle times. Clear years of stagnant queues without waiting on a hire you can't make.</p>
+      </div>
+      <div class="role-item">
+        <h4>Acquisition</h4>
+        <p>Accelerate documentation and research. Market research and requirements drafted in a fraction of the time.</p>
+      </div>
+      <div class="role-item">
+        <h4>Facilities</h4>
+        <p>Faster estimates and planning. Complex cost estimates delivered in hours instead of days, ready for human validation.</p>
+      </div>
+      <div class="role-item">
+        <h4>Readiness</h4>
+        <p>Automated reporting. Reporting and reconciliation cycles that close overnight instead of running for weeks.</p>
+      </div>
+      <div class="role-item" style="border-top-color: var(--accent);">
+        <h4>Leadership</h4>
+        <p>Better decisions faster. Briefings assembled before the meeting starts. Scale your agency's output without expanding its footprint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPACITY -->
+<section class="padding-y bg-soft" id="capacity">
+  <div class="container capacity-grid">
+    <div class="capacity-text reveal">
+      <span class="eyebrow">Where The Hours Go</span>
+      <h2 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; line-height:1.1;">You Cannot Hire Your Way Out Of This</h2>
+      <p class="subtext" style="margin-bottom: 20px;">Federal agencies don't have an AI problem. They have a time problem.</p>
+      <p class="subtext">Time leaks away every day through work that demands expertise but devours schedules. None of it is optional. All of it pulls thousands of hours from the very people whose expertise is hardest to replace.</p>
+    </div>
+    <div class="ledger reveal">
+      <div class="ledger-header">
+        <span>Mission Function</span>
+        <span>Where Time Is Lost Today</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Facility Planning</span>
+        <span class="ledger-drain">Cost research, estimate preparation, validation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Acquisition</span>
+        <span class="ledger-drain">Market research, requirements gathering, documentation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Compliance</span>
+        <span class="ledger-drain">Evidence collection, reporting, validation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Program Mgmt</span>
+        <span class="ledger-drain">Status reporting, coordination, documentation</span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-func">Readiness Ops</span>
+        <span class="ledger-drain">Reporting, reconciliation, tracking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MODEL (ARCHITECTURE) -->
+<section class="padding-y arch-container" id="architecture">
+  <div class="container">
+    <div class="arch-intro reveal">
+      <span class="eyebrow">The Architecture</span>
+      <h2>Four Layers, One Workforce</h2>
+      <p class="subtext">Built in tiers, each with one job: assistants generate output, governance earns trust, data builds confidence. Scroll to build the stack.</p>
+    </div>
+    
+    <div class="stack-wrapper">
+      <div class="stack-layer reveal" style="border-top-color: var(--slate);">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 1</span>
+          <h3 class="layer-title serif">Human Workforce</h3>
+          <p class="layer-desc">Mission leaders, program managers, engineers, analysts, planners, compliance professionals, and subject matter experts. They own judgment, approval, leadership, and the decisions that carry consequence.</p>
+        </div>
+      </div>
+      
+      <div class="stack-layer reveal" style="border-top-color: var(--accent);">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 2</span>
+          <h3 class="layer-title serif">Mission Assistant Layer</h3>
+          <p class="layer-desc">Dedicated assistants, each handling the recurring work of a single function under human supervision (e.g., MILCON Cost Estimators, Contract Review Assistants, RMF Compliance Assistants).</p>
+        </div>
+      </div>
+      
+      <div class="stack-layer reveal" style="border-top-color: var(--present);">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 3</span>
+          <h3 class="layer-title serif">Governance Layer</h3>
+          <p class="layer-desc">Escalation controls, auditability, human approval, source traceability, performance monitoring, drift detection, security review, and operational oversight.</p>
+        </div>
+      </div>
+      
+      <div class="stack-layer reveal" style="border-top-color: var(--future);">
+        <div style="flex: 1;">
+          <span class="layer-num">Layer 4</span>
+          <h3 class="layer-title serif">Mission Data Foundation</h3>
+          <p class="layer-desc">Governed enterprise data, authoritative sources, multicloud architecture, core to edge deployment, and containerized execution. The ground that makes an assistant worth trusting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF SECTION -->
+<section class="padding-y proof-section" id="proof">
+  <div class="container proof-grid">
+    <div class="proof-visual reveal">
+      <svg viewBox="0 0 500 500" class="proof-clock" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <circle cx="250" cy="250" r="216" stroke="#2f4a6b" stroke-width="3"/>
+        <circle cx="250" cy="250" r="200" stroke="#33455f" stroke-width="1" stroke-dasharray="4 8"/>
+        <g fill="#9fb0c6">
+          <circle cx="250" cy="60" r="8" fill="#b3132b"/>
+          <circle cx="345" cy="85" r="5"/>
+          <circle cx="415" cy="155" r="5"/>
+          <circle cx="440" cy="250" r="5"/>
+          <circle cx="415" cy="345" r="5"/>
+          <circle cx="345" cy="415" r="5"/>
+          <circle cx="250" cy="440" r="5"/>
+          <circle cx="155" cy="415" r="5"/>
+          <circle cx="85" cy="345" r="5"/>
+          <circle cx="60" cy="250" r="5"/>
+          <circle cx="85" cy="155" r="5"/>
+          <circle cx="155" cy="85" r="5"/>
+        </g>
+        <line x1="250" y1="250" x2="250" y2="120" stroke="#8ec5ff" stroke-width="10" stroke-linecap="round"/>
+        <line x1="250" y1="250" x2="358" y2="250" stroke="#b3132b" stroke-width="10" stroke-linecap="round"/>
+        <circle cx="250" cy="250" r="16" fill="#ffffff" stroke="#16243b" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="proof-content">
+      <span class="eyebrow">Proven In The Mission</span>
+      <h2 class="serif">Real Systems, Running In Federal Missions Today</h2>
+      <p class="subtext reveal">Not a concept and not a roadmap. These are the systems and authorized environments ManTech already has live in federal missions right now.</p>
+
+      <div class="deploy-grid reveal">
+        <div class="deploy-item">
+          <h4>Real Property Lifecycle AI</h4>
+          <p>AI actively deployed across the facilities, military construction, and real property space.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>ORI Portfolio AI</h4>
+          <p>Overlapping Resource Identification tool surfacing duplicate software spend across enterprise portfolios.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>Defense Health Automation</h4>
+          <p>Automation running securely in one of the most demanding, regulated environments in government.</p>
+        </div>
+        <div class="deploy-item">
+          <h4>ManTech AI Sandbox</h4>
+          <p>An authorized environment to build, test, and prove assistants on governed data before production.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE / EXECUTIVE CTA -->
+<section class="form-section" id="start">
+  <div class="container form-grid">
+    <div class="form-info reveal">
+      <span class="eyebrow">Take The Step</span>
+      <h2 class="serif">See It On Your Own Mission</h2>
+      <p>One function, one team, twelve weeks, measured against your own baseline. See what Mission Workforce Infrastructure can unlock for your agency.</p>
+      <ul class="assure-list" style="margin-top: 30px;">
+        <li>Inside your environment, on your data, behind your fence</li>
+        <li>Your experts stay in command. We take the busywork, not the jobs</li>
+        <li>A person approves every output. Nothing acts on its own</li>
+        <li>No production access until you authorize it</li>
+      </ul>
+      <div style="width: 80px; height: 4px; background: var(--accent); border-radius: 2px;"></div>
+    </div>
+
+    <div class="form-card reveal" style="transition-delay: 0.2s;">
+      <h3 class="serif" style="font-size: 32px; margin-bottom: 15px;">Ready to see the model?</h3>
+      <p style="color: var(--slate); margin-bottom: 35px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
+      
+      <!-- Single Executive Button -->
+      <a href="mailto:contact@mantech.com?subject=Mission%20Capacity%20Briefing%20Request" class="btn" style="padding: 22px 40px; font-size: 14px; width: 100%;">Request A Mission Capacity Briefing</a>
+      
+      <p style="margin-top: 25px; font-size: 12px; color: var(--muted);">This is an exploratory briefing. All discussions are handled in governed, authorized channels.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCE NOTE -->
+<div class="srcnote">
+  <div class="container">
+    <strong>Mission Workforce Infrastructure</strong> is powered by ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. The workforce figure reflects OPM data cited in GAO reporting on the aging federal workforce.
+  </div>
+</div>
+
+<script>
+// Scroll Reveal Animation via Intersection Observer for better performance
+document.addEventListener("DOMContentLoaded", function() {
+  const reveals = document.querySelectorAll(".reveal");
+  const revealOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("active");
+      observer.unobserve(entry.target); // Only animate once
+    });
+  }, revealOptions);
+
+  reveals.forEach(reveal => {
+    revealOnScroll.observe(reveal);
+  });
+});
+
+// Active Link Highlight
+const sections = document.querySelectorAll("section[id], header[id]");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute("id");
+    }
+  });
+  document.querySelectorAll(".nav-links a").forEach((li) => {
+    li.classList.remove("active");
+    if (li.getAttribute("href").includes(current)) {
+      li.classList.add("active");
+    }
+  });
+});
+</script>
+</body>
+</html>
