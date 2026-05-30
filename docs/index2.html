@@ -288,6 +288,24 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .sec-chips span { font-size: 13px; font-weight: 700; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--line); border-radius: 30px; padding: 9px 16px; }
 .sec-result { font-family: var(--serif); font-size: clamp(18px, 2.4vw, 24px); line-height: 1.4; color: var(--ink); max-width: 680px; margin: 0 auto; }
 
+/* HOW WE DO IT */
+.how-lead { max-width: 760px; margin: 0 auto; text-align: center; }
+.how-lead h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin-bottom: 16px; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; max-width: 960px; margin: 44px auto 0; }
+.how-item { text-align: left; }
+.how-item .hn { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: 13px; margin-bottom: 14px; }
+.how-item h4 { font-size: 19px; margin-bottom: 8px; }
+.how-item p { font-size: 15px; color: var(--slate); line-height: 1.6; }
+@media(max-width: 760px) { .how-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+/* COST EXAMPLE */
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 860px; margin: 36px auto 0; }
+.cost-stat { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 6px; padding: 38px 24px; box-shadow: 0 20px 44px rgba(0,0,0,.04); }
+.cost-stat .cn { font-family: var(--serif); font-size: clamp(40px, 6vw, 64px); font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -2px; }
+.cost-stat .ck { font-size: 13px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--slate); margin-top: 14px; }
+.cost-src { font-size: 12.5px; color: var(--muted); line-height: 1.6; max-width: 700px; margin: 26px auto 0; }
+@media(max-width: 640px) { .cost-grid { grid-template-columns: 1fr; gap: 18px; } }
+
 /* MOBILE TUNING */
 @media(max-width: 600px) {
   .padding-y { padding: 60px 0; }
@@ -405,6 +423,31 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </header>
 
+<!-- WHY NOW (AGITATE) -->
+<section class="padding-y" id="why" style="background: var(--navy); color: #fff;">
+  <div class="container reveal" style="max-width: 860px; margin: 0 auto; text-align: center;">
+    <span class="eyebrow" style="color: #8ec5ff;">Why Now</span>
+    <h2 style="color: #fff; font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 26px;">The Squeeze Is Already Here</h2>
+    <p style="font-size: 19px; line-height: 1.7; color: #d4dbe4; margin-bottom: 18px;">Fewer people. Flatter budgets. A mandate to adopt AI, and a security team that has to sign off on every piece of it.</p>
+    <p style="font-size: 19px; line-height: 1.7; color: #d4dbe4; margin-bottom: 18px;">Your most experienced people are retiring. The ones who remain spend their day on permissions, data cleanup, and slide decks instead of the mission.</p>
+    <p style="font-size: 19px; line-height: 1.7; color: #d4dbe4;">Every quarter nothing changes, the backlog grows, more expertise walks out the door, and the work that did not get done becomes the audit finding, the missed deadline, the surge you could not meet.</p>
+    <p class="large-quote" style="color: #fff; margin-top: 40px;">And It Compounds Every Quarter You Wait.</p>
+  </div>
+</section>
+
+<!-- THE COST (EXAMPLE) -->
+<section class="padding-y bg-soft" id="cost">
+  <div class="container reveal" style="text-align: center;">
+    <span class="eyebrow">What It Costs Today</span>
+    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.1; max-width: 760px; margin: 0 auto;">One Agency. One Year. The Bill For Doing It By Hand.</h2>
+    <div class="cost-grid">
+      <div class="cost-stat"><div class="cn">9 Million</div><div class="ck">Hours Lost To Manual Work</div></div>
+      <div class="cost-stat"><div class="cn">$150 Million</div><div class="ck">In Labor, Every Year</div></div>
+    </div>
+    <p class="cost-src">Illustrative example. Basis: a 20,000 person knowledge workforce spending roughly 9 hours a week searching for and gathering information (McKinsey). Confirm against your own baseline before external use.</p>
+  </div>
+</section>
+
 <!-- CAPACITY -->
 <section class="padding-y bg-soft" id="capacity">
   <div class="container">
@@ -447,6 +490,22 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <div class="num">Nearly 1 in 3</div>
       <div class="lbl">federal employees are already eligible to retire, ready to carry decades of irreplaceable mission expertise out the door.</div>
       <div class="src">Source: OPM workforce data, cited in GAO reporting on the aging federal workforce (2022 and 2023).</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE DO IT -->
+<section class="padding-y" id="how">
+  <div class="container">
+    <div class="how-lead reveal">
+      <span class="eyebrow">How We Do It</span>
+      <h2>A Trusted Assistant On Every Recurring Job</h2>
+      <p class="subtext">We do not replace your people or rip out your systems. We put a supervised assistant on each task that drains them.</p>
+    </div>
+    <div class="how-grid reveal">
+      <div class="how-item"><span class="hn">1</span><h4>On Your Data</h4><p>Assistants run on your governed data, inside your own environment, including closed and classified networks.</p></div>
+      <div class="how-item"><span class="hn">2</span><h4>One Job At A Time</h4><p>Each assistant takes a single recurring task off your experts, the way a specialist would.</p></div>
+      <div class="how-item"><span class="hn">3</span><h4>Nothing Without Approval</h4><p>A person reviews the output and approves before it acts. You set the thresholds.</p></div>
     </div>
   </div>
 </section>
