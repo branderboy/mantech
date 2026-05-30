@@ -221,6 +221,35 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .assure-list li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: #1c7c3c; font-weight: 800; }
 .job-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 800px; margin: 20px auto 2px; }
 .job-chips span { font-size: 14px; color: var(--ink); background: #eef2f7; border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; line-height: 1.2; }
+.uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1000px; margin: 44px auto 0; }
+.uc-card { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 14px; padding: 26px; box-shadow: 0 10px 30px rgba(22,36,59,.06); display: flex; flex-direction: column; text-align: left; }
+.uc-agency { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.uc-card h4 { font-size: 20px; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+.uc-problem { font-size: 14.5px; color: var(--slate); line-height: 1.55; margin-bottom: 14px; }
+.uc-asst { margin-bottom: 14px; }
+.uc-asst span { display: inline-block; font-size: 12px; font-weight: 700; color: var(--ink); background: #eef2f7; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; margin: 0 6px 6px 0; }
+.uc-does { font-size: 13px; color: var(--slate); line-height: 1.5; margin-bottom: 14px; }
+.uc-does b { color: var(--ink); }
+.uc-cap { font-size: 14.5px; color: var(--ink); font-weight: 600; line-height: 1.5; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+@media(max-width: 760px) { .uc-grid { grid-template-columns: 1fr; } }
+.daygrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 980px; margin: 40px auto 0; text-align: left; }
+.day-col { border-radius: 14px; padding: 30px 28px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(22,36,59,.06); }
+.day-col.mwi { background: #fff; border: 2px solid #2f4a6b; }
+.day-tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
+.day-col.today .day-tag { color: var(--muted); }
+.day-col.mwi .day-tag { color: #2f4a6b; }
+.day-col ul { list-style: none; margin: 0 0 22px; padding: 0; }
+.day-col li { font-size: 15px; line-height: 1.5; padding: 8px 0 8px 26px; position: relative; }
+.day-col.today li { color: var(--slate); }
+.day-col.today li::before { content: "\2022"; position: absolute; left: 6px; color: var(--muted); }
+.day-col.mwi li { color: var(--slate); }
+.day-col.mwi li::before { content: "\2713"; position: absolute; left: 0; color: #7fe0a3; font-weight: 800; }
+.day-time { font-family: var(--serif); font-weight: 700; letter-spacing: -1px; line-height: 1; font-size: clamp(32px, 4vw, 48px); }
+.day-col.today .day-time { color: var(--ink); }
+.day-col.mwi .day-time { color: #1c7c3c; }
+.day-time small { display: block; font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.day-col.mwi .day-time small { color: #1c7c3c; }
+@media(max-width: 760px) { .daygrid { grid-template-columns: 1fr; } }
 .safeflow { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 16px; max-width: 1120px; margin: 34px auto 0; }
 .sfnode { position: relative; flex: 1 1 170px; max-width: 200px; min-height: 204px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 14px; padding: 28px 18px 24px; text-align: center; box-shadow: 0 10px 30px rgba(22,36,59,.06); }
 .sfnode.final { border-top-color: #1c7c3c; background: var(--bg-soft); }
@@ -522,12 +551,12 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <section class="padding-y" id="why" style="background: var(--navy); color: #fff;">
   <div class="container reveal" style="max-width: 860px; margin: 0 auto; text-align: center;">
     <span class="eyebrow" style="color: #8ec5ff;">Why Now</span>
-    <h2 style="color: #fff; font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 26px;">The Squeeze Is Already Here</h2>
-    <p style="font-size: 19px; line-height: 1.7; color: #ffffff; margin-bottom: 18px;">Fewer people. Flatter budgets. A mandate to adopt AI, and a security team that has to sign off on every piece of it.</p>
-    <p style="font-size: 19px; line-height: 1.7; color: #ffffff; margin-bottom: 18px;">Your most experienced people are retiring. The ones who remain spend their day on permissions, data cleanup, and slide decks instead of the mission.</p>
-    <p style="font-size: 19px; line-height: 1.7; color: #ffffff;">Every quarter nothing changes, the backlog grows, more expertise walks out the door, and the work that did not get done becomes the audit finding, the missed deadline, the surge you could not meet.</p>
-    <p class="large-quote" style="color: #fff; margin-top: 40px;">And It Compounds Every Quarter You Wait.</p>
-    <p style="color: #cdd8e6; font-size: 16px; line-height: 1.6; margin-top: 16px;">Every quarter you wait is time you never get back, and capacity you never build.</p>
+    <h2 style="color: #fff; font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 26px;">Why Time Matters More Than Ever</h2>
+    <p style="font-size: 19px; line-height: 1.7; color: #ffffff; margin-bottom: 18px;">Data is stacking up. Dollars are stacking up. And it only gets bigger every cycle. You need more people and more time, but the budget and the calendar both say no.</p>
+    <p style="font-size: 19px; line-height: 1.7; color: #ffffff; margin-bottom: 18px;">Take facility cost estimating: every estimate pulls from historical projects, authoritative cost data, and scope documents scattered across systems, and a program runs hundreds of them. The data only grows. The deadlines don't move.</p>
+    <p style="font-size: 19px; line-height: 1.7; color: #ffffff;">The agencies that pull ahead are not the ones adding people. They are the ones getting more out of the people they already have.</p>
+    <p class="large-quote" style="color: #fff; margin-top: 40px;">Today, The Moat Is Capacity.</p>
+    <p style="color: #cdd8e6; font-size: 16px; line-height: 1.6; margin-top: 16px;">The leverage to do more with the team you already have.</p>
   </div>
 </section>
 
@@ -643,6 +672,80 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
+
+<!-- USE CASES -->
+<section class="padding-y" id="use-cases">
+  <div class="container">
+    <div class="reveal" style="max-width: 760px; margin: 0 auto 10px; text-align: center;">
+      <span class="eyebrow">Use Cases</span>
+      <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 14px;">The Same Assistants, Across The Mission</h2>
+      <p class="subtext">From decades of legacy records to this month's reports, here is where Mission Assistants take the recurring work off your team.</p>
+    </div>
+    <div class="uc-grid reveal">
+      <div class="uc-card">
+        <span class="uc-agency">Army</span>
+        <h4>Find Anything In Decades Of Records</h4>
+        <p class="uc-problem">Thirty years of documents scattered across SharePoint, shared drives, PDFs, email, and wikis. Nobody knows where anything is.</p>
+        <div class="uc-asst"><span>Data Structuring</span><span>Knowledge Retrieval</span></div>
+        <p class="uc-cap">Millions of documents grouped by mission, tagged, and made searchable. Analysts stop hunting and start working.</p>
+      </div>
+      <div class="uc-card">
+        <span class="uc-agency">Defense Health</span>
+        <h4>Reports That Build Themselves</h4>
+        <p class="uc-problem">Every month, personnel hand-build readiness reports, operational briefings, and executive decks.</p>
+        <div class="uc-asst"><span>Briefing Assistant</span></div>
+        <p class="uc-cap">Drafts, summaries, and talking points generated from operational data. Thousands of analyst hours back.</p>
+      </div>
+      <div class="uc-card">
+        <span class="uc-agency">Veterans Affairs</span>
+        <h4>Search That Takes Seconds, Not Hours</h4>
+        <p class="uc-problem">Records spread across PDFs, case files, databases, and scanned documents. Employees lose hours searching.</p>
+        <div class="uc-asst"><span>Knowledge Retrieval</span></div>
+        <p class="uc-cap">Natural-language search with sources and confidence scores. Hours become seconds.</p>
+      </div>
+      <div class="uc-card">
+        <span class="uc-agency">Air Force</span>
+        <h4>Folder Permissions, Under Control</h4>
+        <p class="uc-problem">Millions of folders, thousands of users, permissions drift, audit findings, and security risk.</p>
+        <div class="uc-asst"><span>Access Governance</span></div>
+        <p class="uc-cap">Permissions mapped, conflicts flagged, audit reports generated. Security teams stop losing weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A DAY IN THE LIFE (KILLER SLIDE) -->
+<section class="padding-y bg-soft" id="day">
+  <div class="container reveal" style="text-align: center;">
+    <span class="eyebrow">A Day In The Life</span>
+    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 14px;">One Program Manager. One Request.</h2>
+    <p class="subtext" style="max-width: 700px; margin: 0 auto;">A leadership request lands. Same task, before and after.</p>
+    <div class="daygrid">
+      <div class="day-col today">
+        <span class="day-tag">Today, By Hand</span>
+        <ul>
+          <li>Search 5 repositories</li>
+          <li>Find 20 documents</li>
+          <li>Review permissions</li>
+          <li>Organize the findings</li>
+          <li>Build the PowerPoint</li>
+          <li>Write the executive summary</li>
+        </ul>
+        <div class="day-time"><small>Time Required</small>6 to 8 Hours</div>
+      </div>
+      <div class="day-col mwi">
+        <span class="day-tag">With Mission Assistants</span>
+        <ul>
+          <li>The Program Manager makes the request</li>
+          <li>Assistants search, check permissions, and organize</li>
+          <li>A briefing draft and summary are generated</li>
+          <li>The Program Manager reviews and approves</li>
+        </ul>
+        <div class="day-time"><small>Time Required</small>Minutes</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- HUMAN OVERSIGHT -->
 <section class="padding-y" id="oversight">
@@ -905,7 +1008,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <!-- SOURCE NOTE -->
 <div class="srcnote">
   <div class="container">
-    <strong>Mission Workforce Infrastructure</strong> is powered by ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. The workforce figure reflects OPM data cited in GAO reporting on the aging federal workforce.
+    <strong>Mission Workforce Infrastructure</strong> is powered by ManTech's deployed, authorized Data and AI solutions, including Real Property Lifecycle AI, ORI, the AI Sandbox, and the Modern Data Platform. Every Mission Assistant is measured the same way: hours recovered and turned into mission capacity for your mission.
   </div>
 </div>
 
