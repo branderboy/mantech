@@ -241,6 +241,24 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   .assist-grid { grid-template-columns: 1fr; }
 }
 
+/* HUMAN OVERSIGHT */
+.oversight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.oversight-intro h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin: 0 0 16px; }
+.oversight-intro .subtext { margin-bottom: 28px; }
+.score-chip { display: inline-flex; align-items: center; gap: 22px; background: #fff; border: 1px solid var(--line); border-left: 4px solid #1c7c3c; border-radius: 6px; padding: 20px 26px; box-shadow: 0 14px 34px rgba(0,0,0,.05); }
+.score-chip .score-num { font-family: var(--serif); font-size: 46px; font-weight: 700; color: #1c7c3c; line-height: 1; }
+.score-chip .score-num span { font-size: 22px; }
+.score-chip .score-meta { display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600; color: var(--slate); }
+.tier-ladder { display: flex; flex-direction: column; gap: 12px; }
+.tier { display: flex; align-items: center; gap: 18px; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--line); border-radius: 4px; padding: 18px 22px; }
+.tier .t-range { flex: 0 0 96px; font-weight: 800; font-size: 15px; color: var(--ink); }
+.tier .t-act { font-size: 15px; color: var(--body); }
+.tier.t-auto { border-left-color: #1c7c3c; }
+.tier.t-rec { border-left-color: #2f6bd6; }
+.tier.t-rev { border-left-color: #d98a0f; }
+.tier.t-esc { border-left-color: var(--accent); }
+@media(max-width: 860px) { .oversight-grid { grid-template-columns: 1fr; gap: 36px; } }
+
 /* MOBILE TUNING */
 @media(max-width: 600px) {
   .padding-y { padding: 60px 0; }
@@ -573,6 +591,27 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
         <h4>Knowledge Retrieval Assistant</h4>
         <p>Makes scattered records searchable in seconds, so answers are easy to find and institutional knowledge stays in the building.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- HUMAN OVERSIGHT -->
+<section class="padding-y" id="oversight">
+  <div class="container oversight-grid">
+    <div class="oversight-intro reveal">
+      <span class="eyebrow">Trust By Design</span>
+      <h2>Confidence You Can See. Authority You Keep.</h2>
+      <p class="subtext">Every output carries a confidence score and the sources behind it. Nothing acts on its own until your thresholds say it can.</p>
+      <div class="score-chip">
+        <div class="score-num">96<span>%</span></div>
+        <div class="score-meta"><span>43 sources cited</span><span>1 conflict flagged</span><span>Human approved</span></div>
+      </div>
+    </div>
+    <div class="tier-ladder reveal">
+      <div class="tier t-auto"><span class="t-range">95 to 100</span><span class="t-act">Automated execution allowed</span></div>
+      <div class="tier t-rec"><span class="t-range">85 to 94</span><span class="t-act">Recommended action, a person confirms</span></div>
+      <div class="tier t-rev"><span class="t-range">70 to 84</span><span class="t-act">Human review required</span></div>
+      <div class="tier t-esc"><span class="t-range">Below 70</span><span class="t-act">Escalation required</span></div>
     </div>
   </div>
 </section>
