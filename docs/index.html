@@ -208,6 +208,9 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 .form-card { background: #fff; padding: 50px 40px; border-radius: 4px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--ink); text-align: center; }
 .reassure { color: var(--muted); }
+.assure-list { list-style: none; margin: 4px 0 28px; }
+.assure-list li { position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: var(--body); line-height: 1.5; }
+.assure-list li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: #1c7c3c; font-weight: 800; }
 .form-card form { text-align: left; }
 .form-card .fg { margin-bottom: 18px; }
 .form-card .fg label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); margin-bottom: 8px; }
@@ -705,9 +708,15 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <section class="form-section" id="start">
   <div class="container form-grid">
     <div class="form-info reveal">
-      <span class="eyebrow">Take The Step</span>
-      <h2 class="serif">Start Building Your Mission Workforce</h2>
-      <p>One function, one team, twelve weeks, measured against your own baseline. See what Mission Workforce Infrastructure can unlock for your agency.</p>
+      <span class="eyebrow">The Next Step</span>
+      <h2 class="serif">Start Small. Prove It. Then Scale.</h2>
+      <p>One function, one team, twelve weeks, measured against your own baseline. You see the recovered hours before anything scales.</p>
+      <ul class="assure-list">
+        <li>Inside your environment, on your data, behind your fence</li>
+        <li>A person approves every output. Nothing acts on its own</li>
+        <li>No production access until you authorize it</li>
+        <li>You keep the results, the data, and the control</li>
+      </ul>
       <div style="width: 60px; height: 3px; background: var(--accent);"></div>
       <p style="margin-top: 22px; font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink);">We Get Your Org. <span style="color: var(--accent);">#GovFutureReady</span></p>
     </div>
