@@ -24,6 +24,8 @@ section[id], header[id] { scroll-margin-top: 90px; }
 /* TYPOGRAPHY */
 h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .eyebrow { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+.readtime { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .5px; color: var(--slate); background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px; padding: 5px 13px; margin-bottom: 18px; }
+.readtime b { color: var(--ink); font-weight: 700; }
 .subtext { font-size: 18px; color: var(--slate); line-height: 1.8; }
 .large-quote { font-family: var(--serif); font-size: clamp(24px, 4vw, 40px); line-height: 1.2; letter-spacing: -0.5px; color: var(--ink); }
 
@@ -217,6 +219,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .assure-list { list-style: none; margin: 4px 0 28px; }
 .assure-list li { position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: var(--body); line-height: 1.5; }
 .assure-list li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: #1c7c3c; font-weight: 800; }
+.job-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 800px; margin: 20px auto 2px; }
+.job-chips span { font-size: 14px; color: var(--ink); background: #eef2f7; border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; line-height: 1.2; }
 .form-card form { text-align: left; }
 .form-card .fg { margin-bottom: 18px; }
 .form-card .fg label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); margin-bottom: 8px; }
@@ -374,6 +378,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <a href="#oversight">Trust</a>
       <a href="#proof">Proof</a>
       <a href="#start">Start</a>
+      <a href="index3.html">The Vision</a>
       <a href="full.html">Full Model</a>
     </div>
   </div>
@@ -383,6 +388,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <header class="hero" id="top">
   <div class="container hero-grid">
     <div class="hero-content reveal">
+      <span class="readtime"><b>2-min skim</b> &middot; 8-min full read &middot; built for short calendars</span>
       <span class="eyebrow">For Program Owners, CIOs, And Security Leads</span>
       <h1>Your Experts Spend Their Day On Work A Machine Should Do</h1>
       <p class="subtext">Permissions, data, briefings, and search still happen by hand, even inside closed networks. ManTech assistants take that work, under your people's supervision, where the mission actually runs.</p>
@@ -728,27 +734,54 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 
 <div class="sep" aria-hidden="true"><i></i></div>
 
+<!-- THE RISK OF AI / FEAR -->
+<section class="padding-y" id="trust-ai">
+  <div class="container reveal" style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <span class="eyebrow">The Honest Part</span>
+    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 24px;">AI Can Be A Real Risk. We Engineered The Risk Out.</h2>
+    <p class="subtext" style="margin-bottom: 6px;">You have heard the warnings, and most of them are fair. AI fails when it acts alone, unwatched, and unaccountable. So we built the Mission Assistant to remove each of those failure modes. The Mission Assistant takes the repetitive work. Your people keep judgment, approval, and the decisions that carry consequence, the part that was always the job, and it stays with them.</p>
+    <p class="subtext" style="margin: 0 auto 2px; max-width: 780px; color: var(--ink); font-weight: 600;">Meet the product doing it: each named Mission Assistant runs these same controls on a real job your teams need done.</p>
+    <div class="job-chips">
+      <span><strong>Access Governance Assistant</strong> &middot; folder permissions</span>
+      <span><strong>Data Structuring Assistant</strong> &middot; grouping data for closed networks</span>
+      <span><strong>Briefing Assistant</strong> &middot; PowerPoints from ingested data</span>
+      <span><strong>Knowledge Retrieval Assistant</strong> &middot; scraping into searchable form</span>
+    </div>
+    <div class="why-list reveal">
+      <div class="wl"><h4>Confidence Scores, Not Blind Trust</h4><p>Every output is scored and shows its sources. High-confidence work moves; anything uncertain is flagged and routed to a person. Nothing questionable ships on its own, so no one is blindsided by a machine.</p></div>
+      <div class="wl"><h4>A Person Approves Every Move</h4><p>No production access until you authorize it. The Mission Assistant does one job, shows its work, and waits for a human to approve. By design, the system cannot run without your people.</p></div>
+      <div class="wl"><h4>Mission Alerts On Watch</h4><p>Drift detection, performance monitoring, and security review run continuously. The moment something looks off, it escalates to a human, before it becomes an audit finding or a breach.</p></div>
+      <div class="wl"><h4>Support That Stays</h4><p>We tune each assistant, train your people, and adjust thresholds as your environment and the threats change. There is always someone accountable behind the system, never a walk-away handoff.</p></div>
+      <div class="wl full"><h4>All Of It On One Screen: The Mission Capacity Console</h4><p>Scores, approvals, escalations, and mission alerts surface in a single dashboard a named person owns. In the live example above, a Program Lead approves the day's work, low-confidence items are held for review, and permission conflicts and policy changes are flagged the moment they appear. Nothing happens in the dark, and there is always a human accountable on the screen.</p></div>
+      <div class="wl full"><h4>This Protects Jobs. It Does Not Replace Them.</h4><p>The Mission Assistant carries the busywork. Your experts keep the judgment, the approvals, and the accountability, the work that actually requires them. A required human in the loop makes your workforce more valuable, not redundant. People do the mission; assistants do the chore.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep" aria-hidden="true"><i></i></div>
+
 <!-- CLOSE / EXECUTIVE CTA -->
 <section class="form-section" id="start">
   <div class="container form-grid">
     <div class="form-info reveal">
-      <span class="eyebrow">The Next Step</span>
-      <h2 class="serif">Start Small. Prove It. Then Scale.</h2>
-      <p>One function, one team, twelve weeks, measured against your own baseline. You see the recovered hours before anything scales.</p>
+      <span class="eyebrow">The First Step</span>
+      <h2 class="serif">Start With A Mission Capacity Assessment</h2>
+      <p>Before any build, pilot, or production access, we measure where your hours and dollars go today, against your own baseline. You see exactly how much capacity is recoverable, then you decide what happens next. No commitment.</p>
       <ul class="assure-list">
         <li>Inside your environment, on your data, behind your fence</li>
+        <li>Your experts stay in command. We take the busywork, not the jobs</li>
         <li>A person approves every output. Nothing acts on its own</li>
+        <li>Your ISSO and security team see every control before anything runs</li>
         <li>No production access until you authorize it</li>
         <li>You keep the results, the data, and the control</li>
-        <li>Ongoing support and guidance, not a one time handoff</li>
-        <li>The hours and dollars you lose today come back as capacity you keep</li>
       </ul>
       <div style="width: 60px; height: 3px; background: var(--accent);"></div>
       <p style="margin-top: 22px; font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink);">We Get Your Org. <span style="color: var(--accent);">#GovFutureReady</span></p>
     </div>
 
     <div class="form-card reveal" style="transition-delay: 0.2s;">
-      <h3 class="serif" style="font-size: 32px; margin-bottom: 15px;">Ready To See The Model?</h3>
+      <h3 class="serif" style="font-size: 32px; margin-bottom: 12px;">Request Your Assessment</h3>
+      <p style="color: var(--ink); font-weight: 700; margin-bottom: 12px; font-size: 17px; line-height: 1.4;">In 20 minutes, we'll show you the jobs a Mission Assistant can take off your team first, and the hours each one gives back.</p>
       <p style="color: var(--slate); margin-bottom: 30px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
 
       <form id="pilotForm">
