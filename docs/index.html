@@ -24,6 +24,8 @@ section[id], header[id] { scroll-margin-top: 90px; }
 /* TYPOGRAPHY */
 h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .eyebrow { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+.readtime { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .5px; color: var(--slate); background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px; padding: 5px 13px; margin-bottom: 18px; }
+.readtime b { color: var(--ink); font-weight: 700; }
 .subtext { font-size: 18px; color: var(--slate); line-height: 1.8; }
 .large-quote { font-family: var(--serif); font-size: clamp(24px, 4vw, 40px); line-height: 1.2; letter-spacing: -0.5px; color: var(--ink); }
 
@@ -385,6 +387,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <header class="hero" id="top">
   <div class="container hero-grid">
     <div class="hero-content reveal">
+      <span class="readtime"><b>2-min skim</b> &middot; 8-min full read &middot; built for short calendars</span>
       <span class="eyebrow">For Program Owners, CIOs, And Security Leads</span>
       <h1>Your Experts Spend Their Day On Work A Machine Should Do</h1>
       <p class="subtext">Permissions, data, briefings, and search still happen by hand, even inside closed networks. ManTech assistants take that work, under your people's supervision, where the mission actually runs.</p>
@@ -776,7 +779,8 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     </div>
 
     <div class="form-card reveal" style="transition-delay: 0.2s;">
-      <h3 class="serif" style="font-size: 32px; margin-bottom: 15px;">Request Your Assessment</h3>
+      <h3 class="serif" style="font-size: 32px; margin-bottom: 12px;">Request Your Assessment</h3>
+      <p style="color: var(--ink); font-weight: 700; margin-bottom: 12px; font-size: 17px; line-height: 1.4;">In 20 minutes, we'll show you the jobs a Mission Assistant can take off your team first, and the hours each one gives back.</p>
       <p style="color: var(--slate); margin-bottom: 30px; font-size: 16px;">Connect with our mission team to scope your baseline, review active federal use cases, and discuss authorization paths.</p>
 
       <form id="pilotForm">
