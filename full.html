@@ -943,30 +943,30 @@ window.addEventListener("scroll", () => {
 })();
 </script>
 <script>
-/* PRESENT MODE: top button + P key + arrow keys / space / ?present */
+/* PRESENT MODE: toggle button + clickable arrows + keys + ?present (clean slides, starts at hero) */
 (function(){
-  var st=document.createElement('style');
-  st.textContent='html.present{scroll-snap-type:y proximity;}html.present section[id],html.present header[id]{scroll-snap-align:start;}';
-  document.head.appendChild(st);
-  var secs=[];
-  function collect(){secs=[].slice.call(document.querySelectorAll('header[id],section[id]'));}
-  function cur(){var y=window.pageYOffset+12,i=0,k;for(k=0;k<secs.length;k++){if(secs[k].offsetTop<=y)i=k;}return i;}
-  function go(d){if(!secs.length)collect();var i=Math.max(0,Math.min(secs.length-1,cur()+d));secs[i].scrollIntoView({behavior:'smooth',block:'start'});}
-  var btn=document.createElement('button');btn.type='button';
-  btn.style.cssText='position:fixed;top:80px;right:18px;z-index:10000;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;font:700 11px/1 -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:1px;text-transform:uppercase;padding:9px 15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);';
-  var hint=document.createElement('div');hint.textContent='\u2192 next \u00b7 \u2190 back \u00b7 P to exit';
-  hint.style.cssText='position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#16243b;color:#cdd8e6;font:600 12px/1 -apple-system,sans-serif;letter-spacing:.4px;padding:9px 16px;border-radius:999px;z-index:10000;display:none;box-shadow:0 8px 24px rgba(0,0,0,.28);';
-  function sync(){var on=document.documentElement.classList.contains('present');btn.textContent=on?'\u25A0 Exit Present':'\u25B6 Present';btn.style.background=on?'#b3132b':'#16243b';hint.style.display=on?'block':'none';}
-  function toggle(){document.documentElement.classList.toggle('present');sync();}
-  btn.addEventListener('click',toggle);
-  document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(btn);document.body.appendChild(hint);collect();if(location.search.indexOf('present')>-1)document.documentElement.classList.add('present');sync();});
-  document.addEventListener('keydown',function(e){
+  var d=document, root=d.documentElement, idx=0;
+  var st=d.createElement('style');
+  st.textContent='html.present .topnav{display:none!important;}#pmPrev,#pmNext{position:fixed;top:50%;transform:translateY(-50%);z-index:10001;width:52px;height:52px;border-radius:50%;border:none;background:#16243b;color:#fff;font:700 26px/1 -apple-system,sans-serif;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.32);}#pmPrev{left:18px;}#pmNext{right:18px;}html.present #pmPrev,html.present #pmNext{display:flex;}';
+  d.head.appendChild(st);
+  function secs(){return [].slice.call(d.querySelectorAll('header[id],section[id]'));}
+  function jump(i){var s=secs();if(!s.length)return;idx=Math.max(0,Math.min(s.length-1,i));s[idx].scrollIntoView({behavior:'smooth',block:'start'});}
+  var btn=d.createElement('button');btn.type='button';
+  btn.style.cssText='position:fixed;top:18px;right:18px;z-index:10000;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;font:700 11px/1 -apple-system,sans-serif;letter-spacing:1px;text-transform:uppercase;padding:9px 15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);';
+  var prev=d.createElement('button');prev.id='pmPrev';prev.type='button';prev.innerHTML='\u2039';prev.onclick=function(){jump(idx-1);};
+  var next=d.createElement('button');next.id='pmNext';next.type='button';next.innerHTML='\u203a';next.onclick=function(){jump(idx+1);};
+  function sync(){var on=root.classList.contains('present');btn.textContent=on?'\u25A0 Exit Present':'\u25B6 Present';btn.style.background=on?'#b3132b':'#16243b';btn.style.top=on?'18px':'80px';}
+  function toggle(){var on=root.classList.toggle('present');sync();if(on){idx=0;jump(0);}}
+  btn.onclick=toggle;
+  function init(){d.body.appendChild(btn);d.body.appendChild(prev);d.body.appendChild(next);if(location.search.indexOf('present')>-1){root.classList.add('present');idx=0;setTimeout(function(){jump(0);},60);}sync();}
+  if(d.readyState!=='loading')init();else d.addEventListener('DOMContentLoaded',init);
+  d.addEventListener('keydown',function(e){
     var tag=((e.target&&e.target.tagName)||'').toLowerCase();
     if(tag==='input'||tag==='textarea')return;
     if(e.key==='p'||e.key==='P'){toggle();return;}
-    if(!document.documentElement.classList.contains('present'))return;
-    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(1);}
-    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();go(-1);}
+    if(!root.classList.contains('present'))return;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){e.preventDefault();jump(idx+1);}
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();jump(idx-1);}
   });
 })();
 </script>
