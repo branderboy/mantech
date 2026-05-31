@@ -312,56 +312,58 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     </div>
     
     <div class="hero-visual reveal" style="transition-delay: 0.2s;">
-      <!-- Architectural / Data Network SVG -->
+      <!-- Ecosystem: governed core + orbiting assistants -->
       <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="architecture-svg">
         <defs>
-          <pattern id="data-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="2 4"/>
+          <pattern id="dotgrid" width="34" height="34" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.4" fill="var(--line)"/>
           </pattern>
-          <linearGradient id="fade" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="var(--bg-soft)" />
-            <stop offset="100%" stop-color="var(--line)" stop-opacity="0" />
-          </linearGradient>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="var(--navy)" stop-opacity="0.10"/>
+            <stop offset="100%" stop-color="var(--navy)" stop-opacity="0"/>
+          </radialGradient>
         </defs>
-        
-        <!-- Base Grid -->
-        <rect width="500" height="500" fill="url(#data-grid)" />
-        <rect width="500" height="500" fill="url(#fade)" opacity="0.5"/>
 
-        <!-- Connecting Lines (Data Pathways) -->
-        <path d="M100 120 L280 120 L280 260 L420 260" stroke="var(--slate)" stroke-width="2" />
-        <path d="M100 260 L180 260 L180 380 L320 380" stroke="var(--past)" stroke-width="2" />
-        <path d="M280 120 L380 60" stroke="var(--slate)" stroke-width="2" stroke-dasharray="4 4" />
-        <path d="M180 380 L180 460" stroke="var(--past)" stroke-width="2" stroke-dasharray="4 4" />
-        
-        <!-- Active Pathways -->
-        <path d="M100 120 L180 120 L180 260" stroke="var(--accent)" stroke-width="3" />
-        <path d="M280 260 L320 260 L320 380" stroke="var(--navy)" stroke-width="3" />
+        <rect width="500" height="500" fill="url(#dotgrid)"/>
+        <circle cx="250" cy="250" r="210" fill="url(#glow)"/>
 
-        <!-- Nodes (Systems/Infrastructure) -->
-        <!-- Top Left -->
-        <rect x="80" y="100" width="40" height="40" rx="4" fill="#fff" stroke="var(--accent)" stroke-width="3" />
-        <circle cx="100" cy="120" r="4" fill="var(--accent)" />
-        
-        <!-- Top Right -->
-        <rect x="360" y="40" width="40" height="40" rx="4" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2" />
-        <rect x="260" y="100" width="40" height="40" rx="4" fill="#fff" stroke="var(--slate)" stroke-width="3" />
-        
-        <!-- Center Stack (Data Foundation) -->
-        <rect x="160" y="240" width="40" height="40" rx="4" fill="var(--navy)" stroke="var(--navy)" stroke-width="3" />
-        <rect x="260" y="240" width="40" height="40" rx="4" fill="#fff" stroke="var(--navy)" stroke-width="3" />
-        
-        <!-- Bottom -->
-        <rect x="300" y="360" width="40" height="40" rx="4" fill="#fff" stroke="var(--past)" stroke-width="3" />
-        <rect x="400" y="240" width="40" height="40" rx="4" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2" />
+        <!-- orbit rings -->
+        <circle cx="250" cy="250" r="120" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3 6"/>
+        <circle cx="250" cy="250" r="185" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3 6"/>
 
-        <!-- Decorative UI Elements -->
-        <rect x="180" y="100" width="12" height="4" fill="var(--accent)" />
-        <rect x="180" y="110" width="8" height="4" fill="var(--accent)" />
-        <rect x="320" y="240" width="16" height="4" fill="var(--navy)" />
-        
-        <circle cx="280" cy="260" r="4" fill="var(--navy)" />
-        <circle cx="180" cy="260" r="4" fill="#fff" />
+        <!-- spokes from core to assistants -->
+        <line x1="250" y1="250" x2="250" y2="130" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="250" y1="250" x2="354" y2="310" stroke="var(--slate)" stroke-width="2"/>
+        <line x1="250" y1="250" x2="146" y2="310" stroke="var(--slate)" stroke-width="2"/>
+        <line x1="250" y1="250" x2="370" y2="190" stroke="var(--past)" stroke-width="2" stroke-dasharray="4 4"/>
+        <line x1="250" y1="250" x2="130" y2="190" stroke="var(--past)" stroke-width="2" stroke-dasharray="4 4"/>
+
+        <!-- governed core -->
+        <circle cx="250" cy="250" r="46" fill="var(--navy)"/>
+        <circle cx="250" cy="250" r="46" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="250" y="246" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="15" font-weight="700">Core</text>
+        <text x="250" y="264" text-anchor="middle" fill="#8ea3bd" font-family="Georgia, serif" font-size="9" letter-spacing="1">GOVERNED</text>
+
+        <!-- assistant nodes -->
+        <g>
+          <rect x="226" y="106" width="48" height="48" rx="12" fill="#fff" stroke="var(--accent)" stroke-width="3"/>
+          <circle cx="250" cy="130" r="5" fill="var(--accent)"/>
+        </g>
+        <g>
+          <rect x="330" y="286" width="48" height="48" rx="12" fill="#fff" stroke="var(--navy)" stroke-width="3"/>
+          <circle cx="354" cy="310" r="5" fill="var(--navy)"/>
+        </g>
+        <g>
+          <rect x="122" y="286" width="48" height="48" rx="12" fill="#fff" stroke="var(--navy)" stroke-width="3"/>
+          <circle cx="146" cy="310" r="5" fill="var(--navy)"/>
+        </g>
+        <rect x="350" y="168" width="40" height="40" rx="11" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2"/>
+        <rect x="110" y="168" width="40" height="40" rx="11" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2"/>
+
+        <!-- small accents -->
+        <circle cx="250" cy="65" r="4" fill="var(--accent)"/>
+        <circle cx="435" cy="250" r="4" fill="var(--past)"/>
+        <circle cx="65" cy="250" r="4" fill="var(--past)"/>
       </svg>
     </div>
   </div>
