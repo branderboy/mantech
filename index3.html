@@ -250,12 +250,12 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .console-list span::before{content:"";position:absolute;left:16px;top:23px;width:8px;height:8px;border-radius:50%;background:#7fe0a3;box-shadow:0 0 0 3px rgba(127,224,163,.18);}
 @media(max-width:900px){.console-list{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:520px){.console-list{grid-template-columns:1fr;}}
-.phases{max-width:840px;margin:44px auto 0;text-align:left;}
-.phase{display:flex;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+.phases{max-width:680px;margin:44px auto 0;text-align:center;}
+.phase{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 0;border-bottom:1px solid var(--line);}
 .phase:last-child{border-bottom:none;}
 .phase .pn{flex:0 0 auto;width:48px;height:48px;border-radius:12px;background:var(--navy);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;}
-.phase h4{font-size:21px;margin-bottom:6px;}
-.phase p{font-size:16px;color:var(--slate);line-height:1.55;}
+.phase h4{font-size:21px;margin-bottom:4px;}
+.phase p{font-size:16px;color:var(--slate);line-height:1.55;max-width:520px;}
 @media(max-width:760px){.problem-cols{grid-template-columns:1fr;}}
 .fly{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;max-width:920px;margin:40px auto 0;}.fly span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-weight:700;font-size:14px;color:var(--ink);}.fly span.fly-end{background:var(--navy);color:#fff;border-color:var(--navy);}.fly i{color:var(--accent);font-weight:800;font-style:normal;font-size:16px;}
 </style>
@@ -499,11 +499,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">From Assessment To Enterprise Ecosystem</h2>
     </div>
     <div class="phases reveal">
-      <div class="phase"><span class="pn">1</span><div><h4>Mission Capacity Assessment</h4><p>Identify where time, money, and workforce capacity are being lost today.</p></div></div>
-      <div class="phase"><span class="pn">2</span><div><h4>Platform Foundation</h4><p>Deploy governance, approvals, monitoring, security controls, and data integration.</p></div></div>
-      <div class="phase"><span class="pn">3</span><div><h4>Workflow Upgrades</h4><p>Deploy the first assistants that create measurable operational improvement.</p></div></div>
-      <div class="phase"><span class="pn">4</span><div><h4>Operational Expansion</h4><p>Extend proven workflows into additional departments and departments.</p></div></div>
-      <div class="phase"><span class="pn">5</span><div><h4>Enterprise Ecosystem</h4><p>Build a scalable environment where every new plugin increases agency capacity.</p></div></div>
+      <div class="phase"><span class="pn">1</span><h4>Mission Capacity Assessment</h4><p>Identify where time, money, and workforce capacity are being lost today.</p></div>
+      <div class="phase"><span class="pn">2</span><h4>Platform Foundation</h4><p>Deploy governance, approvals, monitoring, security controls, and data integration.</p></div>
+      <div class="phase"><span class="pn">3</span><h4>Workflow Upgrades</h4><p>Deploy the first assistants that create measurable operational improvement.</p></div>
+      <div class="phase"><span class="pn">4</span><h4>Operational Expansion</h4><p>Extend proven workflows into additional teams and departments.</p></div>
+      <div class="phase"><span class="pn">5</span><h4>Enterprise Ecosystem</h4><p>Build a scalable environment where every new assistant increases agency capacity.</p></div>
     </div>
   </div>
 </section>
