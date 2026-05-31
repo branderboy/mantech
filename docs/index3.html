@@ -39,6 +39,10 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 /* UTILITIES */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
 .padding-y { padding: 72px 0; }
+.accent-bg { position: relative; overflow: hidden; }
+.accent-bg > * { position: relative; z-index: 1; }
+.accent-bg::before { content: ""; position: absolute; top: -120px; right: -140px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(179,19,43,0.10), rgba(179,19,43,0) 70%); z-index: 0; pointer-events: none; }
+.accent-bg::after { content: ""; position: absolute; bottom: -140px; left: -160px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(22,36,59,0.08), rgba(22,36,59,0) 70%); z-index: 0; pointer-events: none; }
 .sep { display: flex; align-items: center; gap: 16px; max-width: 1100px; margin: 0 auto; padding: 0 5vw; }
 .sep::before, .sep::after { content: ""; height: 1px; flex: 1; background: var(--line); }
 .sep i { flex: 0 0 auto; width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); opacity: 0.55; }
@@ -384,7 +388,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 </section>
 
 <!-- THE CAPACITY PROBLEM -->
-<section class="padding-y" id="problem">
+<section class="padding-y accent-bg" id="problem">
   <div class="container reveal lead-narrow">
     <span class="eyebrow">The Capacity Problem</span>
     <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Not A Technology Shortage. A Capacity Shortage.</h2>
@@ -413,7 +417,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 </section>
 
 <!-- THINK WORDPRESS -->
-<section class="padding-y" id="wordpress">
+<section class="padding-y accent-bg" id="wordpress">
   <div class="container reveal lead-narrow">
     <span class="eyebrow">The Platform Model</span>
     <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Think WordPress, For Agency Operations</h2>
@@ -454,7 +458,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 </section>
 
 <!-- HOW THE MODELS ARE BUILT -->
-<section class="padding-y" id="how-built">
+<section class="padding-y accent-bg" id="how-built">
   <div class="container">
     <div class="reveal lead-narrow" style="margin-bottom:40px;">
       <span class="eyebrow">Mission-Driven Machine Learning</span>
@@ -472,7 +476,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- WHAT MAKES THIS DIFFERENT -->
-<section class="padding-y" id="different" style="padding-top:40px;">
+<section class="padding-y accent-bg" id="different" style="padding-top:40px;">
   <div class="container">
     <div class="reveal lead-narrow" style="margin-bottom:40px;">
       <span class="eyebrow">What Makes This Different</span>
@@ -535,7 +539,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 </section>
 
 <!-- THE ROADMAP -->
-<section class="padding-y" id="roadmap">
+<section class="padding-y accent-bg" id="roadmap">
   <div class="container">
     <div class="reveal lead-narrow">
       <span class="eyebrow">The Mission Capacity Roadmap</span>
