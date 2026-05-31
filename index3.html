@@ -118,6 +118,16 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .era-card.future h3 { color: #fff; }
 .era-card p { font-size: 15px; color: var(--slate); line-height: 1.7; }
 .era-card.future p { color: #e7ecf2; }
+.timeline { max-width: 820px; margin: 0 auto; position: relative; padding-left: 16px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.tl-item { position: relative; padding: 0 0 44px 34px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before { content: ""; position: absolute; left: -1px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--past); }
+.tl-item.present::before { border-color: var(--present); }
+.tl-item.future::before { border-color: var(--accent); background: var(--accent); }
+.tl-meta { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.tl-item h3 { font-size: 26px; line-height: 1.2; margin-bottom: 10px; }
+.tl-item p { font-size: 16px; color: var(--slate); line-height: 1.7; }
 
 @media(max-width: 900px) {
   .eras-grid { grid-template-columns: 1fr; }
@@ -272,7 +282,6 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <span class="eyebrow">A Governed Ecosystem For Expanding Agency Capacity</span>
       <h1>The Mission Capacity Platform</h1>
       <p class="subtext">The Mission Capacity Platform is ManTech's governed system for running mission-driven ML models, each one trained and aligned to a real objective your agency owns. Human experts remain accountable. The platform carries the operational burden.</p>
-      <a href="#start" class="btn">Request An Assessment</a>
     </div>
     
     <div class="hero-visual reveal" style="transition-delay: 0.2s;">
@@ -363,10 +372,10 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <h2>Three Eras Of Getting More Done</h2>
       <p class="subtext">Every era expands what an organization can deliver. We are entering the third.</p>
     </div>
-    <div class="eras-grid">
-      <div class="era-card past reveal"><div class="era-meta"><span>Era One</span><span>1960s&ndash;2000s</span></div><h3>The Workforce Era</h3><p>When demand increased, agencies hired more people. More analysts. More engineers. More contractors. Output scaled through headcount.</p></div>
-      <div class="era-card present reveal" style="transition-delay:.1s;"><div class="era-meta"><span>Era Two</span><span>2000s&ndash;2025</span></div><h3>The Software Era</h3><p>Enterprise software transformed operations: cloud, cyber, ERP systems, business applications. Software improved productivity but still relied on people to operate every workflow.</p></div>
-      <div class="era-card future reveal" style="transition-delay:.2s;"><div class="era-meta"><span>Era Three</span><span>2025+</span></div><h3>The Mission Capacity Era</h3><p>Organizations now need systems that continuously expand workforce capability. The Mission Capacity Platform is a governed ecosystem where tools, assistants, workflows, and data services work together to increase agency output without increasing workforce size.</p></div>
+    <div class="timeline reveal">
+      <div class="tl-item past"><div class="tl-meta">Era One &middot; 1960s&ndash;2000s</div><h3>The Workforce Era</h3><p>When demand increased, agencies hired more people. More analysts. More engineers. More contractors. Output scaled through headcount.</p></div>
+      <div class="tl-item present"><div class="tl-meta">Era Two &middot; 2000s&ndash;2025</div><h3>The Software Era</h3><p>Enterprise software transformed operations: cloud, cyber, ERP systems, business applications. Software improved productivity but still relied on people to operate every workflow.</p></div>
+      <div class="tl-item future"><div class="tl-meta">Era Three &middot; 2025+</div><h3>The Mission Capacity Era</h3><p>Organizations now need systems that continuously expand workforce capability. The Mission Capacity Platform is a governed ecosystem where tools, assistants, workflows, and data services work together to increase agency output without increasing workforce size.</p></div>
     </div>
   </div>
 </section>
@@ -416,14 +425,14 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <section class="padding-y" id="how-built">
   <div class="container">
     <div class="reveal lead-narrow" style="margin-bottom:40px;">
-      <span class="eyebrow">Mission-Driven Machine Learning</span>
-      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Real Models, Built For A Precise Objective</h2>
-      <p class="subtext">Each assistant is a mission-driven ML model: an AI system designed and trained to achieve a precise, objective-oriented end goal aligned to a specific organizational objective, like forecasting logistics, detecting anomalies, or accelerating analysis. Every model starts by negotiating exact requirements (MLTE), so its function matches the system and mission context, with clear benchmarks from day one.</p>
+      <span class="eyebrow">Control Types You Can Implement</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Your Managers Decide How Much Control Each Model Has</h2>
+      <p class="subtext">Each assistant is a mission-driven ML model, and your program managers and decision-makers choose how it operates. These are the control models you can implement, with the requirements set up front (MLTE) so the limits are defined before anything runs.</p>
     </div>
     <div class="role-grid reveal">
-      <div class="role-item"><h4>Supervised Learning</h4><p>Trains on historical labeled data to predict outcomes or classify information, like predicting equipment failure or approving access requests.</p></div>
-      <div class="role-item"><h4>Unsupervised Learning</h4><p>Discovers hidden patterns or clusters in unlabeled data, like segmentation or anomaly detection.</p></div>
-      <div class="role-item"><h4>Reinforcement Learning</h4><p>Learns by trial and error, driven by rewards and penalties, for autonomous decisions like dynamic resource allocation.</p></div>
+      <div class="role-item"><h4>Bounded Control</h4><p><strong>The program manager sets the standard.</strong> The model trains only on data your team approves and acts inside the boundaries the manager defines. Low-confidence calls route to a named reviewer.</p></div>
+      <div class="role-item"><h4>Review Control</h4><p><strong>The analyst or program lead decides.</strong> The model surfaces patterns and anomalies but takes no action. Findings go to your designated reviewer to accept or reject.</p></div>
+      <div class="role-item"><h4>Guided Control</h4><p><strong>Decision-makers set the rewards.</strong> The model improves only from the approvals and corrections your managers give it, so it learns toward your standards, with a human always in the loop.</p></div>
     </div>
   </div>
 </section>
@@ -474,18 +483,6 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </section>
 
-<!-- THE FLYWHEEL -->
-<section class="padding-y" id="flywheel">
-  <div class="container reveal" style="text-align:center;">
-    <span class="eyebrow">The Capacity Flywheel</span>
-    <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Capacity That Compounds</h2>
-    <p class="subtext lead-narrow">Every assistant feeds the next. The platform grows, the assistants grow, and your agency's capacity grows with them.</p>
-    <div class="fly">
-      <span>More Access</span><i>&rarr;</i><span>Better Information</span><i>&rarr;</i><span>Faster Decisions</span><i>&rarr;</i><span>Greater Output</span><i>&rarr;</i><span>More Capacity</span><i>&rarr;</i><span>New Assistants</span><i>&rarr;</i><span class="fly-end">Even Greater Capacity</span>
-    </div>
-  </div>
-</section>
-
 <!-- THE ROADMAP -->
 <section class="padding-y" id="roadmap">
   <div class="container">
@@ -514,14 +511,23 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <div class="stat-card reveal" style="transition-delay:0.1s;"><div class="stat-num">Up to 90%</div><span class="stat-label">Rework Reduction</span><p>Compliance packages like RMF clear initial security and evidence reviews on the first pass, saving weeks of manual correction.</p></div>
       <div class="stat-card reveal" style="transition-delay:0.2s;"><div class="stat-num">Faster</div><span class="stat-label">Executive Reviews</span><p>Duplicate spend and critical data are surfaced instantly, so leadership makes immediate, defensible decisions.</p></div>
     </div>
-    <h3 class="serif" style="margin-bottom:30px;font-size:28px;">Active Deployments &amp; Environments</h3>
-    <div class="deploy-grid reveal">
-      <div class="deploy-item"><h4>Real Property Lifecycle AI</h4><p>AI actively deployed across the facilities, military construction, and real real property space.</p></div>
-      <div class="deploy-item"><h4>ORI</h4><p>The Overlapping Resource Identification tool, proven at surfacing duplicate software spend across enterprise portfolios.</p></div>
-      <div class="deploy-item"><h4>Defense Health Automation</h4><p>Automation running securely in one of the most demanding, regulated environments in government.</p></div>
-      <div class="deploy-item"><h4>ManTech AI Sandbox</h4><p>An authorized environment to build, test, and prove assistants on governed data before touching live systems.</p>
-      <div class="deploy-item"><h4>Modern Data Platform</h4><p>The governed, authorized data foundation every plugin runs on, across multicloud and out to the edge.</p></div>
-      <div class="deploy-item"><h4>MESA-RA Accelerator</h4><p>Drops governed generative AI into existing enterprise services, deployed across DHS and DoD.</p></div>
+  </div>
+</section>
+
+<!-- ACTIVE DEPLOYMENTS -->
+<section class="padding-y bg-soft" id="deployments">
+  <div class="container">
+    <div class="reveal lead-narrow" style="margin-bottom:40px;">
+      <span class="eyebrow">Active Deployments &amp; Environments</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Already Running In Federal Environments</h2>
+    </div>
+    <div class="role-grid reveal">
+      <div class="role-item"><h4>Real Property Lifecycle AI</h4><p>AI actively deployed across the facilities, military construction, and real property space.</p></div>
+      <div class="role-item"><h4>ORI</h4><p>The Overlapping Resource Identification tool, proven at surfacing duplicate software spend across enterprise portfolios.</p></div>
+      <div class="role-item"><h4>Defense Health Automation</h4><p>Automation running securely in one of the most demanding, regulated environments in government.</p></div>
+      <div class="role-item"><h4>ManTech AI Sandbox</h4><p>An authorized environment to build, test, and prove assistants on governed data before touching live systems.</p></div>
+      <div class="role-item"><h4>Modern Data Platform</h4><p>The governed, authorized data foundation every assistant runs on, across multicloud and out to the edge.</p></div>
+      <div class="role-item"><h4>MESA-RA Accelerator</h4><p>Drops governed generative AI into existing enterprise services, deployed across DHS and DoD.</p></div>
     </div>
   </div>
 </section>
