@@ -214,6 +214,33 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 /* SOURCE NOTE */
 .srcnote { background: var(--navy); color: #aab2bd; padding: 40px 5vw; text-align: center; font-size: 13px; line-height: 1.6; }
 .srcnote strong { color: #fff; }
+
+/* PITCH ADDITIONS */
+.lead-narrow{max-width:820px;margin:0 auto;text-align:center;}
+.problem-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:920px;margin:44px auto 0;text-align:left;}
+.problem-cols .pc{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:26px 28px;}
+.problem-cols .pc h4{font-size:18px;margin-bottom:14px;}
+.problem-cols .pc ul{list-style:none;margin:0;padding:0;}
+.problem-cols .pc li{font-size:15px;color:var(--slate);padding:8px 0;border-bottom:1px solid var(--line);}
+.problem-cols .pc li:last-child{border-bottom:none;}
+.map-rows{max-width:720px;margin:36px auto 0;}
+.map-row{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);}
+.map-row:last-child{border-bottom:none;}
+.map-row .mo{color:var(--muted);font-size:15px;text-align:right;}
+.map-row .ma{color:var(--ink);font-weight:700;font-size:16px;}
+.map-row .mar{color:var(--accent);font-weight:800;font-size:18px;}
+.core-panel{background:var(--navy);border-radius:14px;padding:34px 32px;max-width:1000px;margin:0 auto 30px;text-align:center;}
+.core-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px;}
+.core-chips span{font-size:14px;font-weight:600;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 16px;}
+.console-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;max-width:920px;margin:34px auto 0;}
+.console-list span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:14px 16px;color:#fff;font-size:14px;font-weight:600;text-align:left;}
+.phases{max-width:840px;margin:44px auto 0;text-align:left;}
+.phase{display:flex;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+.phase:last-child{border-bottom:none;}
+.phase .pn{flex:0 0 auto;width:48px;height:48px;border-radius:12px;background:var(--navy);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;}
+.phase h4{font-size:21px;margin-bottom:6px;}
+.phase p{font-size:16px;color:var(--slate);line-height:1.55;}
+@media(max-width:760px){.problem-cols{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -222,12 +249,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <nav class="topnav" id="navbar">
   <div class="nav-inner">
     <div class="nav-links">
-      <a href="#wall">The Shift</a>
-      <a href="#eras">The Eras</a>
-      <a href="#platform-model">The Platform</a>
-      <a href="#roles">Your Role</a>
-      <a href="#capacity">Capacity</a>
-      <a href="#architecture">Architecture</a>
+      <a href="#problem">The Problem</a>
+      <a href="#eras">Evolution</a>
+      <a href="#wordpress">Platform</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#proof">Proof</a>
       <a href="#start">Start</a>
       <a href="index.html">Buyer Brief</a>
@@ -242,9 +268,9 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   <div class="container hero-grid">
     <div class="hero-content reveal">
       <span class="readtime"><b>2-min skim</b> &middot; 8-min full read &middot; built for short calendars</span>
-      <span class="eyebrow">Built To Grow With Your Agency</span>
+      <span class="eyebrow">A Governed Ecosystem For Expanding Agency Capacity</span>
       <h1>The Mission Capacity Platform</h1>
-      <p class="subtext">One governed platform that brings ManTech's deployed AI solutions together to create new value from the data and team you already have, and to grow with your agency's roadmap, today and into the future. People keep authority. Assistants carry the execution.</p>
+      <p class="subtext">The Mission Capacity Platform is ManTech's governed ecosystem of mission tools, workflow upgrades, data services, and mission assistants that work together to create measurable mission capacity. Human experts remain accountable. The platform carries the operational burden.</p>
       <a href="#start" class="btn">Request An Assessment</a>
     </div>
     
@@ -304,206 +330,133 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   </div>
 </header>
 
-<!-- DEFINITION -->
-<section class="defn-section bg-soft">
-  <div class="container text-center reveal">
-    <div class="defn-wrap">
-      <div class="term serif">The Mission Capacity Platform</div>
-      <div class="pos">noun</div>
-      <div class="text">ManTech's deployed Data and AI solutions, governed and working as one, that turn your data and your team into <strong>measurable mission capacity</strong>.</div>
-    </div>
+<!-- THE CAPACITY PROBLEM -->
+<section class="padding-y" id="problem">
+  <div class="container reveal lead-narrow">
+    <span class="eyebrow">The Capacity Problem</span>
+    <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Not A Technology Shortage. A Capacity Shortage.</h2>
+    <p class="subtext">Mission demand keeps growing while the workforce stays constrained. Most agencies try to close that gap by adding more software. The Mission Capacity Platform closes it by expanding what your existing teams can accomplish.</p>
+  </div>
+  <div class="problem-cols reveal">
+    <div class="pc"><h4>What Keeps Growing</h4><ul><li>Mission demand</li><li>Compliance requirements</li><li>Data volumes</li><li>Security requirements</li></ul></div>
+    <div class="pc"><h4>What Stays Constrained</h4><ul><li>Workforce size</li><li>Hiring timelines</li><li>Budgets</li><li>Hours in the day</li></ul></div>
   </div>
 </section>
 
-<!-- THE WALL -->
-<section class="padding-y" id="wall">
-  <div class="container reveal" style="max-width: 860px; margin: 0 auto; text-align: center;">
-    <span class="eyebrow">The Shift</span>
-    <h2 style="font-size: clamp(32px, 4.5vw, 52px); line-height: 1.12; margin-bottom: 22px;">Software Gave You Tools. The Platform Gives You Capacity.</h2>
-    <p class="subtext">Your agency already has the data, the systems, and the skilled people. What runs short is capacity, because the work piles up faster than anyone can do it by hand. The Mission Capacity Platform brings ManTech's deployed AI solutions together so your data and your team produce more, without new hires or new tools to learn.</p>
-  </div>
-</section>
-
-<!-- THE ERAS -->
+<!-- THE EVOLUTION -->
 <section class="padding-y bg-soft" id="eras">
   <div class="container">
     <div class="eras-header reveal">
-      <span class="eyebrow">Sixty Years In Three Moves</span>
-      <h2>The Next Era Of Mission Output</h2>
-      <p class="subtext">Every era has its own way of expanding what an organization can deliver. We are entering the third.</p>
+      <span class="eyebrow">The Evolution Of Agency Operations</span>
+      <h2>Three Eras Of Mission Output</h2>
+      <p class="subtext">Every era expands what an organization can deliver. We are entering the third.</p>
     </div>
     <div class="eras-grid">
-      <div class="era-card past reveal">
-        <div class="era-meta"><span>The Past</span><span>1960s to 2000s</span></div>
-        <h3>Labor Workforce</h3>
-        <p>When demand rose, agencies added people: more analysts, more engineers, more contractors. Output was measured strictly in headcount.</p>
-      </div>
-      <div class="era-card present reveal" style="transition-delay: 0.1s;">
-        <div class="era-meta"><span>The Present</span><span>2000s to 2020s</span></div>
-        <h3>Digital Infrastructure</h3>
-        <p>Software reshaped operations: cloud, enterprise platforms, and cyber systems. Teams could do more. Yet software still waited on people to run it.</p>
-      </div>
-      <div class="era-card future reveal" style="transition-delay: 0.2s;">
-        <div class="era-meta"><span>The Next Era</span><span>2025 to 2040</span></div>
-        <h3>Mission Capacity Platform</h3>
-        <p>The next step is neither labor nor software alone. Human experts and trusted assistants work side by side. People keep judgment and approvals. Assistants take on the recurring execution.</p>
-      </div>
+      <div class="era-card past reveal"><div class="era-meta"><span>Era One</span><span>1960s to 2000s</span></div><h3>The Workforce Era</h3><p>When demand rose, agencies hired: more analysts, more engineers, more contractors. Output scaled through headcount.</p></div>
+      <div class="era-card present reveal" style="transition-delay:.1s;"><div class="era-meta"><span>Era Two</span><span>2000s to 2025</span></div><h3>The Software Era</h3><p>Cloud, cyber, ERP, and business applications transformed operations. Software improved productivity, but still relied on people to run every workflow.</p></div>
+      <div class="era-card future reveal" style="transition-delay:.2s;"><div class="era-meta"><span>Era Three</span><span>2025 and beyond</span></div><h3>The Mission Capacity Era</h3><p>A governed ecosystem where mission tools, assistants, workflows, and data services work together to increase output without increasing workforce size.</p></div>
     </div>
   </div>
 </section>
 
-<!-- THE PLATFORM MODEL -->
-<section class="padding-y bg-soft" id="platform-model">
+<!-- THINK WORDPRESS -->
+<section class="padding-y" id="wordpress">
+  <div class="container reveal lead-narrow">
+    <span class="eyebrow">The Platform Model</span>
+    <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Think WordPress, For Mission Operations</h2>
+    <p class="subtext">WordPress changed the web not because it was a website, but because it became a platform: a governed core, a permission structure, a workflow engine, and a plugin ecosystem that keeps expanding over time. The Mission Capacity Platform applies that same model to federal operations.</p>
+  </div>
+  <div class="map-rows reveal">
+    <div class="map-row"><span class="mo">Website plugins</span><span class="mar">&rarr;</span><span class="ma">Mission plugins</span></div>
+    <div class="map-row"><span class="mo">Content workflows</span><span class="mar">&rarr;</span><span class="ma">Mission workflows</span></div>
+    <div class="map-row"><span class="mo">Managing pages</span><span class="mar">&rarr;</span><span class="ma">Managing operational capacity</span></div>
+  </div>
+  <p class="large-quote reveal" style="text-align:center;max-width:720px;margin:44px auto 0;">One platform. Unlimited expansion.</p>
+</section>
+
+<!-- THE ECOSYSTEM -->
+<section class="padding-y bg-soft" id="ecosystem">
   <div class="container">
-    <div class="reveal" style="max-width: 800px; margin: 0 auto 50px; text-align: center;">
-      <span class="eyebrow">The Platform Model</span>
-      <h2 style="font-size: clamp(34px, 4vw, 50px); line-height: 1.1; margin-bottom: 18px;">An Ecosystem, Not A One-Off Tool</h2>
-      <p class="subtext">Like the platforms you already run, the Mission Capacity Platform is a governed core with capabilities you add as you need them. Each Mission Assistant installs onto the same accredited foundation, like a plugin, so you start with one job and expand, without a new procurement every time.</p>
+    <div class="reveal lead-narrow" style="margin-bottom:40px;">
+      <span class="eyebrow">The Ecosystem</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">A Governed Core, And Mission Plugins</h2>
+      <p class="subtext">Every plugin runs on the same accredited core. Every plugin you add increases mission capacity and becomes part of a larger operational roadmap.</p>
+    </div>
+    <div class="core-panel reveal">
+      <span class="eyebrow" style="color:#8ec5ff;">The Core Platform</span>
+      <div class="core-chips">
+        <span>Governed Data Foundation</span><span>Security Controls</span><span>Auditability</span><span>Human Approvals</span><span>Source Traceability</span><span>Performance Monitoring</span><span>Operational Oversight</span>
+      </div>
     </div>
     <div class="role-grid reveal">
-      <div class="role-item">
-        <h4>A Governed Core</h4>
-        <p>One accredited foundation: governed data, security controls, and human approval. Every capability runs on it.</p>
-      </div>
-      <div class="role-item">
-        <h4>Capabilities As Plugins</h4>
-        <p>Each Mission Assistant adds one recurring job to the platform. Turn on what your mission needs, add more as you grow.</p>
-      </div>
-      <div class="role-item" style="border-top-color: var(--accent);">
-        <h4>Upgrades, Not Rip And Replace</h4>
-        <p>New capabilities roll out on the same core, so your workflow keeps improving and your agency keeps gaining value, without starting over.</p>
-      </div>
-    </div>
-    <div class="roadmap reveal">
-      <div class="rm-phase rm-live">
-        <span class="rm-label">Live Today</span>
-        <div class="rm-chips"><span>Cost Estimator</span><span>Code Rationalization</span><span>Clinician Documentation</span><span>Modern Data Platform</span><span>AI Sandbox</span></div>
-      </div>
-      <div class="rm-phase">
-        <span class="rm-label">Expanding</span>
-        <div class="rm-chips"><span>Access Governance</span><span>Data Structuring</span><span>Briefing</span><span>Knowledge Retrieval</span></div>
-      </div>
-      <div class="rm-phase">
-        <span class="rm-label">On The Roadmap</span>
-        <div class="rm-chips"><span>Contract Review</span><span>Compliance</span><span>Mission Readiness</span></div>
-      </div>
+      <div class="role-item"><h4>Access Governance Plugin</h4><p>Manages folder permissions, approval workflows, user access reviews, and governance controls.</p></div>
+      <div class="role-item"><h4>Data Structuring Plugin</h4><p>Groups large datasets, prepares information for closed networks, and organizes mission information into usable structures.</p></div>
+      <div class="role-item"><h4>Knowledge Retrieval Plugin</h4><p>Transforms scattered information into searchable organizational knowledge.</p></div>
+      <div class="role-item"><h4>Briefing Plugin</h4><p>Converts mission data into PowerPoints, executive briefings, reports, and decision-support materials.</p></div>
+      <div class="role-item"><h4>Compliance Plugin</h4><p>Automates evidence gathering, documentation preparation, validation workflows, and review support.</p></div>
+      <div class="role-item"><h4>Reporting Plugin</h4><p>Accelerates recurring reports, reconciliations, readiness reviews, and operational tracking.</p></div>
     </div>
   </div>
 </section>
 
-<!-- WHY THIS MATTERS TO YOU -->
-<section class="padding-y" id="roles">
+<!-- WHAT MAKES THIS DIFFERENT -->
+<section class="padding-y" id="different">
   <div class="container">
-    <div class="reveal" style="margin-bottom: 60px;">
-      <span class="eyebrow">Why This Matters To You</span>
-      <h2 style="font-size: clamp(36px, 4vw, 50px); margin-bottom: 15px;">What This Changes, Role By Role</h2>
-      <p class="subtext">Not abstract technology. Here is how the platform changes the outcomes you personally own.</p>
+    <div class="reveal lead-narrow" style="margin-bottom:40px;">
+      <span class="eyebrow">What Makes This Different</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">We Upgrade Workflows, Not Just Tasks</h2>
+      <p class="subtext">The objective is not to automate work. It is to improve how the agency operates.</p>
     </div>
-    
     <div class="role-grid reveal">
-      <div class="role-item">
-        <h4>Program Manager</h4>
-        <p>Reduce backlog and cycle times. Clear years of stagnant queues without waiting on a hire you can't make.</p>
-      </div>
-      <div class="role-item">
-        <h4>Acquisition</h4>
-        <p>Accelerate documentation and research. Market research and requirements drafted in a fraction of the time.</p>
-      </div>
-      <div class="role-item">
-        <h4>Facilities</h4>
-        <p>Faster estimates and planning. Complex cost estimates delivered in hours instead of days, ready for human validation.</p>
-      </div>
-      <div class="role-item">
-        <h4>Readiness</h4>
-        <p>Automated reporting. Reporting and reconciliation cycles that close overnight instead of running for weeks.</p>
-      </div>
-      <div class="role-item" style="border-top-color: var(--accent);">
-        <h4>Leadership</h4>
-        <p>Better decisions faster. Briefings assembled before the meeting starts. Scale your agency's output without expanding its footprint.</p>
-      </div>
+      <div class="role-item"><h4>Task Automation</h4><p>Creates isolated efficiency. One task, a little faster.</p></div>
+      <div class="role-item"><h4>Workflow Upgrades</h4><p>Create measurable operational improvement across a whole process.</p></div>
+      <div class="role-item" style="border-top-color:var(--accent);"><h4>Platform Ecosystems</h4><p>Create long-term mission advantage that compounds with every plugin.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CAPACITY -->
-<section class="padding-y bg-soft" id="capacity">
-  <div class="container capacity-grid">
-    <div class="capacity-text reveal">
-      <span class="eyebrow">Where The Hours Go</span>
-      <h2 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; line-height:1.1;">You Cannot Hire Your Way Out Of This</h2>
-      <p class="subtext" style="margin-bottom: 20px;">Federal agencies don't have an AI problem. They have a time problem.</p>
-      <p class="subtext">Time leaks away every day through work that demands skill but devours schedules. None of it is optional. All of it pulls thousands of hours from the people you most need on the mission.</p>
-    </div>
-    <div class="ledger reveal">
-      <div class="ledger-header">
-        <span>Mission Function</span>
-        <span>Where Time Is Lost Today</span>
-      </div>
-      <div class="ledger-row">
-        <span class="ledger-func">Facility Planning</span>
-        <span class="ledger-drain">Cost research, estimate preparation, validation</span>
-      </div>
-      <div class="ledger-row">
-        <span class="ledger-func">Acquisition</span>
-        <span class="ledger-drain">Market research, requirements gathering, documentation</span>
-      </div>
-      <div class="ledger-row">
-        <span class="ledger-func">Compliance</span>
-        <span class="ledger-drain">Evidence collection, reporting, validation</span>
-      </div>
-      <div class="ledger-row">
-        <span class="ledger-func">Program Mgmt</span>
-        <span class="ledger-drain">Status reporting, coordination, documentation</span>
-      </div>
-      <div class="ledger-row">
-        <span class="ledger-func">Readiness Ops</span>
-        <span class="ledger-drain">Reporting, reconciliation, tracking</span>
-      </div>
+<!-- MISSION CAPACITY CONSOLE -->
+<section class="padding-y" id="console" style="background:var(--navy);color:#fff;">
+  <div class="container reveal" style="text-align:center;">
+    <span class="eyebrow" style="color:#8ec5ff;">Mission Capacity Console</span>
+    <h2 style="color:#fff;font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">One Console. Everything Governed.</h2>
+    <p class="subtext" style="color:#ffffff;max-width:760px;margin:0 auto;">Every capability is visible through one operational console. Everything is traceable. Everything stays under human authority.</p>
+    <div class="console-list">
+      <span>Capacity recovered</span><span>Workflows upgraded</span><span>Approvals pending</span><span>Permission conflicts</span><span>Performance trends</span><span>Mission alerts</span><span>Confidence scores</span><span>Operational bottlenecks</span>
     </div>
   </div>
 </section>
 
-<!-- THE MODEL (ARCHITECTURE) -->
-<section class="padding-y arch-container" id="architecture">
+<!-- HOW NEW VALUE IS CREATED -->
+<section class="padding-y bg-soft" id="value">
   <div class="container">
-    <div class="arch-intro reveal">
-      <span class="eyebrow">The Architecture</span>
-      <h2>Four Layers, One Workforce</h2>
-      <p class="subtext">Built in tiers, each with one job: assistants generate output, governance earns trust, data builds confidence. Scroll to build the stack.</p>
+    <div class="reveal lead-narrow" style="margin-bottom:40px;">
+      <span class="eyebrow">How New Value Is Created</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Five Ways The Platform Creates Value</h2>
     </div>
-    
-    <div class="stack-wrapper">
-      <div class="stack-layer reveal" style="border-top-color: var(--slate);">
-        <div style="flex: 1;">
-          <span class="layer-num">Layer 1</span>
-          <h3 class="layer-title serif">Human Workforce</h3>
-          <p class="layer-desc">Mission leaders, program managers, engineers, analysts, planners, compliance professionals, and subject matter experts. They own judgment, approval, leadership, and the decisions that carry consequence.</p>
-        </div>
-      </div>
-      
-      <div class="stack-layer reveal" style="border-top-color: var(--accent);">
-        <div style="flex: 1;">
-          <span class="layer-num">Layer 2</span>
-          <h3 class="layer-title serif">Mission Assistant Layer</h3>
-          <p class="layer-desc">Dedicated assistants, each handling the recurring work of a single function under human supervision (e.g., MILCON Cost Estimators, Contract Review Assistants, RMF Compliance Assistants).</p>
-        </div>
-      </div>
-      
-      <div class="stack-layer reveal" style="border-top-color: var(--present);">
-        <div style="flex: 1;">
-          <span class="layer-num">Layer 3</span>
-          <h3 class="layer-title serif">Governance Layer</h3>
-          <p class="layer-desc">Escalation controls, auditability, human approval, source traceability, performance monitoring, drift detection, security review, and operational oversight.</p>
-        </div>
-      </div>
-      
-      <div class="stack-layer reveal" style="border-top-color: var(--future);">
-        <div style="flex: 1;">
-          <span class="layer-num">Layer 4</span>
-          <h3 class="layer-title serif">Mission Data Foundation</h3>
-          <p class="layer-desc">Governed enterprise data, authoritative sources, multicloud architecture, core to edge deployment, and containerized execution. The ground that makes an assistant worth trusting.</p>
-        </div>
-      </div>
+    <div class="role-grid reveal">
+      <div class="role-item"><h4>Recover Time</h4><p>Reduce repetitive operational work.</p></div>
+      <div class="role-item"><h4>Increase Throughput</h4><p>Complete more mission work with the resources you already have.</p></div>
+      <div class="role-item"><h4>Improve Decision Velocity</h4><p>Deliver information to leadership faster.</p></div>
+      <div class="role-item"><h4>Reduce Operational Friction</h4><p>Eliminate delays from disconnected systems and manual processes.</p></div>
+      <div class="role-item"><h4>Create Reusable Capabilities</h4><p>Turn successful workflows into repeatable assets across the enterprise.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ROADMAP -->
+<section class="padding-y" id="roadmap">
+  <div class="container">
+    <div class="reveal lead-narrow">
+      <span class="eyebrow">The Mission Capacity Roadmap</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">From Assessment To Enterprise Ecosystem</h2>
+    </div>
+    <div class="phases reveal">
+      <div class="phase"><span class="pn">1</span><div><h4>Mission Capacity Assessment</h4><p>Identify where time, money, and workforce capacity are being lost today.</p></div></div>
+      <div class="phase"><span class="pn">2</span><div><h4>Platform Foundation</h4><p>Deploy governance, approvals, monitoring, security controls, and data integration.</p></div></div>
+      <div class="phase"><span class="pn">3</span><div><h4>Workflow Upgrades</h4><p>Deploy the first mission plugins that create measurable operational improvement.</p></div></div>
+      <div class="phase"><span class="pn">4</span><div><h4>Operational Expansion</h4><p>Extend proven workflows into additional departments and mission areas.</p></div></div>
+      <div class="phase"><span class="pn">5</span><div><h4>Enterprise Ecosystem</h4><p>Build a scalable environment where every new plugin increases agency capacity.</p></div></div>
     </div>
   </div>
 </section>
@@ -513,79 +466,31 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
   <div class="container">
     <span class="eyebrow">Proven In The Mission</span>
     <h2 class="serif">Deployed Today. Not Tomorrow.</h2>
-    <p class="subtext reveal">This is not a concept. People buy proof. These are the structural shifts and active systems already deployed in federal environments today.</p>
-    
-    <!-- Results -->
+    <p class="subtext reveal">Not a concept. These are systems already deployed in federal environments today.</p>
     <div class="stat-grid">
-      <div class="stat-card reveal">
-        <div class="stat-num">Days &rarr; Mins</div>
-        <span class="stat-label">Velocity Increase</span>
-        <p>Complex processes like MILCON cost estimating are reduced from 3+ days to under 4 hours, verified against historical baselines.</p>
-      </div>
-      <div class="stat-card reveal" style="transition-delay: 0.1s;">
-        <div class="stat-num">Up to 90%</div>
-        <span class="stat-label">Rework Reduction</span>
-        <p>Compliance packages (like RMF) clear initial security and evidence reviews on the first pass, saving weeks of manual correction.</p>
-      </div>
-      <div class="stat-card reveal" style="transition-delay: 0.2s;">
-        <div class="stat-num">Faster</div>
-        <span class="stat-label">Executive Reviews</span>
-        <p>Duplicate spend and critical data are surfaced instantly, allowing human leadership to make immediate, defensible decisions.</p>
-      </div>
+      <div class="stat-card reveal"><div class="stat-num">Days &rarr; Mins</div><span class="stat-label">Velocity Increase</span><p>Complex processes like MILCON cost estimating drop from 3+ days to under 4 hours, verified against historical baselines.</p></div>
+      <div class="stat-card reveal" style="transition-delay:0.1s;"><div class="stat-num">Up to 90%</div><span class="stat-label">Rework Reduction</span><p>Compliance packages like RMF clear initial security and evidence reviews on the first pass, saving weeks of manual correction.</p></div>
+      <div class="stat-card reveal" style="transition-delay:0.2s;"><div class="stat-num">Faster</div><span class="stat-label">Executive Reviews</span><p>Duplicate spend and critical data are surfaced instantly, so leadership makes immediate, defensible decisions.</p></div>
     </div>
-
-    <!-- Active Deployments -->
-    <h3 class="serif" style="margin-bottom: 30px; font-size: 28px;">Active Deployments & Environments</h3>
+    <h3 class="serif" style="margin-bottom:30px;font-size:28px;">Active Deployments &amp; Environments</h3>
     <div class="deploy-grid reveal">
-      <div class="deploy-item">
-        <h4>Real Property Lifecycle AI</h4>
-        <p>AI actively deployed across the facilities, military construction, and real property mission space.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>ORI</h4>
-        <p>The Overlapping Resource Identification tool, proven at surfacing duplicate software spend across enterprise portfolios.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>Defense Health Automation</h4>
-        <p>Automation running securely in one of the most demanding, regulated mission environments in government.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>ManTech AI Sandbox</h4>
-        <p>An authorized environment to build, test, and prove assistants on governed data before touching a live mission.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>Modern Data Platform</h4>
-        <p>The governed, authorized data foundation every assistant runs on, across multicloud and out to the edge.</p>
-      </div>
-      <div class="deploy-item">
-        <h4>MESA-RA Accelerator</h4>
-        <p>Drops governed generative AI into existing enterprise services, deployed across DHS and DoD.</p>
-      </div>
+      <div class="deploy-item"><h4>Real Property Lifecycle AI</h4><p>AI actively deployed across the facilities, military construction, and real property mission space.</p></div>
+      <div class="deploy-item"><h4>ORI</h4><p>The Overlapping Resource Identification tool, proven at surfacing duplicate software spend across enterprise portfolios.</p></div>
+      <div class="deploy-item"><h4>Defense Health Automation</h4><p>Automation running securely in one of the most demanding, regulated mission environments in government.</p></div>
+      <div class="deploy-item"><h4>ManTech AI Sandbox</h4><p>An authorized environment to build, test, and prove assistants on governed data before touching a live mission.</p></div>
+      <div class="deploy-item"><h4>Modern Data Platform</h4><p>The governed, authorized data foundation every plugin runs on, across multicloud and out to the edge.</p></div>
+      <div class="deploy-item"><h4>MESA-RA Accelerator</h4><p>Drops governed generative AI into existing enterprise services, deployed across DHS and DoD.</p></div>
     </div>
   </div>
 </section>
 
-<!-- THE RISK OF AI / FEAR -->
-<section class="padding-y" id="trust-ai" style="border-top: 1px solid var(--line);">
-  <div class="container reveal" style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <span class="eyebrow">The Honest Part</span>
-    <h2 style="font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin-bottom: 24px;">AI Can Be A Real Risk. We Engineered The Risk Out.</h2>
-    <p class="subtext" style="margin-bottom: 6px;">You have heard the warnings, and most of them are fair. AI fails when it acts alone, unwatched, and unaccountable. So we built the Mission Assistant to remove each of those failure modes. The Mission Assistant takes the repetitive work. Your people keep judgment, approval, and the decisions that carry consequence, the part that was always the job, and it stays with them.</p>
-    <p class="subtext" style="margin: 0 auto 2px; max-width: 780px; color: var(--ink); font-weight: 600;">Meet the product doing it: each named Mission Assistant runs these same controls on a real job your teams need done.</p>
-    <div class="job-chips">
-      <span><strong>Access Governance Assistant</strong> &middot; folder permissions</span>
-      <span><strong>Data Structuring Assistant</strong> &middot; grouping data for closed networks</span>
-      <span><strong>Briefing Assistant</strong> &middot; PowerPoints from ingested data</span>
-      <span><strong>Knowledge Retrieval Assistant</strong> &middot; scraping into searchable form</span>
-    </div>
-    <div class="why-list reveal">
-      <div class="wl"><h4>Confidence Scores, Not Blind Trust</h4><p>Every output is scored and shows its sources. High-confidence work moves; anything uncertain is flagged and routed to a person. Nothing questionable ships on its own, so no one is blindsided by a machine.</p></div>
-      <div class="wl"><h4>A Person Approves Every Move</h4><p>No access to live systems until you authorize it. The Mission Assistant does one job, shows its work, and waits for a human to approve. By design, the system cannot run without your people.</p></div>
-      <div class="wl"><h4>Mission Alerts On Watch</h4><p>Drift detection, performance monitoring, and security review run continuously. The moment something looks off, it escalates to a human, before it becomes an audit finding or a breach.</p></div>
-      <div class="wl"><h4>Support That Stays</h4><p>We tune each assistant, train your people, and adjust thresholds as your environment and the threats change. There is always someone accountable behind the system, never a walk-away handoff.</p></div>
-      <div class="wl full"><h4>All Of It On One Screen: The Mission Capacity Console</h4><p>Scores, approvals, escalations, and mission alerts surface in a single dashboard a named person owns. A Program Lead approves the day's work, low-confidence items are held for review, and permission conflicts and policy changes are flagged the moment they appear. Nothing happens in the dark, and there is always a human accountable on the screen.</p></div>
-      <div class="wl full"><h4>This Protects Jobs. It Does Not Replace Them.</h4><p>The Mission Assistant carries the busywork. Your team keeps the judgment, the approvals, and the accountability, the work that actually requires them. A required human in the loop makes your workforce more valuable, not redundant. People do the mission; assistants do the chore.</p></div>
-    </div>
+<!-- THE FUTURE -->
+<section class="padding-y" id="future" style="background:var(--navy);color:#fff;">
+  <div class="container reveal lead-narrow">
+    <span class="eyebrow" style="color:#8ec5ff;">The Future Of Agency Operations</span>
+    <h2 style="color:#fff;font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:20px;">Agencies Invested In Labor, Then Software. Next Is Mission Capacity.</h2>
+    <p class="subtext" style="color:#ffffff;max-width:760px;margin:0 auto 18px;">The agencies that win will not necessarily have larger budgets. They will have better ecosystems: a governed framework for continuously expanding capability and creating new value from the workforce they already have.</p>
+    <p class="large-quote" style="color:#fff;max-width:760px;margin:8px auto 0;">Mission Capacity Is The New Competitive Advantage.</p>
   </div>
 </section>
 
