@@ -242,7 +242,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .map-row .mo{color:var(--muted);font-size:15px;text-align:right;}
 .map-row .ma{color:var(--ink);font-weight:700;font-size:16px;}
 .map-row .mar{color:var(--accent);font-weight:800;font-size:18px;}
-.core-panel{background:var(--navy);border-radius:14px;padding:34px 32px;max-width:1000px;margin:0 auto 30px;text-align:center;}
+.core-panel{background:var(--navy);border-radius:14px;padding:30px 32px;max-width:1000px;margin:0 auto 30px;text-align:center;}
+.core-label{display:block;font-size:13px;font-weight:700;letter-spacing:.3px;color:#8ea3bd;margin-bottom:18px;}
+.core-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;}
+.core-row span{font-size:14px;font-weight:600;color:#fff;padding:6px 20px;position:relative;}
+.core-row span:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:16px;background:rgba(255,255,255,.2);}
 .core-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px;}
 .core-chips span{font-size:14px;font-weight:600;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 16px;}
 .console-list{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:980px;margin:40px auto 0;}
@@ -274,7 +278,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .phases{max-width:680px;margin:44px auto 0;text-align:center;}
 .phase{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 0;border-bottom:1px solid var(--line);}
 .phase:last-child{border-bottom:none;}
-.phase .pn{flex:0 0 auto;width:48px;height:48px;border-radius:12px;background:var(--navy);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;}
+.phase .pn{flex:0 0 auto;width:48px;height:48px;border-radius:12px;background:var(--accent);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;}
 .phase h4{font-size:21px;margin-bottom:4px;}
 .phase p{font-size:16px;color:var(--slate);line-height:1.55;max-width:520px;}
 @media(max-width:760px){.problem-cols{grid-template-columns:1fr;}}
@@ -312,56 +316,58 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     </div>
     
     <div class="hero-visual reveal" style="transition-delay: 0.2s;">
-      <!-- Architectural / Data Network SVG -->
+      <!-- Ecosystem: governed core + orbiting assistants -->
       <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="architecture-svg">
         <defs>
-          <pattern id="data-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="2 4"/>
+          <pattern id="dotgrid" width="34" height="34" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.4" fill="var(--line)"/>
           </pattern>
-          <linearGradient id="fade" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="var(--bg-soft)" />
-            <stop offset="100%" stop-color="var(--line)" stop-opacity="0" />
-          </linearGradient>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="var(--navy)" stop-opacity="0.10"/>
+            <stop offset="100%" stop-color="var(--navy)" stop-opacity="0"/>
+          </radialGradient>
         </defs>
-        
-        <!-- Base Grid -->
-        <rect width="500" height="500" fill="url(#data-grid)" />
-        <rect width="500" height="500" fill="url(#fade)" opacity="0.5"/>
 
-        <!-- Connecting Lines (Data Pathways) -->
-        <path d="M100 120 L280 120 L280 260 L420 260" stroke="var(--slate)" stroke-width="2" />
-        <path d="M100 260 L180 260 L180 380 L320 380" stroke="var(--past)" stroke-width="2" />
-        <path d="M280 120 L380 60" stroke="var(--slate)" stroke-width="2" stroke-dasharray="4 4" />
-        <path d="M180 380 L180 460" stroke="var(--past)" stroke-width="2" stroke-dasharray="4 4" />
-        
-        <!-- Active Pathways -->
-        <path d="M100 120 L180 120 L180 260" stroke="var(--accent)" stroke-width="3" />
-        <path d="M280 260 L320 260 L320 380" stroke="var(--navy)" stroke-width="3" />
+        <rect width="500" height="500" fill="url(#dotgrid)"/>
+        <circle cx="250" cy="250" r="210" fill="url(#glow)"/>
 
-        <!-- Nodes (Systems/Infrastructure) -->
-        <!-- Top Left -->
-        <rect x="80" y="100" width="40" height="40" rx="4" fill="#fff" stroke="var(--accent)" stroke-width="3" />
-        <circle cx="100" cy="120" r="4" fill="var(--accent)" />
-        
-        <!-- Top Right -->
-        <rect x="360" y="40" width="40" height="40" rx="4" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2" />
-        <rect x="260" y="100" width="40" height="40" rx="4" fill="#fff" stroke="var(--slate)" stroke-width="3" />
-        
-        <!-- Center Stack (Data Foundation) -->
-        <rect x="160" y="240" width="40" height="40" rx="4" fill="var(--navy)" stroke="var(--navy)" stroke-width="3" />
-        <rect x="260" y="240" width="40" height="40" rx="4" fill="#fff" stroke="var(--navy)" stroke-width="3" />
-        
-        <!-- Bottom -->
-        <rect x="300" y="360" width="40" height="40" rx="4" fill="#fff" stroke="var(--past)" stroke-width="3" />
-        <rect x="400" y="240" width="40" height="40" rx="4" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2" />
+        <!-- orbit rings -->
+        <circle cx="250" cy="250" r="120" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3 6"/>
+        <circle cx="250" cy="250" r="185" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3 6"/>
 
-        <!-- Decorative UI Elements -->
-        <rect x="180" y="100" width="12" height="4" fill="var(--accent)" />
-        <rect x="180" y="110" width="8" height="4" fill="var(--accent)" />
-        <rect x="320" y="240" width="16" height="4" fill="var(--navy)" />
-        
-        <circle cx="280" cy="260" r="4" fill="var(--navy)" />
-        <circle cx="180" cy="260" r="4" fill="#fff" />
+        <!-- spokes from core to assistants -->
+        <line x1="250" y1="250" x2="250" y2="130" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="250" y1="250" x2="354" y2="310" stroke="var(--slate)" stroke-width="2"/>
+        <line x1="250" y1="250" x2="146" y2="310" stroke="var(--slate)" stroke-width="2"/>
+        <line x1="250" y1="250" x2="370" y2="190" stroke="var(--past)" stroke-width="2" stroke-dasharray="4 4"/>
+        <line x1="250" y1="250" x2="130" y2="190" stroke="var(--past)" stroke-width="2" stroke-dasharray="4 4"/>
+
+        <!-- governed core -->
+        <circle cx="250" cy="250" r="46" fill="var(--navy)"/>
+        <circle cx="250" cy="250" r="46" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="250" y="246" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="15" font-weight="700">Core</text>
+        <text x="250" y="264" text-anchor="middle" fill="#8ea3bd" font-family="Georgia, serif" font-size="9" letter-spacing="1">GOVERNED</text>
+
+        <!-- assistant nodes -->
+        <g>
+          <rect x="226" y="106" width="48" height="48" rx="12" fill="#fff" stroke="var(--accent)" stroke-width="3"/>
+          <circle cx="250" cy="130" r="5" fill="var(--accent)"/>
+        </g>
+        <g>
+          <rect x="330" y="286" width="48" height="48" rx="12" fill="#fff" stroke="var(--navy)" stroke-width="3"/>
+          <circle cx="354" cy="310" r="5" fill="var(--navy)"/>
+        </g>
+        <g>
+          <rect x="122" y="286" width="48" height="48" rx="12" fill="#fff" stroke="var(--navy)" stroke-width="3"/>
+          <circle cx="146" cy="310" r="5" fill="var(--navy)"/>
+        </g>
+        <rect x="350" y="168" width="40" height="40" rx="11" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2"/>
+        <rect x="110" y="168" width="40" height="40" rx="11" fill="var(--bg-soft)" stroke="var(--slate)" stroke-width="2"/>
+
+        <!-- small accents -->
+        <circle cx="250" cy="65" r="4" fill="var(--accent)"/>
+        <circle cx="435" cy="250" r="4" fill="var(--past)"/>
+        <circle cx="65" cy="250" r="4" fill="var(--past)"/>
       </svg>
     </div>
   </div>
@@ -431,9 +437,9 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <p class="subtext">Agencies do not buy assistants. They buy capacity, and assistants are how that capacity is delivered. Each one solves a specific operational problem on the same accredited core, and every assistant you add increases the capacity of the whole platform.</p>
     </div>
     <div class="core-panel reveal">
-      <span class="eyebrow" style="color:#8ec5ff;">The Core Platform</span>
-      <div class="core-chips">
-        <span>Governed Data Foundation</span><span>Security Controls</span><span>Auditability</span><span>Human Approvals</span><span>Source Traceability</span><span>Performance Monitoring</span><span>Operational Oversight</span>
+      <span class="core-label">The Governed Core, every assistant runs on it</span>
+      <div class="core-row">
+        <span>Governed Data</span><span>Security Controls</span><span>Auditability</span><span>Human Approvals</span><span>Source Traceability</span><span>Monitoring</span><span>Oversight</span>
       </div>
     </div>
     <div class="role-grid reveal">
@@ -677,7 +683,7 @@ window.addEventListener("scroll", () => {
   var st=d.createElement('style');
   st.textContent=[
     'html.present .topnav{display:none!important;}',
-    'html.present section[id],html.present header[id]{height:100vh;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:40px;padding-bottom:40px;}',
+    'html.present section[id],html.present header[id]{min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:56px;padding-bottom:56px;}',
     '#pmPrev,#pmNext{position:fixed;top:50%;transform:translateY(-50%);z-index:10001;width:52px;height:52px;border-radius:50%;border:none;background:#16243b;color:#fff;font:700 26px/1 -apple-system,sans-serif;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.32);}',
     '#pmPrev{left:18px;}#pmNext{right:18px;}html.present #pmPrev,html.present #pmNext{display:flex;}'
   ].join('');
@@ -685,13 +691,13 @@ window.addEventListener("scroll", () => {
   function secs(){return [].slice.call(d.querySelectorAll('header[id],section[id]'));}
   function inner(sec){return sec.querySelector('.container')||sec.firstElementChild;}
   function fit(){
-    var on=root.classList.contains('present'); 
+    var on=root.classList.contains('present');
     secs().forEach(function(sec){
       var c=inner(sec); if(!c) return;
       c.style.transform=''; c.style.transformOrigin='center center';
       if(!on) return;
-      var avail=window.innerHeight-72, h=c.getBoundingClientRect().height;
-      if(h>avail){ c.style.transform='scale('+(avail/h).toFixed(3)+')'; }
+      var avail=window.innerHeight-110, h=c.getBoundingClientRect().height;
+      if(h>avail){ var s=Math.max(0.82, avail/h); c.style.transform='scale('+s.toFixed(3)+')'; }
     });
   }
   function jump(i){var s=secs();if(!s.length)return;idx=Math.max(0,Math.min(s.length-1,i));s[idx].scrollIntoView({behavior:'smooth',block:'start'});}
