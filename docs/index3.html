@@ -242,11 +242,10 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .map-row .mo{color:var(--muted);font-size:15px;text-align:right;}
 .map-row .ma{color:var(--ink);font-weight:700;font-size:16px;}
 .map-row .mar{color:var(--accent);font-weight:800;font-size:18px;}
-.core-panel{background:var(--navy);border-radius:14px;padding:30px 32px;max-width:1000px;margin:0 auto 30px;text-align:center;}
-.core-label{display:block;font-size:13px;font-weight:700;letter-spacing:.3px;color:#8ea3bd;margin-bottom:18px;}
-.core-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;}
-.core-row span{font-size:14px;font-weight:600;color:#fff;padding:6px 20px;position:relative;}
-.core-row span:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:16px;background:rgba(255,255,255,.2);}
+.core-panel{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:14px;padding:28px 32px;max-width:1000px;margin:0 auto 30px;text-align:center;box-shadow:0 12px 30px rgba(22,36,59,.06);}
+.core-label{display:block;font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+.core-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;}
+.core-row span{font-size:14px;font-weight:700;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:10px 16px;}
 .core-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px;}
 .core-chips span{font-size:14px;font-weight:600;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 16px;}
 .console-list{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:980px;margin:40px auto 0;}
@@ -437,7 +436,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <p class="subtext">Agencies do not buy assistants. They buy capacity, and assistants are how that capacity is delivered. Each one solves a specific operational problem on the same accredited core, and every assistant you add increases the capacity of the whole platform.</p>
     </div>
     <div class="core-panel reveal">
-      <span class="core-label">The Governed Core, every assistant runs on it</span>
+      <span class="core-label">The Governed Core &mdash; every assistant runs on it</span>
       <div class="core-row">
         <span>Governed Data</span><span>Security Controls</span><span>Auditability</span><span>Human Approvals</span><span>Source Traceability</span><span>Monitoring</span><span>Oversight</span>
       </div>
