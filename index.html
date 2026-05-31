@@ -463,7 +463,6 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <a href="#proof">Proof</a>
       <a href="#start">Start</a>
       <a href="index3.html">The Vision</a>
-      <a href="full.html">Full Model</a>
     </div>
   </div>
 </nav>
@@ -1075,7 +1074,7 @@ window.addEventListener("scroll", () => {
   }
   function jump(i){var s=secs();if(!s.length)return;idx=Math.max(0,Math.min(s.length-1,i));s[idx].scrollIntoView({behavior:'smooth',block:'start'});}
   var btn=d.createElement('button');btn.type='button';
-  btn.style.cssText='position:fixed;top:18px;right:18px;z-index:10000;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;font:700 11px/1 -apple-system,sans-serif;letter-spacing:1px;text-transform:uppercase;padding:9px 15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);';
+  btn.style.cssText='position:fixed;top:84px;right:18px;z-index:10000;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;font:700 11px/1 -apple-system,sans-serif;letter-spacing:1px;text-transform:uppercase;padding:9px 15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);';
   var prev=d.createElement('button');prev.id='pmPrev';prev.type='button';prev.innerHTML='\u2039';prev.onclick=function(){jump(idx-1);};
   var next=d.createElement('button');next.id='pmNext';next.type='button';next.innerHTML='\u203a';next.onclick=function(){jump(idx+1);};
   function sync(){var on=root.classList.contains('present');btn.textContent=on?'\u25A0 Exit Present':'\u25B6 Present';btn.style.background=on?'#b3132b':'#16243b';}
