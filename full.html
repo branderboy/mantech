@@ -943,23 +943,40 @@ window.addEventListener("scroll", () => {
 })();
 </script>
 <script>
-/* PRESENT MODE: toggle button + clickable arrows + keys + ?present (clean slides, starts at hero) */
+/* PRESENT MODE: full-screen slides, scale-to-fit, clickable arrows + keys + ?present */
 (function(){
   var d=document, root=d.documentElement, idx=0;
   var st=d.createElement('style');
-  st.textContent='html.present .topnav{display:none!important;}html.present .padding-y{padding:46px 0!important;}html.present .defn-section{padding:64px 0!important;}html.present .form-section{padding:64px 0!important;}html.present .hero{min-height:100vh;padding-top:24px!important;}#pmPrev,#pmNext{position:fixed;top:50%;transform:translateY(-50%);z-index:10001;width:52px;height:52px;border-radius:50%;border:none;background:#16243b;color:#fff;font:700 26px/1 -apple-system,sans-serif;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.32);}#pmPrev{left:18px;}#pmNext{right:18px;}html.present #pmPrev,html.present #pmNext{display:flex;}';
+  st.textContent=[
+    'html.present .topnav{display:none!important;}',
+    'html.present section[id],html.present header[id]{height:100vh;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:40px;padding-bottom:40px;}',
+    '#pmPrev,#pmNext{position:fixed;top:50%;transform:translateY(-50%);z-index:10001;width:52px;height:52px;border-radius:50%;border:none;background:#16243b;color:#fff;font:700 26px/1 -apple-system,sans-serif;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.32);}',
+    '#pmPrev{left:18px;}#pmNext{right:18px;}html.present #pmPrev,html.present #pmNext{display:flex;}'
+  ].join('');
   d.head.appendChild(st);
   function secs(){return [].slice.call(d.querySelectorAll('header[id],section[id]'));}
+  function inner(sec){return sec.querySelector('.container')||sec.firstElementChild;}
+  function fit(){
+    var on=root.classList.contains('present'); 
+    secs().forEach(function(sec){
+      var c=inner(sec); if(!c) return;
+      c.style.transform=''; c.style.transformOrigin='center center';
+      if(!on) return;
+      var avail=window.innerHeight-72, h=c.getBoundingClientRect().height;
+      if(h>avail){ c.style.transform='scale('+(avail/h).toFixed(3)+')'; }
+    });
+  }
   function jump(i){var s=secs();if(!s.length)return;idx=Math.max(0,Math.min(s.length-1,i));s[idx].scrollIntoView({behavior:'smooth',block:'start'});}
   var btn=d.createElement('button');btn.type='button';
   btn.style.cssText='position:fixed;top:18px;right:18px;z-index:10000;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;font:700 11px/1 -apple-system,sans-serif;letter-spacing:1px;text-transform:uppercase;padding:9px 15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);';
   var prev=d.createElement('button');prev.id='pmPrev';prev.type='button';prev.innerHTML='\u2039';prev.onclick=function(){jump(idx-1);};
   var next=d.createElement('button');next.id='pmNext';next.type='button';next.innerHTML='\u203a';next.onclick=function(){jump(idx+1);};
-  function sync(){var on=root.classList.contains('present');btn.textContent=on?'\u25A0 Exit Present':'\u25B6 Present';btn.style.background=on?'#b3132b':'#16243b';btn.style.top=on?'18px':'80px';}
-  function toggle(){var on=root.classList.toggle('present');sync();if(on){idx=0;jump(0);}}
+  function sync(){var on=root.classList.contains('present');btn.textContent=on?'\u25A0 Exit Present':'\u25B6 Present';btn.style.background=on?'#b3132b':'#16243b';}
+  function toggle(){var on=root.classList.toggle('present');sync();if(on){idx=0;setTimeout(function(){fit();jump(0);},30);}else{fit();}}
   btn.onclick=toggle;
-  function init(){d.body.appendChild(btn);d.body.appendChild(prev);d.body.appendChild(next);if(location.search.indexOf('present')>-1){root.classList.add('present');idx=0;setTimeout(function(){jump(0);},60);}sync();}
+  function init(){d.body.appendChild(btn);d.body.appendChild(prev);d.body.appendChild(next);if(location.search.indexOf('present')>-1){root.classList.add('present');idx=0;setTimeout(function(){fit();jump(0);},80);}sync();}
   if(d.readyState!=='loading')init();else d.addEventListener('DOMContentLoaded',init);
+  window.addEventListener('resize',function(){if(root.classList.contains('present'))fit();});
   d.addEventListener('keydown',function(e){
     var tag=((e.target&&e.target.tagName)||'').toLowerCase();
     if(tag==='input'||tag==='textarea')return;
