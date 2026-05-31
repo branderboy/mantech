@@ -248,6 +248,27 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .console-list{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:980px;margin:40px auto 0;}
 .console-list span{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:20px 18px 20px 38px;color:#fff;font-size:14px;font-weight:600;text-align:left;line-height:1.3;}
 .console-list span::before{content:"";position:absolute;left:16px;top:23px;width:8px;height:8px;border-radius:50%;background:#7fe0a3;box-shadow:0 0 0 3px rgba(127,224,163,.18);}
+/* CONSOLE UI MOCKUP */
+.cui{max-width:1000px;margin:40px auto 0;background:#0f1b30;border:1px solid #2a3a52;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.4);text-align:left;}
+.cui-bar{display:flex;align-items:center;gap:8px;padding:13px 18px;background:#13243d;border-bottom:1px solid #2a3a52;}
+.cui-bar .dot{width:11px;height:11px;border-radius:50%;}
+.cui-bar .d1{background:#e0556a;}.cui-bar .d2{background:#e0a23a;}.cui-bar .d3{background:#7fe0a3;}
+.cui-title{margin-left:10px;font-size:12px;font-weight:700;letter-spacing:.5px;color:#9fb0c6;}
+.cui-live{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7fe0a3;display:flex;align-items:center;gap:7px;}
+.cui-live::before{content:"";width:7px;height:7px;border-radius:50%;background:#7fe0a3;box-shadow:0 0 0 3px rgba(127,224,163,.2);}
+.cui-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2a3a52;}
+.cui-kpi{background:#0f1b30;padding:20px 18px;}
+.cui-kpi .v{font-family:var(--serif);font-size:28px;font-weight:700;color:#fff;line-height:1;}
+.cui-kpi .v.up{color:#7fe0a3;}.cui-kpi .v.warn{color:#ffce8a;}
+.cui-kpi .k{font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:#8ea3bd;margin-top:8px;}
+.cui-rows{padding:8px 18px 18px;}
+.cui-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #1d2c44;font-size:14px;color:#cdd8e6;}
+.cui-row:last-child{border-bottom:none;}
+.cui-row .rdot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;}
+.rg{background:#7fe0a3;}.ry{background:#e0a23a;}.rb{background:#7fb0ff;}
+.cui-row .rt{flex:1;}
+.cui-row .rs{font-size:12px;font-weight:700;color:#8ea3bd;letter-spacing:.3px;}
+@media(max-width:760px){.cui-kpis{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:900px){.console-list{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:520px){.console-list{grid-template-columns:1fr;}}
 .phases{max-width:680px;margin:44px auto 0;text-align:center;}
@@ -467,8 +488,25 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     <span class="eyebrow" style="color:#8ec5ff;">Mission Capacity Console</span>
     <h2 style="color:#fff;font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">One Console. Everything Governed.</h2>
     <p class="subtext" style="color:#ffffff;max-width:760px;margin:0 auto;">Every capability is visible through one operational console. Everything is traceable. Everything stays under human authority.</p>
-    <div class="console-list">
-      <span>Capacity recovered</span><span>Workflows upgraded</span><span>Approvals pending</span><span>Permission conflicts</span><span>Performance trends</span><span>Mission alerts</span><span>Confidence scores</span><span>Operational bottlenecks</span>
+    <div class="cui reveal">
+      <div class="cui-bar">
+        <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        <span class="cui-title">Mission Capacity Console</span>
+        <span class="cui-live">Live</span>
+      </div>
+      <div class="cui-kpis">
+        <div class="cui-kpi"><div class="v up">+1,240</div><div class="k">Capacity Recovered (hrs)</div></div>
+        <div class="cui-kpi"><div class="v">18</div><div class="k">Workflows Upgraded</div></div>
+        <div class="cui-kpi"><div class="v warn">7</div><div class="k">Approvals Pending</div></div>
+        <div class="cui-kpi"><div class="v up">94%</div><div class="k">Avg Confidence</div></div>
+      </div>
+      <div class="cui-rows">
+        <div class="cui-row"><span class="rdot ry"></span><span class="rt">Permission conflicts flagged for review</span><span class="rs">3 OPEN</span></div>
+        <div class="cui-row"><span class="rdot rg"></span><span class="rt">Performance trends, all assistants nominal</span><span class="rs">STABLE</span></div>
+        <div class="cui-row"><span class="rdot rb"></span><span class="rt">Mission alerts, awaiting human decision</span><span class="rs">2 NEW</span></div>
+        <div class="cui-row"><span class="rdot rg"></span><span class="rt">Confidence scores within approved thresholds</span><span class="rs">OK</span></div>
+        <div class="cui-row"><span class="rdot ry"></span><span class="rt">Operational bottlenecks detected in intake</span><span class="rs">1 FLAG</span></div>
+      </div>
     </div>
   </div>
 </section>
