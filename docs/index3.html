@@ -39,6 +39,10 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 /* UTILITIES */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
 .padding-y { padding: 72px 0; }
+.accent-bg { position: relative; overflow: hidden; }
+.accent-bg > * { position: relative; z-index: 1; }
+.accent-bg::before { content: ""; position: absolute; top: -120px; right: -140px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(179,19,43,0.10), rgba(179,19,43,0) 70%); z-index: 0; pointer-events: none; }
+.accent-bg::after { content: ""; position: absolute; bottom: -140px; left: -160px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(22,36,59,0.08), rgba(22,36,59,0) 70%); z-index: 0; pointer-events: none; }
 .sep { display: flex; align-items: center; gap: 16px; max-width: 1100px; margin: 0 auto; padding: 0 5vw; }
 .sep::before, .sep::after { content: ""; height: 1px; flex: 1; background: var(--line); }
 .sep i { flex: 0 0 auto; width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); opacity: 0.55; }
@@ -295,7 +299,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <a href="#eras">Evolution</a>
       <a href="#wordpress">Platform</a>
       <a href="#ecosystem">Ecosystem</a>
-      <a href="#how-built">Control</a>
+      <a href="#how-built">How It's Built</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#proof">Proof</a>
       <a href="#start">Start</a>
@@ -311,7 +315,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
       <span class="readtime"><b>2-min skim</b> &middot; 8-min full read &middot; built for short calendars</span>
       <span class="eyebrow">A Governed Ecosystem For Expanding Agency Capacity</span>
       <h1>The Mission Capacity Platform</h1>
-      <p class="subtext">The Mission Capacity Platform is ManTech's governed system for running mission-driven ML models, each one trained and aligned to a real objective your agency owns. Human experts remain accountable. The platform carries the operational burden.</p>
+      <p class="subtext">The Mission Capacity Platform is ManTech's governed system for running mission assistants, each one trained to a real objective your agency owns. Human experts remain accountable. The platform carries the operational burden.</p>
     </div>
     
     <div class="hero-visual reveal" style="transition-delay: 0.2s;">
@@ -378,16 +382,16 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     <div class="defn-wrap">
       <div class="term serif">The Mission Capacity Platform</div>
       <div class="pos">noun</div>
-      <div class="text">One governed system that runs a growing set of <strong>mission-driven ML models, each trained to handle a specific job for your agency</strong>. You add the ones you need, they run on the same accredited core, and your people approve every step.</div>
+      <div class="text">One governed system that runs a growing set of <strong>mission assistants, each trained to handle a specific job for your agency</strong>. You add the ones you need, they run on the same accredited core, and your people approve every step.</div>
     </div>
   </div>
 </section>
 
 <!-- THE CAPACITY PROBLEM -->
-<section class="padding-y" id="problem">
+<section class="padding-y accent-bg" id="problem">
   <div class="container reveal lead-narrow">
     <span class="eyebrow">The Capacity Problem</span>
-    <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Not A Technology Shortage. A Capacity Shortage.</h2>
+    <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Agencies Don't Have A Software Problem. They Have A Capacity Problem.</h2>
     <p class="subtext">The work keeps growing while the workforce stays constrained. Most agencies try to close that gap by adding more software. The Mission Capacity Platform closes it by expanding what your existing teams can get done.</p>
   </div>
   <div class="problem-cols reveal">
@@ -413,18 +417,18 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 </section>
 
 <!-- THINK WORDPRESS -->
-<section class="padding-y" id="wordpress">
+<section class="padding-y accent-bg" id="wordpress">
   <div class="container reveal lead-narrow">
     <span class="eyebrow">The Platform Model</span>
-    <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Think WordPress, For Agency Operations</h2>
-    <p class="subtext">WordPress changed the web not because it was a website, but because it became a platform: a governed core, a permission structure, a workflow engine, and a plugin ecosystem that keeps expanding over time. The Mission Capacity Platform applies that same model to federal operations.</p>
+    <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">One Governed Core. Many Mission Assistants.</h2>
+    <p class="subtext">You start with one governed core, the same accredited foundation for security, data, and human approval. Then you add assistants as you need them, each one taking on a specific job. Stand up one, prove it, and expand, without a new procurement every time.</p>
   </div>
   <div class="map-rows reveal">
-    <div class="map-row"><span class="mo">Website plugins</span><span class="mar">&rarr;</span><span class="ma">Assistants</span></div>
-    <div class="map-row"><span class="mo">Content workflows</span><span class="mar">&rarr;</span><span class="ma">Workflows</span></div>
-    <div class="map-row"><span class="mo">Managing pages</span><span class="mar">&rarr;</span><span class="ma">Managing operational capacity</span></div>
+    <div class="map-row"><span class="mo">One core</span><span class="mar">&rarr;</span><span class="ma">Governs every assistant</span></div>
+    <div class="map-row"><span class="mo">One assistant</span><span class="mar">&rarr;</span><span class="ma">One job, done well</span></div>
+    <div class="map-row"><span class="mo">More assistants</span><span class="mar">&rarr;</span><span class="ma">More capacity, same foundation</span></div>
   </div>
-  <p class="large-quote reveal" style="text-align:center;max-width:720px;margin:44px auto 0;">One platform. Unlimited expansion.</p>
+  <p class="large-quote reveal" style="text-align:center;max-width:720px;margin:44px auto 0;">Start with one. Expand as you go.</p>
 </section>
 
 <!-- THE ECOSYSTEM -->
@@ -454,17 +458,17 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 </section>
 
 <!-- HOW THE MODELS ARE BUILT -->
-<section class="padding-y" id="how-built">
+<section class="padding-y accent-bg" id="how-built">
   <div class="container">
     <div class="reveal lead-narrow" style="margin-bottom:40px;">
-      <span class="eyebrow">Mission-Driven Machine Learning</span>
-      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Real Models, Built For A Precise Objective</h2>
-      <p class="subtext">Each assistant is a mission-driven ML model: an AI system designed and trained to achieve a precise, objective-oriented end goal aligned to a specific organizational objective. Every model starts by negotiating exact requirements (MLTE), so its function matches the system and mission context, with clear benchmarks from day one.</p>
+      <span class="eyebrow">Built For The Job, Not The Buzzword</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:18px;">Every Assistant Is Built To One Objective You Define</h2>
+      <p class="subtext">We don't drop a general-purpose model on your data and hope. Each assistant is scoped to a single job with clear success criteria set up front, trained on your data, and measured against your own baseline.</p>
     </div>
     <div class="role-grid reveal">
-      <div class="role-item"><h4>Supervised Learning</h4><p>Trains on historical labeled data to predict outcomes or classify information, like predicting equipment failure or approving access requests.</p></div>
-      <div class="role-item"><h4>Unsupervised Learning</h4><p>Discovers hidden patterns or clusters in unlabeled data, like segmentation or anomaly detection.</p></div>
-      <div class="role-item"><h4>Reinforcement Learning</h4><p>Learns by trial and error, driven by rewards and penalties, for autonomous decisions like dynamic resource allocation.</p></div>
+      <div class="role-item"><h4>One Job, Clearly Defined</h4><p>We agree on exactly what the assistant does and what "good" looks like before it runs, so there are no surprises.</p></div>
+      <div class="role-item"><h4>Trained On Your Data</h4><p>It learns your records, your rules, and your standards, inside your environment, not a generic public model.</p></div>
+      <div class="role-item"><h4>Measured Against Your Baseline</h4><p>Every result is checked against how the work is done today, so the value is provable, not promised.</p></div>
     </div>
   </div>
 </section>
@@ -472,7 +476,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <div class="sep" aria-hidden="true"><i></i></div>
 
 <!-- WHAT MAKES THIS DIFFERENT -->
-<section class="padding-y" id="different" style="padding-top:40px;">
+<section class="padding-y accent-bg" id="different" style="padding-top:40px;">
   <div class="container">
     <div class="reveal lead-narrow" style="margin-bottom:40px;">
       <span class="eyebrow">What Makes This Different</span>
@@ -535,7 +539,7 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 </section>
 
 <!-- THE ROADMAP -->
-<section class="padding-y" id="roadmap">
+<section class="padding-y accent-bg" id="roadmap">
   <div class="container">
     <div class="reveal lead-narrow">
       <span class="eyebrow">The Mission Capacity Roadmap</span>
@@ -558,10 +562,11 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
     <h2 class="serif">Deployed Today. Not Tomorrow.</h2>
     <p class="subtext reveal">Not a concept. These are systems already deployed in federal environments today.</p>
     <div class="stat-grid">
-      <div class="stat-card reveal"><div class="stat-num">Days &rarr; Mins</div><span class="stat-label">Velocity Increase</span><p>Complex processes like MILCON cost estimating drop from 3+ days to under 4 hours, verified against historical baselines.</p></div>
-      <div class="stat-card reveal" style="transition-delay:0.1s;"><div class="stat-num">Up to 90%</div><span class="stat-label">Rework Reduction</span><p>Compliance packages like RMF clear initial security and evidence reviews on the first pass, saving weeks of manual correction.</p></div>
-      <div class="stat-card reveal" style="transition-delay:0.2s;"><div class="stat-num">Faster</div><span class="stat-label">Executive Reviews</span><p>Duplicate spend and critical data are surfaced instantly, so leadership makes immediate, defensible decisions.</p></div>
+      <div class="stat-card reveal"><div class="stat-num">Days &rarr; Hours</div><span class="stat-label">Cost Estimating</span><p>On the deployed Real Property Lifecycle AI, work that took days of research returns in hours, measured against the program's own baselines.</p></div>
+      <div class="stat-card reveal" style="transition-delay:0.1s;"><div class="stat-num">Less Rework</div><span class="stat-label">Compliance Packages</span><p>Evidence and review packages assembled for the first pass instead of repeated correction cycles. Your real numbers are set during the assessment.</p></div>
+      <div class="stat-card reveal" style="transition-delay:0.2s;"><div class="stat-num">Surfaced</div><span class="stat-label">Duplicate Spend</span><p>On the deployed ORI tool, overlapping software and spend are surfaced with source evidence, so leadership can act on it.</p></div>
     </div>
+    <p class="cost-src" style="text-align:center;color:var(--muted);font-size:13px;max-width:760px;margin:24px auto 0;">Figures reflect ManTech's deployed tools in active federal use. Your results are measured against your own baseline during the assessment, no claim is taken on faith.</p>
   </div>
 </section>
 
