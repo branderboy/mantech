@@ -250,6 +250,12 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 .core-label{display:block;font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
 .core-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;}
 .core-row span{font-size:14px;font-weight:700;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:10px 16px;}
+.flow-strip{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;max-width:900px;margin:34px auto 6px;}
+.flow-strip .fs{font-size:15px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-bottom:3px solid var(--accent);border-radius:10px;padding:14px 20px;}
+.flow-strip .fs-end{background:var(--navy);color:#fff;border-color:var(--navy);}
+.flow-strip i{color:var(--accent);font-weight:800;font-style:normal;font-size:18px;}
+@media(max-width:680px){.flow-strip .fs{flex:1 1 100%;text-align:center;}.flow-strip i{display:none;}}
+.big-era{font-family:var(--serif);font-size:clamp(26px,3.6vw,42px);line-height:1.25;color:#8ea3bd;}
 .core-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px;}
 .core-chips span{font-size:14px;font-weight:600;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 16px;}
 .console-list{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:980px;margin:40px auto 0;}
@@ -445,14 +451,17 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
         <span>Governed Data</span><span>Security Controls</span><span>Auditability</span><span>Human Approvals</span><span>Source Traceability</span><span>Monitoring</span><span>Oversight</span>
       </div>
     </div>
+    <div class="flow-strip reveal">
+      <span class="fs">Gain Access</span><i>&rarr;</i><span class="fs">Find Information</span><i>&rarr;</i><span class="fs">Organize It</span><i>&rarr;</i><span class="fs fs-end">Turn It Into Decisions</span>
+    </div>
     <div class="role-grid reveal">
-      <div class="role-item"><h4>The Access Assistant</h4><p>Governed access, permission management, and approval workflows. <strong>More access, less waiting.</strong></p></div>
-      <div class="role-item"><h4>The Knowledge Assistant</h4><p>Searchable information and retrieval with source traceability. <strong>More answers, less searching.</strong></p></div>
-      <div class="role-item"><h4>The Data Assistant</h4><p>Grouping, structuring, and closed-network preparation. <strong>More usable information, less manual effort.</strong></p></div>
-      <div class="role-item"><h4>The Briefing Assistant</h4><p>PowerPoints, executive briefings, and decision-support materials. <strong>More output, more time for the mission.</strong></p></div>
-      <div class="role-item"><h4>The Compliance Assistant</h4><p>Evidence collection, documentation, and validation support. <strong>Less compliance burden, faster reviews.</strong></p></div>
-      <div class="role-item"><h4>The Planning Assistant<br><span style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.5px;">POWERED BY REAL PROPERTY LIFECYCLE AI</span></h4><p>Cost estimating, requirements and risk analysis, decision-ready artifacts. <strong>Faster planning, better estimates, lower risk.</strong></p></div>
-      <div class="role-item"><h4>The Optimization Assistant<br><span style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.5px;">POWERED BY ORI</span></h4><p>Portfolio analysis and redundancy identification. <strong>Reduced waste, better investment decisions.</strong></p></div>
+      <div class="role-item"><h4>The Access Assistant <span style="color:var(--accent);">&middot; Gains Access</span></h4><p>Manages folder and share permissions, runs approval workflows, and reviews who can reach what, so the right people get to the right information without waiting on a ticket queue.</p></div>
+      <div class="role-item"><h4>The Knowledge Assistant <span style="color:var(--accent);">&middot; Finds Information</span></h4><p>Turns scattered records into searchable knowledge with source traceability, so answers that used to take hours of digging surface in seconds.</p></div>
+      <div class="role-item"><h4>The Data Assistant <span style="color:var(--accent);">&middot; Organizes Information</span></h4><p>Groups large volumes of information into mission-ready collections, prepares data for closed environments, and removes the manual organization effort that buries your team.</p></div>
+      <div class="role-item"><h4>The Briefing Assistant <span style="color:var(--accent);">&middot; Drives Decisions</span></h4><p>Builds executive briefings, slide decks, and decision-support materials straight from your data, so leadership gets the picture before the meeting starts.</p></div>
+      <div class="role-item"><h4>The Compliance Assistant</h4><p>Collects evidence, prepares documentation, and runs validation and review support, so compliance stops consuming weeks of skilled time and reviews clear faster.</p></div>
+      <div class="role-item"><h4>The Planning Assistant<br><span style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.5px;">POWERED BY REAL PROPERTY LIFECYCLE AI</span></h4><p>Builds defensible cost estimates, runs requirements and risk analysis, and returns decision-ready planning artifacts, so planning that took weeks moves in days.</p></div>
+      <div class="role-item"><h4>The Optimization Assistant<br><span style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.5px;">POWERED BY ORI</span></h4><p>Analyzes your portfolio and surfaces duplicate and overlapping systems with source evidence, so leadership can retire waste and make defensible investment decisions.</p></div>
     </div>
   </div>
 </section>
@@ -592,10 +601,10 @@ h1, h2, h3, h4, .serif { font-family:var(--serif); color:var(--ink); }
 <section class="padding-y" id="future" style="background:var(--navy);color:#fff;">
   <div class="container reveal lead-narrow">
     <span class="eyebrow" style="color:#8ec5ff;">The Future Of Agency Operations</span>
-    <h2 style="color:#fff;font-size:clamp(34px,4vw,52px);line-height:1.1;margin-bottom:20px;">Agencies Invested In Labor, Then Software. Next Is Capacity.</h2>
-    <p class="subtext" style="color:#ffffff;max-width:760px;margin:0 auto 18px;">The agencies that win will not necessarily have larger budgets. They will have better ecosystems: a governed framework for continuously expanding capability and creating new value from the workforce they already have.</p>
-    <p class="subtext" style="color:#ffffff;max-width:760px;margin:0 auto 18px;">ManTech helps your agency find its path to that future, one assistant, one workflow, one phase at a time.</p>
-    <p class="large-quote" style="color:#fff;max-width:760px;margin:8px auto 0;">Capacity Is The New Competitive Advantage.</p>
+    <p class="big-era" style="margin-bottom:6px;">The last generation invested in <span style="color:#9fb0c6;">labor</span>.</p>
+    <p class="big-era" style="margin-bottom:6px;">The current generation invested in <span style="color:#9fb0c6;">software</span>.</p>
+    <p class="big-era" style="margin-bottom:30px;">The next generation invests in <span style="color:#fff;">capacity</span>.</p>
+    <p class="large-quote" style="color:#fff;max-width:760px;margin:0 auto;">Capacity Is The New Competitive Advantage.</p>
   </div>
 </section>
 
